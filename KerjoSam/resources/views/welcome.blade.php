@@ -291,7 +291,6 @@
         </div>
     </div>
 
-
     <section class="relative -mt-12 pb-20">
         <!-- Background -->
         <div class="absolute inset-0">
@@ -327,6 +326,84 @@
                 <button class="px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">Frontend</button>
                 <button class="px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">Backend</button>
                 <button class="px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">Finance</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- JOB LIST SECTION -->
+    <section class="relative pt-36 pb-20">
+        <div class="w-full max-w-7xl mx-auto px-8 md:px-12">
+
+            <!-- Section Title -->
+            <div class="mb-8 text-center">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800">
+                    Latest Job Vacancies
+                </h2>
+                <p class="text-gray-500 text-sm mt-2">
+                    Find jobs that match your skills and interests
+                </p>
+            </div>
+
+            <!-- Job Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Card -->
+                <div class="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between">
+                    <div>
+                        <!-- Company -->
+                        <div class="flex items-center gap-3 mb-4">
+                            <img
+                                src="https://ui-avatars.com/api/?name=Tech+Corp&background=ef4444&color=fff"
+                                class="w-10 h-10 rounded-full"
+                                alt=""
+                            />
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Tech Corp</h4>
+                                <p class="text-xs text-gray-500">Jakarta, Indonesia</p>
+                            </div>
+                        </div>
+
+                        <!-- Job Title -->
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                            Frontend Developer
+                        </h3>
+
+                        <!-- Description -->
+                        <p class="text-sm text-gray-600 line-clamp-3">
+                            We are looking for a Frontend Developer experienced in
+                            HTML, CSS, JavaScript, and modern frameworks.
+                        </p>
+
+                        <!-- Tags -->
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="px-3 py-1 text-xs rounded-full bg-red-100 text-red-600">
+                                Frontend
+                            </span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-blue-100 text-blue-600">
+                                Full Time
+                            </span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-green-100 text-green-600">
+                                Remote
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="mt-6 flex items-center justify-between">
+                        <span class="text-sm font-medium text-gray-700">
+                            Rp 6 – 10 Juta
+                        </span>
+                        <a
+                            href="#"
+                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition"
+                        >
+                            View Detail
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Copy card ini untuk data lain -->
+
             </div>
         </div>
     </section>
