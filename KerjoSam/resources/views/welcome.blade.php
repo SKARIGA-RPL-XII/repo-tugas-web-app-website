@@ -108,7 +108,7 @@
             x-transition:leave-end="scale-95 opacity-0"
         >
             <!-- Header -->
-            <div class="bg-gradient-to-r from-red-500 to-red-600 px-6 py-4 text-white relative">
+            <!-- <div class="bg-gradient-to-r from-red-500 to-red-600 px-6 py-4 text-white relative">
                 <button
                     class="absolute top-4 right-4 text-white/80 hover:text-white transition-colors"
                     @click="open = false"
@@ -135,158 +135,188 @@
                         Register
                     </button>
                 </div>
-            </div>
+            </div> -->
 
             <!-- Form Content -->
             <div class="p-6">
-                <!-- LOGIN FORM -->
-                <div x-show="mode === 'login'" x-transition:enter="transition-opacity duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100">
-                    <div class="text-center mb-6">
-                        <h2 class="text-2xl font-bold text-gray-800">Welcome Back</h2>
-                        <p class="text-gray-600 text-sm mt-1">Sign in to your account</p>
-                    </div>
+           <!-- LOGIN FORM -->
+<div x-show="mode === 'login'" 
+    x-transition:enter="transition-opacity duration-200" 
+    x-transition:enter-start="opacity-0" 
+    x-transition:enter-end="opacity-100"
+    x-data="{ showPass: false }">
 
-                    <form class="space-y-4" method="POST" action="{{ route('login') }}">
-                        @csrf
-                        <div class="space-y-1">
-                            <label class="text-sm font-medium text-gray-700">Email Address</label>
-                            <div class="relative">
-                                <input
-                                    type="email"
-                                    name="email"
-                                    placeholder="Enter your email"
-                                    class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                                    required
-                                >
-                                <svg class="w-5 h-5 text-gray-400 absolute left-3 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"></path>
-                                </svg>
-                            </div>
-                        </div>
+    <div class="text-center mb-6">
+        <h2 class="text-3xl font-extrabold text-gray-900 tracking-wide">LOGIN</h2>
+    </div>
 
-                        <div class="space-y-1">
-                            <label class="text-sm font-medium text-gray-700">Password</label>
-                            <div class="relative">
-                                <input
-                                    type="password"
-                                    name="password"
-                                    placeholder="Enter your password"
-                                    class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                                    required
-                                >
-                                <svg class="w-5 h-5 text-gray-400 absolute left-3 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-                                </svg>
-                            </div>
-                        </div>
+    <form class="space-y-5" method="POST" action="{{ route('login') }}">
+        @csrf
+        
+        <!-- NAMA -->
+        <div>
+            <label class="text-sm font-semibold text-gray-700">Nama*</label>
+            <input 
+                type="text" 
+                name="name"
+                placeholder="Masukkan nama"
+                class="w-full mt-1 bg-gray-200/70 rounded-full px-5 py-3 outline-none border border-gray-300 focus:ring-red-500 focus:border-red-500"
+                required
+            >
+        </div>
 
-                        <div class="flex items-center justify-between text-sm">
-                            <label class="flex items-center">
-                                <input type="checkbox" name="remember" class="rounded border-gray-300 text-red-600 focus:ring-red-500">
-                                <span class="ml-2 text-gray-600">Remember me</span>
-                            </label>
-                            <a href="#" class="text-red-600 hover:text-red-700 font-medium">Forgot password?</a>
-                        </div>
+        <!-- PASSWORD -->
+        <div x-data="{ show: false }">
+            <label class="text-sm font-semibold text-gray-700">Password*</label>
+            <div class="relative">
+                <input 
+                    :type="show ? 'text' : 'password'"
+                    name="password"
+                    placeholder="Masukkan password"
+                    class="w-full mt-1 bg-gray-200/70 rounded-full px-5 py-3 outline-none border border-gray-300 focus:ring-red-500 focus:border-red-500 pr-12"
+                    required
+                >
 
-                        <button
-                            type="submit"
-                            class="w-full bg-gradient-to-r from-red-500 to-red-600 text-white py-3 rounded-lg font-medium hover:from-red-600 hover:to-red-700 transform hover:scale-[1.02] transition-all duration-200 shadow-lg"
-                        >
-                            Sign In
-                        </button>
-                    </form>
+                <!-- ICON EYE -->
+                <span 
+                    @click="show = !show"
+                    class="absolute right-5 top-1/2 -translate-y-1/2 text-gray-600 cursor-pointer text-lg select-none"
+                >
+                    <span x-show="!show">👁️</span>
+                    <span x-show="show">🙈</span>
+                </span>
+            </div>
+        </div>
+
+        <!-- BUTTON -->
+        <button
+            type="submit"
+            class="w-full rounded-full bg-gradient-to-r from-red-500 to-orange-400 text-white py-3 text-xl font-bold shadow-md hover:scale-[1.02] transition duration-200"
+        >
+            MASUK
+        </button>
+
+        <!-- FOOTER -->
+        <p class="text-center text-sm text-gray-600 mt-2">
+            Belum punya akun?
+            <span @click="mode='register'" class="text-red-600 font-bold cursor-pointer">Register</span>
+        </p>
+    </form>
+</div>
+
+
+          <!-- REGISTER FORM (SCROLL) -->
+<div x-show="mode === 'register'" 
+     x-transition:enter="transition-opacity duration-200"
+     x-transition:enter-start="opacity-0"
+     x-transition:enter-end="opacity-100">
+
+    <!-- CONTAINER SCROLL -->
+    <div class="h-screen overflow-y-auto pb-10 px-1"
+         x-data="{ showPass: false }">
+
+        <!-- HEADER -->
+        <div class="text-center mb-6 mt-3">
+            <h2 class="text-3xl font-extrabold text-gray-900 tracking-wide border-b-2 border-gray-400 inline-block pb-1">
+                REGISTRASI
+            </h2>
+        </div>
+
+        <form class="space-y-5" method="POST" action="{{ route('register') }}">
+            @csrf
+
+            <!-- NAMA -->
+            <div>
+                <label class="text-sm font-semibold text-gray-700">Nama<span class="text-red-500">*</span></label>
+                <input 
+                    type="text"
+                    name="name"
+                    placeholder="Masukkan nama"
+                    class="w-full mt-1 bg-[#E6E6E6] text-gray-800 rounded-full px-5 py-3 outline-none"
+                    required
+                >
+            </div>
+
+            <!-- EMAIL -->
+            <div>
+                <label class="text-sm font-semibold text-gray-700">Email<span class="text-red-500">*</span></label>
+                <input 
+                    type="email"
+                    name="email"
+                    placeholder="Masukkan email"
+                    class="w-full mt-1 bg-[#E6E6E6] text-gray-800 rounded-full px-5 py-3 outline-none"
+                    required
+                >
+            </div>
+
+            <!-- NOMOR HP -->
+            <div>
+                <label class="text-sm font-semibold text-gray-700">Nomor Handphone<span class="text-red-500">*</span></label>
+                <input 
+                    type="number"
+                    name="phone"
+                    placeholder="Masukkan nomor hp"
+                    class="w-full mt-1 bg-[#E6E6E6] text-gray-800 rounded-full px-5 py-3 outline-none"
+                    required
+                >
+            </div>
+
+            <!-- PASSWORD -->
+            <div x-data="{ show: false }">
+                <label class="text-sm font-semibold text-gray-700">Password<span class="text-red-500">*</span></label>
+
+                <div class="relative">
+                    <input 
+                        :type="show ? 'text' : 'password'"
+                        name="password"
+                        placeholder="Masukkan password"
+                        class="w-full mt-1 bg-[#E6E6E6] text-gray-800 rounded-full px-5 py-3 outline-none pr-10"
+                        required
+                    >
+
+                    <!-- ICON -->
+                    <span 
+                        @click="show = !show"
+                        class="absolute right-5 top-4 text-gray-500 cursor-pointer"
+                    >
+                        <span x-show="!show">👁️</span>
+                        <span x-show="show">🙈</span>
+                    </span>
                 </div>
+            </div>
 
-                <!-- REGISTER FORM -->
-                <div x-show="mode === 'register'" x-transition:enter="transition-opacity duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100">
-                    <div class="text-center mb-6">
-                        <h2 class="text-2xl font-bold text-gray-800">Create Account</h2>
-                        <p class="text-gray-600 text-sm mt-1">Join us today</p>
-                    </div>
+            <!-- CHECKBOX -->
+            <div class="flex items-center justify-start gap-6 text-sm text-gray-700 pt-1">
+                <label class="flex items-center gap-1">
+                    <input type="checkbox" name="role_lowongan" value="lowongan" class="accent-red-500">
+                    Cari Lowongan
+                </label>
 
-                    <form class="space-y-4" method="POST" action="{{ route('register') }}">
-                        @csrf
-                        <div class="space-y-1">
-                            <label class="text-sm font-medium text-gray-700">Full Name</label>
-                            <div class="relative">
-                                <input
-                                    type="text"
-                                    name="name"
-                                    placeholder="Enter your full name"
-                                    class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                                    required
-                                >
-                                <svg class="w-5 h-5 text-gray-400 absolute left-3 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                                </svg>
-                            </div>
-                        </div>
+                <label class="flex items-center gap-1">
+                    <input type="checkbox" name="role_pekerja" value="pekerja" class="accent-red-500">
+                    Cari Pekerja
+                </label>
+            </div>
 
-                        <div class="space-y-1">
-                            <label class="text-sm font-medium text-gray-700">Email Address</label>
-                            <div class="relative">
-                                <input
-                                    type="email"
-                                    name="email"
-                                    placeholder="Enter your email"
-                                    class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                                    required
-                                >
-                                <svg class="w-5 h-5 text-gray-400 absolute left-3 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"></path>
-                                </svg>
-                            </div>
-                        </div>
+            <!-- BUTTON -->
+            <button
+                type="submit"
+                class="w-full rounded-full bg-gradient-to-r from-red-600 to-yellow-400 text-white py-3 text-xl font-extrabold shadow-md hover:scale-[1.02] transition duration-200"
+            >
+                DAFTAR
+            </button>
 
-                        <div class="space-y-1">
-                            <label class="text-sm font-medium text-gray-700">Password</label>
-                            <div class="relative">
-                                <input
-                                    type="password"
-                                    name="password"
-                                    placeholder="Create a password"
-                                    class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                                    required
-                                >
-                                <svg class="w-5 h-5 text-gray-400 absolute left-3 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-                                </svg>
-                            </div>
-                        </div>
+            <!-- FOOTER -->
+            <p class="text-center text-sm text-gray-700 mt-1">
+                Sudah Punya Akun?
+                <span @click="mode='login'" class="text-red-600 font-semibold cursor-pointer">Login</span>
+            </p>
+        </form>
+    </div>
+</div>
 
-                        <div class="space-y-1">
-                            <label class="text-sm font-medium text-gray-700">Confirm Password</label>
-                            <div class="relative">
-                                <input
-                                    type="password"
-                                    name="password_confirmation"
-                                    placeholder="Confirm your password"
-                                    class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                                    required
-                                >
-                                <svg class="w-5 h-5 text-gray-400 absolute left-3 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                            </div>
-                        </div>
 
-                        <div class="text-sm">
-                            <label class="flex items-start">
-                                <input type="checkbox" name="terms" class="rounded border-gray-300 text-red-600 focus:ring-red-500 mt-0.5" required>
-                                <span class="ml-2 text-gray-600 leading-relaxed">
-                                    I agree to the <a href="#" class="text-red-600 hover:text-red-700 font-medium">Terms of Service</a> and <a href="#" class="text-red-600 hover:text-red-700 font-medium">Privacy Policy</a>
-                                </span>
-                            </label>
-                        </div>
 
-                        <button
-                            type="submit"
-                            class="w-full bg-gradient-to-r from-red-500 to-red-600 text-white py-3 rounded-lg font-medium hover:from-red-600 hover:to-red-700 transform hover:scale-[1.02] transition-all duration-200 shadow-lg"
-                        >
-                            Create Account
-                        </button>
-                    </form>
-                </div>
             </div>
         </div>
     </div>
