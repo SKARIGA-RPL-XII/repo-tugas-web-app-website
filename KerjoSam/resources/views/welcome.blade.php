@@ -11,7 +11,7 @@
         [x-cloak] { display: none !important; }
     </style>
 </head>
-<body class="bg-gray-50" x-data="{ open: false, mode: 'login' }">
+<body class="bg-gray-50" x-data="{ open: false, mode: 'login' }" @open-modal.window="open = true; mode = 'login'; $nextTick(() => { const intendedUrl = sessionStorage.getItem('intended_url'); if (intendedUrl) document.getElementById('intendedUrl').value = intendedUrl; });">
     <!-- NAVBAR -->
     <nav class="w-full bg-white shadow-sm rounded-b-[50px] relative z-10">
         <div class="w-full px-8 md:px-12 py-4 flex items-center justify-between">
@@ -146,8 +146,9 @@
                         <p class="text-gray-600 text-sm mt-1">Sign in to your account</p>
                     </div>
 
-                    <form class="space-y-4" method="POST" action="{{ route('login') }}">
+                    <form class="space-y-4" method="POST" action="{{ route('login') }}" id="loginForm">
                         @csrf
+                        <input type="hidden" name="intended" id="intendedUrl" value="">
                         <div class="space-y-1">
                             <label class="text-sm font-medium text-gray-700">Email Address</label>
                             <div class="relative">
@@ -291,7 +292,6 @@
         </div>
     </div>
 
-
     <section class="relative -mt-12 pb-20">
         <!-- Background -->
         <div class="absolute inset-0">
@@ -331,7 +331,7 @@
         </div>
     </section>
 
-     <!-- JOB LIST SECTION -->
+    <!-- JOB LIST SECTION -->
     <section class="relative pt-36 pb-20">
         <div class="w-full max-w-7xl mx-auto px-8 md:px-12">
 
@@ -395,7 +395,8 @@
                             Rp 6 – 10 Juta
                         </span>
                         <a
-                            href="{{ route('job.detail', 1) }}"
+                            href="#"
+                            onclick="handleViewDetail('{{ route('job.detail', 1) }}')"
                             class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition"
                         >
                             View Detail
@@ -416,6 +417,28 @@
             const dropdown = document.getElementById('userDropdown');
             if (!e.target.closest('.relative')) {
                 dropdown.classList.add('hidden');
+            }
+        });
+
+        function handleViewDetail(jobUrl) {
+            @auth
+                window.location.href = jobUrl;
+            @else
+                sessionStorage.setItem('intended_url', jobUrl);
+                // Buka modal dengan Alpine.js
+                Alpine.store('modal', { open: true, mode: 'login' });
+                // Atau gunakan cara yang lebih sederhana
+                document.body.dispatchEvent(new CustomEvent('open-modal'));
+            @endauth
+        }
+
+        // Clear sessionStorage setelah form login disubmit
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginForm = document.getElementById('loginForm');
+            if (loginForm) {
+                loginForm.addEventListener('submit', function() {
+                    sessionStorage.removeItem('intended_url');
+                });
             }
         });
     </script>
