@@ -19,3 +19,8 @@ Route::get('/profile', [AuthController::class, 'profile'])->name('profile')->mid
 
 // Job Routes
 Route::get('/job/{id}', [JobController::class, 'show'])->name('job.detail')->middleware('auth');
+
+// Admin Routes
+Route::get('/admin/tools', function () {
+    return view('tools');
+});
