@@ -13,11 +13,10 @@
         }
     </style>
 </head>
-
-<body class="bg-gray-50" x-data="{ open: false, mode: 'login' }">
+<body class="bg-gray-50" x-data="{ open: false, mode: 'login' }" @open-login-modal.window="open = true; mode = 'login'">
     <!-- NAVBAR -->
     <nav class="w-full bg-white shadow-sm rounded-b-[50px] relative z-10">
-        <div class="w-full px-8 md:px-12 py-4 flex items-center justify-between">
+        <div class="w-full px-8 md:px-16 py-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
                 <img src="/images/logo.png" alt="Logo" class="w-12 h-12 md:w-10 md:h-10 rounded-full object-cover" />
             </div>
@@ -143,7 +142,7 @@
                         <p class="text-gray-600 text-sm mt-1">Sign in to your account</p>
                     </div>
 
-                    <form class="space-y-4" method="POST" action="{{ route('login') }}">
+                    <form class="space-y-4" method="POST" action="/login">
                         @csrf
                         <div class="space-y-1">
                             <label class="text-sm font-medium text-gray-700">Email Address</label>
@@ -169,7 +168,8 @@
                                     id="loginPassword"
                                     placeholder="Enter your password"
                                     class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 pr-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                                    required>
+                                    required
+                                >
                                 <svg class="w-5 h-5 text-gray-400 absolute left-3 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                                 </svg>
@@ -246,7 +246,8 @@
                                     id="registerPassword"
                                     placeholder="Create a password"
                                     class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 pr-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                                    required>
+                                    required
+                                >
                                 <svg class="w-5 h-5 text-gray-400 absolute left-3 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                                 </svg>
@@ -268,7 +269,8 @@
                                     id="confirmPassword"
                                     placeholder="Confirm your password"
                                     class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 pr-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                                    required>
+                                    required
+                                >
                                 <svg class="w-5 h-5 text-gray-400 absolute left-3 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                 </svg>
@@ -309,7 +311,7 @@
         </div>
 
         <!-- Content (judul & deskripsi) -->
-        <div class="relative w-full px-8 md:px-12 py-24 text-white text-left">
+        <div class="relative w-full px-8 md:px-16 py-24 text-white text-left">
             <h1 class="text-4xl md:text-5xl font-bold leading-tight">
                 Explore Opportunities <br /> and Learn
             </h1>
@@ -319,10 +321,10 @@
         </div>
 
         <!-- Search + Categories floating di bawah banner (center) -->
-        <div class="absolute left-1/2 -bottom-20 transform -translate-x-1/2 w-full max-w-7xl px-8 md:px-12 flex flex-col items-center gap-4">
+        <div class="absolute left-1/2 -bottom-20 transform -translate-x-1/2 w-full px-8 md:px-16 flex flex-col items-center gap-4">
             <!-- Search Bar -->
-            <div class="bg-white rounded-full flex items-center px-4 py-2 shadow-lg w-full max-w-8xl">
-                <input type="text" placeholder="Search" class="flex-1 outline-none text-base text-gray-700" />
+            <div class="bg-white rounded-full flex items-center px-4 py-2 shadow-lg w-full max-w-7xl">
+                <input type="text" placeholder="Search" class="flex-1 outline-none text-base text-gray-700"/>
                 <button class="bg-red-500 text-white w-12 h-12 rounded-full flex items-center justify-center" aria-label="Search">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14z" />
@@ -342,10 +344,10 @@
 
     <!-- JOB LIST SECTION -->
     <section class="relative pt-36 pb-20">
-        <div class="w-full max-w-7xl mx-auto px-8 md:px-12">
+        <div class="w-full px-8 md:px-16">
 
             <!-- Section Title -->
-            <div class="mb-8 text-center">
+            <div class="mb-12 text-center">
                 <h2 class="text-2xl md:text-3xl font-bold text-gray-800">
                     Latest Job Vacancies
                 </h2>
@@ -356,8 +358,7 @@
 
             <!-- Job Cards -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-                <!-- Card -->
+                <!-- Card 1 -->
                 <div class="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between">
                     <div>
                         <!-- Company -->
@@ -373,18 +374,18 @@
                         </div>
 
                         <!-- Job Title -->
-                        <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">
                             Frontend Developer
                         </h3>
 
                         <!-- Description -->
-                        <p class="text-sm text-gray-600 line-clamp-3">
+                        <p class="text-sm text-gray-600 line-clamp-3 mb-4">
                             We are looking for a Frontend Developer experienced in
                             HTML, CSS, JavaScript, and modern frameworks.
                         </p>
 
                         <!-- Tags -->
-                        <div class="flex flex-wrap gap-2 mt-4">
+                        <div class="flex flex-wrap gap-2">
                             <span class="px-3 py-1 text-xs rounded-full bg-red-100 text-red-600">
                                 Frontend
                             </span>
@@ -409,7 +410,104 @@
                         </a>
                     </div>
                 </div>
-                <!-- Copy card ini untuk data lain -->
+
+                <!-- Card 2 -->
+                <div class="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <img
+                                src="https://ui-avatars.com/api/?name=Digital+Agency&background=3b82f6&color=fff"
+                                class="w-10 h-10 rounded-full"
+                                alt=""
+                            />
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Digital Agency</h4>
+                                <p class="text-xs text-gray-500">Bandung, Indonesia</p>
+                            </div>
+                        </div>
+
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">
+                            UI/UX Designer
+                        </h3>
+
+                        <p class="text-sm text-gray-600 line-clamp-3 mb-4">
+                            Looking for creative UI/UX Designer to join our team and create amazing user experiences.
+                        </p>
+
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 text-xs rounded-full bg-purple-100 text-purple-600">
+                                UI/UX
+                            </span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-blue-100 text-blue-600">
+                                Full Time
+                            </span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-yellow-100 text-yellow-600">
+                                On-site
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 flex items-center justify-between">
+                        <span class="text-sm font-medium text-gray-700">
+                            Rp 5 – 8 Juta
+                        </span>
+                        <a
+                            href="{{ route('job.detail', 2) }}"
+                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition"
+                        >
+                            View Detail
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <img
+                                src="https://ui-avatars.com/api/?name=StartupXYZ&background=10b981&color=fff"
+                                class="w-10 h-10 rounded-full"
+                                alt=""
+                            />
+                            <div>
+                                <h4 class="font-semibold text-gray-800">StartupXYZ</h4>
+                                <p class="text-xs text-gray-500">Surabaya, Indonesia</p>
+                            </div>
+                        </div>
+
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">
+                            Backend Developer
+                        </h3>
+
+                        <p class="text-sm text-gray-600 line-clamp-3 mb-4">
+                            Join our backend team to build scalable applications using modern technologies.
+                        </p>
+
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 text-xs rounded-full bg-green-100 text-green-600">
+                                Backend
+                            </span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-blue-100 text-blue-600">
+                                Full Time
+                            </span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-green-100 text-green-600">
+                                Remote
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 flex items-center justify-between">
+                        <span class="text-sm font-medium text-gray-700">
+                            Rp 8 – 12 Juta
+                        </span>
+                        <a
+                            href="{{ route('job.detail', 3) }}"
+                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition"
+                        >
+                            View Detail
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -438,7 +536,7 @@
         function togglePassword(inputId, iconId) {
             const input = document.getElementById(inputId);
             const icon = document.getElementById(iconId);
-
+            
             if (input.type === 'password') {
                 input.type = 'text';
                 icon.innerHTML = `

@@ -13,7 +13,6 @@
             <div class="flex items-center gap-3">
                 <img src="/images/logo.png" alt="Logo" class="w-12 h-12 md:w-10 md:h-10 rounded-full object-cover"/>
             </div>
-
             <div class="flex items-center gap-6">
                 {{-- MENU KIRI --}}
                 <ul class="hidden md:flex gap-8 text-sm text-gray-600">
