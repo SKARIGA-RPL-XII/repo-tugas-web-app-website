@@ -25,7 +25,7 @@
 
                 {{-- MENU KANAN --}}
                 @guest
-                    <div class="flex items-center gap-4 text-sm">
+                   <div class="flex items-center gap-4 text-sm">
                         <button @click="open = true; mode = 'login'" class="text-gray-600 hover:text-red-500" type="button">
                             Login
                         </button>

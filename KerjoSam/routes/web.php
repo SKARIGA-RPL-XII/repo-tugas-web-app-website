@@ -18,8 +18,10 @@ Route::get('/dashboard', function () {
 })->name('dashboard')->middleware('auth');
 
 // Auth Routes
-Route::get('/login', function() { return redirect('/#login'); })->name('login');
-Route::post('/login', [AuthController::class, 'login']);
+Route::get('/login', function () {
+    return redirect('/');
+})->name('login.form');
+Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/profile', [AuthController::class, 'profile'])->name('profile')->middleware('auth');

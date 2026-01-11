@@ -142,8 +142,9 @@
                         <p class="text-gray-600 text-sm mt-1">Sign in to your account</p>
                     </div>
 
-                    <form class="space-y-4" method="POST" action="/login">
+                    <form class="space-y-4" method="POST" action="{{ route('login') }}" id="loginForm">
                         @csrf
+                        <input type="hidden" name="intended" id="intendedUrl" value="">
                         <div class="space-y-1">
                             <label class="text-sm font-medium text-gray-700">Email Address</label>
                             <div class="relative">
