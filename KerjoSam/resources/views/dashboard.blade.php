@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,12 +8,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
+
 <body class="bg-gray-50">
     <!-- NAVBAR -->
     <nav class="w-full bg-white shadow-sm rounded-b-[50px] relative z-10">
-        <div class="w-full px-8 md:px-16 py-4 flex items-center justify-between">
+        <div class="container mx-auto px-4 md:px-6 lg:px-14 py-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <img src="/images/logo.png" alt="Logo" class="w-12 h-12 md:w-10 md:h-10 rounded-full object-cover"/>
+                <img src="/images/logo.png" alt="Logo" class="w-16 h-16 md:w-32 md:h-10 rounded-full object-cover" />
             </div>
 
             <div class="flex items-center gap-6">
@@ -82,10 +84,10 @@
         <div class="absolute left-1/2 -bottom-20 transform -translate-x-1/2 w-full px-8 md:px-16 flex flex-col items-center gap-4">
             <!-- Search Bar -->
             <div class="bg-white rounded-full flex items-center px-4 py-2 shadow-lg w-full max-w-7xl">
-                <input type="text" placeholder="Search jobs..." class="flex-1 outline-none text-base text-gray-700"/>
+                <input type="text" placeholder="Search jobs..." class="flex-1 outline-none text-base text-gray-700" />
                 <button class="bg-red-500 text-white w-12 h-12 rounded-full flex items-center justify-center" aria-label="Search">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14z" />
                     </svg>
                 </button>
             </div>
@@ -124,8 +126,7 @@
                             <img
                                 src="https://ui-avatars.com/api/?name=Tech+Corp&background=ef4444&color=fff"
                                 class="w-10 h-10 rounded-full"
-                                alt=""
-                            />
+                                alt="" />
                             <div>
                                 <h4 class="font-semibold text-gray-800">Tech Corp</h4>
                                 <p class="text-xs text-gray-500">Jakarta, Indonesia</p>
@@ -164,8 +165,7 @@
                         </span>
                         <a
                             href="{{ route('job.detail', 1) }}"
-                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition"
-                        >
+                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition">
                             View Detail
                         </a>
                     </div>
@@ -178,8 +178,7 @@
                             <img
                                 src="https://ui-avatars.com/api/?name=Digital+Agency&background=3b82f6&color=fff"
                                 class="w-10 h-10 rounded-full"
-                                alt=""
-                            />
+                                alt="" />
                             <div>
                                 <h4 class="font-semibold text-gray-800">Digital Agency</h4>
                                 <p class="text-xs text-gray-500">Bandung, Indonesia</p>
@@ -213,8 +212,7 @@
                         </span>
                         <a
                             href="{{ route('job.detail', 2) }}"
-                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition"
-                        >
+                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition">
                             View Detail
                         </a>
                     </div>
@@ -227,8 +225,7 @@
                             <img
                                 src="https://ui-avatars.com/api/?name=StartupXYZ&background=10b981&color=fff"
                                 class="w-10 h-10 rounded-full"
-                                alt=""
-                            />
+                                alt="" />
                             <div>
                                 <h4 class="font-semibold text-gray-800">StartupXYZ</h4>
                                 <p class="text-xs text-gray-500">Surabaya, Indonesia</p>
@@ -262,8 +259,7 @@
                         </span>
                         <a
                             href="{{ route('job.detail', 3) }}"
-                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition"
-                        >
+                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition">
                             View Detail
                         </a>
                     </div>
@@ -277,7 +273,7 @@
             document.getElementById('userDropdown').classList.toggle('hidden');
         }
 
-        document.addEventListener('click', function (e) {
+        document.addEventListener('click', function(e) {
             const dropdown = document.getElementById('userDropdown');
             if (!e.target.closest('.relative')) {
                 dropdown.classList.add('hidden');
@@ -285,4 +281,5 @@
         });
     </script>
 </body>
+
 </html>
