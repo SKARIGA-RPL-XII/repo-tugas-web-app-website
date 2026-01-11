@@ -18,6 +18,7 @@
     <style>
         [x-cloak] { display: none !important; }
     </style>
+    @endif
 </head>
 <body class="bg-gray-50" x-data="{ open: false, mode: 'login' }">
     <!-- NAVBAR -->
