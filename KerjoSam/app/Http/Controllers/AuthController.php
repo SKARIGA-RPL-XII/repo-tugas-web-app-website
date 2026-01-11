@@ -18,7 +18,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials, $request->filled('remember'))) {
             $request->session()->regenerate();
-            return redirect()->intended('/dashboard');
+            return redirect()->intended('/dashboard')->with('success', 'Login berhasil! Selamat datang kembali.');
         }
 
         return back()->withErrors([
@@ -40,9 +40,7 @@ class AuthController extends Controller
             'password' => Hash::make($validated['password']),
         ]);
 
-        Auth::login($user);
-
-        return redirect('/dashboard');
+        return redirect('/')->with('success', 'Registrasi berhasil! Silakan login dengan akun Anda.');
     }
 
     public function logout(Request $request)
