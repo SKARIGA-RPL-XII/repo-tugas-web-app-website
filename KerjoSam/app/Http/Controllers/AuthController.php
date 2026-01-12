@@ -18,14 +18,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials, $request->filled('remember'))) {
             $request->session()->regenerate();
-            
-            // Cek jika ada intended URL dari form
-            $intendedUrl = $request->input('intended');
-            if ($intendedUrl) {
-                return redirect($intendedUrl);
-            }
-            
-            return redirect()->intended('/');
+            return redirect()->intended('/dashboard')->with('success', 'Login berhasil! Selamat datang kembali.');
         }
 
         return back()->withErrors([
@@ -47,9 +40,7 @@ class AuthController extends Controller
             'password' => Hash::make($validated['password']),
         ]);
 
-        Auth::login($user);
-
-        return redirect('/dashboard');
+        return redirect('/')->with('success', 'Registrasi berhasil! Silakan login dengan akun Anda.');
     }
 
     public function logout(Request $request)
