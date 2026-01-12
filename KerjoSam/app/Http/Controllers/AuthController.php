@@ -18,6 +18,13 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials, $request->filled('remember'))) {
             $request->session()->regenerate();
+            
+            // Cek jika ada intended URL dari form
+            $intendedUrl = $request->input('intended');
+            if ($intendedUrl) {
+                return redirect($intendedUrl);
+            }
+            
             return redirect()->intended('/');
         }
 
@@ -42,7 +49,7 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect('/');
+        return redirect('/dashboard');
     }
 
     public function logout(Request $request)
