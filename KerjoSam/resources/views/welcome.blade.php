@@ -17,12 +17,20 @@
         .category-btn {
             cursor: pointer !important;
             pointer-events: auto !important;
-            z-index: 100 !important;
+            z-index: 40 !important;
             position: relative !important;
             display: inline-block !important;
         }
         .category-btn:hover {
             cursor: pointer !important;
+        }
+        /* Hide scrollbars */
+        * {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        *::-webkit-scrollbar {
+            display: none;
         }
     </style>
 </head>
@@ -361,7 +369,7 @@
         </div>
 
         <!-- Search + Categories floating di bawah banner (center) -->
-        <div class="absolute left-1/2 -bottom-20 transform -translate-x-1/2 w-full px-8 md:px-16 flex flex-col items-center gap-4" style="z-index: 50;">
+        <div class="absolute left-1/2 -bottom-20 transform -translate-x-1/2 w-full px-8 md:px-16 flex flex-col items-center gap-4" style="z-index: 40;">
             <!-- Search Bar -->
             <div class="bg-white rounded-full flex items-center px-4 py-2 shadow-lg w-full max-w-7xl">
                 <input type="text" id="searchInput" placeholder="Search jobs..." class="flex-1 outline-none text-base text-gray-700" onkeyup="searchJobs()"/>
@@ -373,20 +381,21 @@
             </div>
 
             <!-- Category Buttons -->
-            <div class="flex flex-wrap justify-center gap-3" style="z-index: 60;">
-                <button onclick="alert('All clicked')" class="category-btn active px-4 py-2 bg-white backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300" style="z-index: 70;">All</button>
-                <button onclick="alert('UI/UX clicked')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300" style="z-index: 70;">UI/UX</button>
-                <button onclick="alert('Frontend clicked')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300" style="z-index: 70;">Frontend</button>
-                <button onclick="alert('Backend clicked')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300" style="z-index: 70;">Backend</button>
-                <button onclick="alert('Finance clicked')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300" style="z-index: 70;">Finance</button>
+            <div class="flex flex-wrap justify-center gap-3">
+                <button onclick="filterByCategory('all')" class="category-btn active px-4 py-2 bg-white backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">All</button>
+                <button onclick="filterByCategory('ui-ux')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">UI/UX</button>
+                <button onclick="filterByCategory('frontend')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">Frontend</button>
+                <button onclick="filterByCategory('backend')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">Backend</button>
+                <button onclick="filterByCategory('finance')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">Finance</button>
             </div>
         </div>
     </section>
 
     <!-- JOB LIST SECTION -->
-    <section class="relative pt-36 pb-20">
+    <section class="relative pt-36 pb-20 overflow-hidden">
+        <!-- Decorative Shape -->
+        <img src="/images/shape-wave.png" alt="" class="pointer-events-none select-none absolute right-0 top-0 h-full max-w-none opacity-90 translate-x-1/3 md:translate-x-1/4"/>
         <div class="w-full px-8 md:px-16">
-
             <!-- Section Title -->
             <div class="mb-12 text-center">
                 <h2 class="text-2xl md:text-3xl font-bold text-gray-800">
@@ -626,13 +635,8 @@
 
         // Filter by category function
         function filterByCategory(category) {
-            alert('Button clicked: ' + category);
-
             const jobCards = document.querySelectorAll('.job-card');
             const categoryBtns = document.querySelectorAll('.category-btn');
-
-            console.log('Filter category:', category);
-            console.log('Found cards:', jobCards.length);
 
             // Update active button
             categoryBtns.forEach(btn => {
@@ -646,7 +650,6 @@
             // Filter cards
             jobCards.forEach(card => {
                 const cardCategory = card.getAttribute('data-category');
-                console.log('Card category:', cardCategory);
 
                 if (category === 'all' || cardCategory === category) {
                     card.style.display = 'flex';
