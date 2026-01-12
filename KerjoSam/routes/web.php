@@ -5,17 +5,16 @@ use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\JobController;
 
+
 Route::get('/', function () {
-    if (Auth::check()) {
-        return redirect('/dashboard');
-    }
     return view('welcome');
-});
+})->name('welcome');
+
 
 // Dashboard for authenticated users
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->name('dashboard')->middleware('auth');
+})->name('dashboard');
 
 // Auth Routes
 Route::get('/login', function() { return redirect('/#login'); })->name('login');

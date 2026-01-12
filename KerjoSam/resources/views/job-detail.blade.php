@@ -212,18 +212,34 @@
 
                     <!-- Share Job -->
                     <div class="bg-white rounded-2xl shadow-sm p-6">
-                        <h3 class="text-lg font-bold text-gray-900 mb-4">Share this Job</h3>
-                        <div class="flex gap-3">
-                            <button class="flex-1 bg-blue-500 text-white py-2 rounded-lg text-sm hover:bg-blue-600 transition-colors">
-                                Facebook
-                            </button>
-                            <button class="flex-1 bg-blue-400 text-white py-2 rounded-lg text-sm hover:bg-blue-500 transition-colors">
-                                Twitter
-                            </button>
-                            <button class="flex-1 bg-blue-600 text-white py-2 rounded-lg text-sm hover:bg-blue-700 transition-colors">
-                                LinkedIn
-                            </button>
-                        </div>
+    <h3 class="text-lg font-bold text-gray-900 mb-4">Share this Job</h3>
+
+    <div class="flex gap-3">
+        <!-- Facebook -->
+        <a href="#" class="flex-1 flex items-center justify-center bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.1 3-3.1.9 0 1.8.1 1.8.1v2h-1c-1 0-1.3.6-1.3 1.2V12h2.6l-.4 3h-2.2v7A10 10 0 0 0 22 12z"/>
+            </svg>
+        </a>
+
+        <!-- Twitter -->
+      <!-- X (Twitter) -->
+<a href="#" class="flex-1 flex items-center justify-center bg-black text-white py-3 rounded-lg hover:bg-gray-900 transition">
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M18.25 2H21.7l-7.5 8.57L23 22h-6.9l-5.4-6.6L4.9 22H1.4l8-9.15L1 2h7.1l4.9 6L18.25 2zm-1.2 18h1.9L7.2 4H5.2l11.85 16z"/>
+    </svg>
+</a>
+
+
+        <!-- LinkedIn -->
+        <a href="#" class="flex-1 flex items-center justify-center bg-blue-700 text-white py-3 rounded-lg hover:bg-blue-800 transition">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM3 8.98h4v12H3v-12zM9 8.98h3.8v1.64h.05a4.18 4.18 0 0 1 3.76-2.06c4.02 0 4.76 2.65 4.76 6.1v7.32h-4v-6.49c0-1.55-.03-3.55-2.16-3.55-2.16 0-2.49 1.69-2.49 3.43v6.61H9v-12z"/>
+            </svg>
+        </a>
+    </div>
+</div>
+
                     </div>
                 </div>
             </div>

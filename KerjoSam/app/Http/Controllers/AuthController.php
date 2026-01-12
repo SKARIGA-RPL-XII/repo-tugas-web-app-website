@@ -15,16 +15,24 @@ class AuthController extends Controller
             'email' => 'required|email',
             'password' => 'required',
         ]);
-
+    
         if (Auth::attempt($credentials, $request->filled('remember'))) {
             $request->session()->regenerate();
-            return redirect()->intended('/dashboard');
+    
+            // CEK ROLE
+            if (auth()->user()->role === 'admin') {
+                return redirect()->route('dashboard');
+            }
+    
+            // selain admin
+            return redirect('/'); // atau halaman lain
         }
-
+    
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ]);
     }
+    
 
     public function register(Request $request)
     {

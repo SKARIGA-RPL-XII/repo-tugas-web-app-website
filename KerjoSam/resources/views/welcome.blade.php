@@ -28,6 +28,16 @@
                         </li>
                     @endauth
                 </ul>
+                @auth
+                {{-- Admin --}}
+         @if(auth()->user()->isAdmin())
+              <a href="{{ route('welcome') }}"
+              class="text-gray-700 hover:text-red-500 font-semibold">
+              Dashboard
+             </a>
+        @endif
+        @endauth
+
 
                 {{-- MENU KANAN --}}
                 @guest
