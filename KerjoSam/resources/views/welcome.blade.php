@@ -424,16 +424,14 @@
                             Rp 6 – 10 Juta
                         </span>
                         <a
-                            href="#"
+                            href="{{ route('job.detail', 1) }}"
                             class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition"
                         >
                             View Detail
                         </a>
                     </div>
                 </div>
-
                 <!-- Copy card ini untuk data lain -->
-
             </div>
         </div>
     </section>
