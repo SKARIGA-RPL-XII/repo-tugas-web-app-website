@@ -364,8 +364,6 @@
 
         // Filter by category function
         function filterByCategory(category) {
-            alert('Button clicked: ' + category);
-
             const jobCards = document.querySelectorAll('.job-card');
             const categoryBtns = document.querySelectorAll('.category-btn');
 
