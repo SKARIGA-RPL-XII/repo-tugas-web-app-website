@@ -18,10 +18,10 @@
         }
 
         .bg-about {
-            background-image: url('{{ asset(' images/Background_4.png') }}');
-            background-size: cover;
+            background-image: url('/images/Background_4.png');
+            background-size: 50%;
             background-position: center;
-            background-repeat: no-repeat;
+            background-repeat: repeat;
         }
     </style>
 </head>
@@ -58,18 +58,15 @@
             <div class="grid md:grid-cols-2 gap-16 items-center mb-28">
 
                 <!-- LEFT TEXT -->
-                <div>
-                    <h1 class="text-5xl md:text-7xl font-black leading-none">
-                        <span class="text-red-600">Kerjo</span>
-                        <span class="text-orange-500">Sam</span>
-                    </h1>
+                <div class="">
+                    <img src="/images/logo.png" alt="Logo" class="w-400 h-400 md:w-500 md:h-400 rounded-full object-cover" />
                 </div>
 
                 <!-- RIGHT IMAGE -->
-                <div class="relative">
+                <div class="">
                     <img
-                        src="/images/Jawa.png"
-                        class="rounded-3xl shadow-2xl object-cover aspect-video"
+                        src="/images/Logo2.png"
+                        class=""
                         alt="Team Work">
                 </div>
             </div>
@@ -96,13 +93,12 @@
                 <div class="relative text-center md:text-right">
                     <h2 class="text-5xl md:text-7xl font-black leading-tight">
                         <div class="text-red-500">ABOUT</div>
-                        <div>
-                            <span class="text-red-600">Kerjo</span>
-                            <span class="text-orange-500">Sam</span>
+                        <div class="flex items-center gap-3">
+                            <img src="/images/logo.png" alt="Logo" class="w-200 h-200 md:w-300 md:h-300 rounded-full object-cover" />
                         </div>
                     </h2>
+                </div>
             </div>
-        </div>
     </section>
 
 </body>
