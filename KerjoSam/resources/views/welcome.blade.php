@@ -51,12 +51,12 @@
             </button>
         </div>
     </div>
-    
+
     <!-- NAVBAR -->
     <nav class="w-full bg-white shadow-sm relative z-10">
         <div class="w-full px-8 md:px-16 py-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <img src="/images/logo.png" alt="Logo" class="w-12 h-12 md:w-32 md:h-10 rounded-full object-cover"/>
+                <img src="/images/LogoWeb.png" alt="Logo" class="w-12 h-12 md:w-32 md:h-10 rounded-full object-cover"/>
             </div>
             <div class="flex items-center gap-6">
                 {{-- MENU KIRI --}}
@@ -346,8 +346,6 @@
 
     <!-- JOB LIST SECTION -->
     <section class="relative pt-48 md:pt-36 pb-20">
-        <!-- Decorative Shape -->
-        <img src="/images/shape-wave.png" alt="" class="pointer-events-none select-none absolute right-0 top-0 h-full max-w-none opacity-90 translate-x-1/3 md:translate-x-1/4"/>
         <div class="w-full px-8 md:px-16">
             <!-- Section Title -->
             <div class="mb-12 text-center">
