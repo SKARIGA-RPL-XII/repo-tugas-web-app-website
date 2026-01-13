@@ -17,12 +17,20 @@
         .category-btn {
             cursor: pointer !important;
             pointer-events: auto !important;
-            z-index: 100 !important;
+            z-index: 40 !important;
             position: relative !important;
             display: inline-block !important;
         }
         .category-btn:hover {
             cursor: pointer !important;
+        }
+        /* Hide scrollbars */
+        * {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        *::-webkit-scrollbar {
+            display: none;
         }
     </style>
 </head>
@@ -43,13 +51,13 @@
             </button>
         </div>
     </div>
+    
     <!-- NAVBAR -->
     <nav class="w-full bg-white shadow-sm relative z-10">
         <div class="w-full px-8 md:px-16 py-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
                 <img src="/images/logo.png" alt="Logo" class="w-12 h-12 md:w-32 md:h-10 rounded-full object-cover"/>
             </div>
-
             <div class="flex items-center gap-6">
                 {{-- MENU KIRI --}}
                 <ul class="hidden md:flex gap-8 text-sm text-gray-600">
@@ -182,13 +190,7 @@
                         <div class="space-y-1">
                             <label class="text-sm font-medium text-gray-700">Email Address</label>
                             <div class="relative">
-                                <input
-                                    type="email"
-                                    name="email"
-                                    placeholder="Enter your email"
-                                    class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                                    required
-                                >
+                                <input type="email" name="email" placeholder="Enter your email" class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors" required>
                                 <svg class="w-5 h-5 text-gray-400 absolute left-3 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"></path>
                                 </svg>
@@ -198,14 +200,7 @@
                         <div class="space-y-1">
                             <label class="text-sm font-medium text-gray-700">Password</label>
                             <div class="relative">
-                                <input
-                                    type="password"
-                                    name="password"
-                                    id="loginPassword"
-                                    placeholder="Enter your password"
-                                    class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 pr-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                                    required
-                                >
+                                <input type="password" name="password" id="loginPassword" placeholder="Enter your password" class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 pr-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors" required>
                                 <svg class="w-5 h-5 text-gray-400 absolute left-3 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                                 </svg>
@@ -226,10 +221,7 @@
                             <a href="#" class="text-red-600 hover:text-red-700 font-medium">Forgot password?</a>
                         </div>
 
-                        <button
-                            type="submit"
-                            class="w-full bg-gradient-to-r from-red-500 to-red-600 text-white py-3 rounded-lg font-medium hover:from-red-600 hover:to-red-700 transform hover:scale-[1.02] transition-all duration-200 shadow-lg"
-                        >
+                        <button type="submit" class="w-full bg-gradient-to-r from-red-500 to-red-600 text-white py-3 rounded-lg font-medium hover:from-red-600 hover:to-red-700 transform hover:scale-[1.02] transition-all duration-200 shadow-lg">
                             Sign In
                         </button>
                     </form>
@@ -247,13 +239,7 @@
                         <div class="space-y-1">
                             <label class="text-sm font-medium text-gray-700">Full Name</label>
                             <div class="relative">
-                                <input
-                                    type="text"
-                                    name="name"
-                                    placeholder="Enter your full name"
-                                    class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                                    required
-                                >
+                                <input type="text" name="name" placeholder="Enter your full name" class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors" required>
                                 <svg class="w-5 h-5 text-gray-400 absolute left-3 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                                 </svg>
@@ -263,13 +249,7 @@
                         <div class="space-y-1">
                             <label class="text-sm font-medium text-gray-700">Email Address</label>
                             <div class="relative">
-                                <input
-                                    type="email"
-                                    name="email"
-                                    placeholder="Enter your email"
-                                    class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                                    required
-                                >
+                                <input type="email" name="email" placeholder="Enter your email" class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors" required>
                                 <svg class="w-5 h-5 text-gray-400 absolute left-3 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"></path>
                                 </svg>
@@ -279,14 +259,7 @@
                         <div class="space-y-1">
                             <label class="text-sm font-medium text-gray-700">Password</label>
                             <div class="relative">
-                                <input
-                                    type="password"
-                                    name="password"
-                                    id="registerPassword"
-                                    placeholder="Create a password"
-                                    class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 pr-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                                    required
-                                >
+                                <input type="password" name="password" id="registerPassword" placeholder="Create a password" class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 pr-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors" required>
                                 <svg class="w-5 h-5 text-gray-400 absolute left-3 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                                 </svg>
@@ -302,14 +275,7 @@
                         <div class="space-y-1">
                             <label class="text-sm font-medium text-gray-700">Confirm Password</label>
                             <div class="relative">
-                                <input
-                                    type="password"
-                                    name="password_confirmation"
-                                    id="confirmPassword"
-                                    placeholder="Confirm your password"
-                                    class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 pr-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                                    required
-                                >
+                                <input type="password" name="password_confirmation" id="confirmPassword" placeholder="Confirm your password" class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 pr-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors" required>
                                 <svg class="w-5 h-5 text-gray-400 absolute left-3 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                 </svg>
@@ -330,11 +296,7 @@
                                 </span>
                             </label>
                         </div>
-
-                        <button
-                            type="submit"
-                            class="w-full bg-gradient-to-r from-red-500 to-red-600 text-white py-3 rounded-lg font-medium hover:from-red-600 hover:to-red-700 transform hover:scale-[1.02] transition-all duration-200 shadow-lg"
-                        >
+                        <button type="submit" class="w-full bg-gradient-to-r from-red-500 to-red-600 text-white py-3 rounded-lg font-medium hover:from-red-600 hover:to-red-700 transform hover:scale-[1.02] transition-all duration-200 shadow-lg">
                             Create Account
                         </button>
                     </form>
@@ -349,7 +311,6 @@
             <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d" class="w-full h-full object-cover" alt="" />
             <div class="absolute inset-0 bg-gradient-to-r from-red-600/90 to-red-400/70"></div>
         </div>
-
         <!-- Content (judul & deskripsi) -->
         <div class="relative w-full px-8 md:px-16 py-24 text-white text-left">
             <h1 class="text-4xl md:text-5xl font-bold leading-tight">
@@ -361,7 +322,7 @@
         </div>
 
         <!-- Search + Categories floating di bawah banner (center) -->
-        <div class="absolute left-1/2 -bottom-20 transform -translate-x-1/2 w-full px-8 md:px-16 flex flex-col items-center gap-4" style="z-index: 50;">
+        <div class="absolute left-1/2 -bottom-32 md:-bottom-20 transform -translate-x-1/2 w-full px-8 md:px-16 flex flex-col items-center gap-4 z-40">
             <!-- Search Bar -->
             <div class="bg-white rounded-full flex items-center px-4 py-2 shadow-lg w-full max-w-7xl">
                 <input type="text" id="searchInput" placeholder="Search jobs..." class="flex-1 outline-none text-base text-gray-700" onkeyup="searchJobs()"/>
@@ -373,20 +334,21 @@
             </div>
 
             <!-- Category Buttons -->
-            <div class="flex flex-wrap justify-center gap-3" style="z-index: 60;">
-                <button onclick="alert('All clicked')" class="category-btn active px-4 py-2 bg-white backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300" style="z-index: 70;">All</button>
-                <button onclick="alert('UI/UX clicked')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300" style="z-index: 70;">UI/UX</button>
-                <button onclick="alert('Frontend clicked')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300" style="z-index: 70;">Frontend</button>
-                <button onclick="alert('Backend clicked')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300" style="z-index: 70;">Backend</button>
-                <button onclick="alert('Finance clicked')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300" style="z-index: 70;">Finance</button>
+            <div class="flex flex-wrap justify-center gap-3">
+                <button onclick="filterByCategory('all')" class="category-btn active px-4 py-2 bg-white backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">All</button>
+                <button onclick="filterByCategory('ui-ux')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">UI/UX</button>
+                <button onclick="filterByCategory('frontend')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">Frontend</button>
+                <button onclick="filterByCategory('backend')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">Backend</button>
+                <button onclick="filterByCategory('finance')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">Finance</button>
             </div>
         </div>
     </section>
 
     <!-- JOB LIST SECTION -->
-    <section class="relative pt-36 pb-20">
+    <section class="relative pt-48 md:pt-36 pb-20">
+        <!-- Decorative Shape -->
+        <img src="/images/shape-wave.png" alt="" class="pointer-events-none select-none absolute right-0 top-0 h-full max-w-none opacity-90 translate-x-1/3 md:translate-x-1/4"/>
         <div class="w-full px-8 md:px-16">
-
             <!-- Section Title -->
             <div class="mb-12 text-center">
                 <h2 class="text-2xl md:text-3xl font-bold text-gray-800">
@@ -626,13 +588,8 @@
 
         // Filter by category function
         function filterByCategory(category) {
-            alert('Button clicked: ' + category);
-
             const jobCards = document.querySelectorAll('.job-card');
             const categoryBtns = document.querySelectorAll('.category-btn');
-
-            console.log('Filter category:', category);
-            console.log('Found cards:', jobCards.length);
 
             // Update active button
             categoryBtns.forEach(btn => {
@@ -646,7 +603,6 @@
             // Filter cards
             jobCards.forEach(card => {
                 const cardCategory = card.getAttribute('data-category');
-                console.log('Card category:', cardCategory);
 
                 if (category === 'all' || cardCategory === category) {
                     card.style.display = 'flex';

@@ -6,52 +6,36 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
-            $table->string('queue')->index();
-            $table->longText('payload');
-            $table->unsignedTinyInteger('attempts');
-            $table->unsignedInteger('reserved_at')->nullable();
-            $table->unsignedInteger('available_at');
-            $table->unsignedInteger('created_at');
-        });
 
-        Schema::create('job_batches', function (Blueprint $table) {
-            $table->string('id')->primary();
-            $table->string('name');
-            $table->integer('total_jobs');
-            $table->integer('pending_jobs');
-            $table->integer('failed_jobs');
-            $table->longText('failed_job_ids');
-            $table->mediumText('options')->nullable();
-            $table->integer('cancelled_at')->nullable();
-            $table->integer('created_at');
-            $table->integer('finished_at')->nullable();
-        });
+            // Informasi utama lowongan
+            $table->string('title'); // Judul pekerjaan
+            $table->string('company_name'); // Nama perusahaan
+            $table->string('location'); // Lokasi kerja
+            $table->enum('job_type', ['Full Time', 'Part Time', 'Freelance', 'Internship']);
+            $table->string('salary')->nullable(); // Gaji (opsional)
 
-        Schema::create('failed_jobs', function (Blueprint $table) {
-            $table->id();
-            $table->string('uuid')->unique();
-            $table->text('connection');
-            $table->text('queue');
-            $table->longText('payload');
-            $table->longText('exception');
-            $table->timestamp('failed_at')->useCurrent();
+            // Detail pekerjaan
+            $table->text('description'); // Deskripsi pekerjaan
+            $table->text('requirements'); // Syarat pekerjaan
+            $table->text('responsibilities')->nullable(); // Tugas (opsional)
+
+            // Status
+            $table->boolean('is_active')->default(true);
+            $table->date('deadline')->nullable(); // Batas lamaran
+
+            // Relasi (opsional, kalau nanti ada user / admin)
+            $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
+
+            $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('jobs');
-        Schema::dropIfExists('job_batches');
-        Schema::dropIfExists('failed_jobs');
     }
 };
