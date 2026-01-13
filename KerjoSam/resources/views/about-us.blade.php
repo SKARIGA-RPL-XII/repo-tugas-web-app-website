@@ -35,7 +35,7 @@
     <!-- ================= NAVBAR ================= -->
     <nav class="w-full bg-white shadow-sm relative z-20">
         <div class="w-full px-8 md:px-16 py-4 flex items-center justify-between">
-            <div class="flex items-center gap-3"> <img src="/images/logo.png" alt="Logo" class="w-12 h-12 md:w-32 md:h-10 rounded-full object-cover" /> </div>
+            <div class="flex items-center gap-3"> <img src="/images/LogoWeb.png" alt="Logo" class="w-12 h-12 md:w-32 md:h-10 rounded-full object-cover" /> </div>
             <div class="flex items-center gap-6"> <!-- MENU KIRI -->
                 <ul class="hidden md:flex gap-8 text-sm text-gray-600">
                     <li class="hover:text-red-500 cursor-pointer">
@@ -72,7 +72,7 @@
                 </div>
                 <!-- RIGHT IMAGE -->
                 <div class="flex justify-center md:justify-end overflow-visible">
-                    <img src="/images/about/Overlay4.png" alt="Team Work" class="w-[420px] md:w-[640px] lg:w-[760px] object-contain"/>
+                    <img src="/images/about/Overlay4.png" alt="Team Work" class="w-[600px] md:w-[900px] lg:w-[1200px] object-contain"/>
                 </div>
             </div>
         </div>
@@ -100,27 +100,8 @@
                         </p>
                     </div>
                 </div>
-<<<<<<< HEAD
-
-                <!-- RIGHT ABOUT TEXT -->
-                <div class="">
-                    <h2 class="text-5xl md:text-7xl font-black leading-tight">
-                        <div class="text-red-500">ABOUT</div>
-                        <div class="flex items-center gap-3">
-                            <img src="/images/logo.png" alt="Logo" class="w-200 h-200 md:w-300 md:h-300 rounded-full object-cover" />
-                        </div>
-                    </h2>
-                </div>
-            </div>
-    </section>
-
-</body>
-
-</html>
-=======
             </div>
         </div>
     </section>
 </body>
 </html>
->>>>>>> c007a7c447d44ce22e1333ee30b263d66ed7689a

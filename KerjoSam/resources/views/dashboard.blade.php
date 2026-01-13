@@ -56,7 +56,7 @@
     <nav class="w-full bg-white shadow-sm relative z-10">
         <div class="w-full px-8 md:px-16 py-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <img src="/images/logo.png" alt="Logo" class="w-12 h-12 md:w-32 md:h-10 rounded-full object-cover"/>
+                <img src="/images/LogoWeb.png" alt="LogoWeb" class="w-12 h-12 md:w-32 md:h-10 rounded-full object-cover"/>
             </div>
 
             <div class="flex items-center gap-6">
@@ -326,7 +326,7 @@
         // Show success/error alerts
         document.addEventListener('DOMContentLoaded', function() {
             @if(session('success'))
-            showAlert('{{ session('success') }}');
+            showAlert('{{ session('success')}}');
             @endif
         });
 
