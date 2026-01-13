@@ -13,12 +13,13 @@
         }
     </style>
 </head>
+
 <body class="bg-gray-50" x-data="{ open: false, mode: 'login' }" @open-login-modal.window="open = true; mode = 'login'">
     <!-- NAVBAR -->
-    <nav class="w-full bg-white shadow-sm rounded-b-[50px] relative z-10">
+    <nav class="w-full bg-white shadow-sm  relative z-10">
         <div class="w-full px-8 md:px-16 py-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <img src="/images/logo.png" alt="Logo" class="w-12 h-12 md:w-10 md:h-10 rounded-full object-cover" />
+                <img src="/images/logo.png" alt="Logo" class="w-12 h-12 md:w-32 md:h-10 rounded-full object-cover" />
             </div>
 
             <div class="flex items-center gap-6">
@@ -169,8 +170,7 @@
                                     id="loginPassword"
                                     placeholder="Enter your password"
                                     class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 pr-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                                    required
-                                >
+                                    required>
                                 <svg class="w-5 h-5 text-gray-400 absolute left-3 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                                 </svg>
@@ -247,8 +247,7 @@
                                     id="registerPassword"
                                     placeholder="Create a password"
                                     class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 pr-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                                    required
-                                >
+                                    required>
                                 <svg class="w-5 h-5 text-gray-400 absolute left-3 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                                 </svg>
@@ -270,8 +269,7 @@
                                     id="confirmPassword"
                                     placeholder="Confirm your password"
                                     class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 pr-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                                    required
-                                >
+                                    required>
                                 <svg class="w-5 h-5 text-gray-400 absolute left-3 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                 </svg>
@@ -325,7 +323,7 @@
         <div class="absolute left-1/2 -bottom-20 transform -translate-x-1/2 w-full px-8 md:px-16 flex flex-col items-center gap-4">
             <!-- Search Bar -->
             <div class="bg-white rounded-full flex items-center px-4 py-2 shadow-lg w-full max-w-7xl">
-                <input type="text" placeholder="Search" class="flex-1 outline-none text-base text-gray-700"/>
+                <input type="text" placeholder="Search" class="flex-1 outline-none text-base text-gray-700" />
                 <button class="bg-red-500 text-white w-12 h-12 rounded-full flex items-center justify-center" aria-label="Search">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14z" />
@@ -419,8 +417,7 @@
                             <img
                                 src="https://ui-avatars.com/api/?name=Digital+Agency&background=3b82f6&color=fff"
                                 class="w-10 h-10 rounded-full"
-                                alt=""
-                            />
+                                alt="" />
                             <div>
                                 <h4 class="font-semibold text-gray-800">Digital Agency</h4>
                                 <p class="text-xs text-gray-500">Bandung, Indonesia</p>
@@ -454,8 +451,7 @@
                         </span>
                         <a
                             href="{{ route('job.detail', 2) }}"
-                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition"
-                        >
+                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition">
                             View Detail
                         </a>
                     </div>
@@ -468,8 +464,7 @@
                             <img
                                 src="https://ui-avatars.com/api/?name=StartupXYZ&background=10b981&color=fff"
                                 class="w-10 h-10 rounded-full"
-                                alt=""
-                            />
+                                alt="" />
                             <div>
                                 <h4 class="font-semibold text-gray-800">StartupXYZ</h4>
                                 <p class="text-xs text-gray-500">Surabaya, Indonesia</p>
@@ -503,8 +498,7 @@
                         </span>
                         <a
                             href="{{ route('job.detail', 3) }}"
-                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition"
-                        >
+                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition">
                             View Detail
                         </a>
                     </div>
@@ -537,7 +531,7 @@
         function togglePassword(inputId, iconId) {
             const input = document.getElementById(inputId);
             const icon = document.getElementById(iconId);
-            
+
             if (input.type === 'password') {
                 input.type = 'text';
                 icon.innerHTML = `

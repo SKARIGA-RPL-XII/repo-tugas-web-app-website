@@ -14,7 +14,7 @@
     <nav class="w-full bg-white shadow-sm rounded-b-[50px] relative z-10">
         <div class="container mx-auto px-4 md:px-6 lg:px-14 py-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <img src="/images/logo.png" alt="Logo" class="w-16 h-16 md:w-32 md:h-10 rounded-full object-cover" />
+                <img src="/images/logo.png" alt="Logo" class="w-16 h-16 md:w-24 md:h-10 rounded-full object-cover" />
             </div>
 
             <div class="flex items-center gap-6">
@@ -81,7 +81,7 @@
         </div>
 
         <!-- Search + Categories -->
-        <div class="absolute left-1/2 -bottom-20 transform -translate-x-1/2 w-full px-8 md:px-16 flex flex-col items-center gap-4">
+        <div class="absolute left-1/2 -bottom-20 sm-bottom-32 transform -translate-x-1/2 w-full px-8 md:px-16 flex flex-col items-center gap-4">
             <!-- Search Bar -->
             <div class="bg-white rounded-full flex items-center px-4 py-2 shadow-lg w-full max-w-7xl">
                 <input type="text" placeholder="Search jobs..." class="flex-1 outline-none text-base text-gray-700" />
