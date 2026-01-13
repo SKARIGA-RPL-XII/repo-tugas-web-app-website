@@ -325,9 +325,10 @@
 
         // Show success/error alerts
         document.addEventListener('DOMContentLoaded', function() {
-            @if(session('success'))
-            showAlert('{{ session('success')}}');
-            @endif
+            const successMessage = @json(session('success'));
+            if (successMessage) {
+                showAlert(successMessage);
+            }
         });
 
         // Show alert function
