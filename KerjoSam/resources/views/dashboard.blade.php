@@ -49,10 +49,10 @@
         </div>
     </div>
     <!-- NAVBAR -->
-    <nav class="w-full bg-white shadow-sm rounded-b-[50px] relative z-10">
-        <div class="container mx-auto px-4 md:px-6 lg:px-14 py-4 flex items-center justify-between">
+    <nav class="w-full bg-white shadow-sm relative z-10">
+        <div class="w-full px-8 md:px-16 py-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <img src="/images/logo.png" alt="Logo" class="w-16 h-16 md:w-32 md:h-10 rounded-full object-cover" />
+                <img src="/images/logo.png" alt="Logo" class="w-12 h-12 md:w-32 md:h-10 rounded-full object-cover"/>
             </div>
 
             <div class="flex items-center gap-6">
@@ -119,7 +119,7 @@
         </div>
 
         <!-- Search + Categories -->
-        <div class="absolute left-1/2 -bottom-20 transform -translate-x-1/2 w-full px-8 md:px-16 flex flex-col items-center gap-4" style="z-index: 40;">
+        <div class="absolute left-1/2 -bottom-32 md:-bottom-20 transform -translate-x-1/2 w-full px-8 md:px-16 flex flex-col items-center gap-4 z-40">
             <!-- Search Bar -->
             <div class="bg-white rounded-full flex items-center px-4 py-2 shadow-lg w-full max-w-7xl">
                 <input type="text" id="searchInput" placeholder="Search jobs..." class="flex-1 outline-none text-base text-gray-700" onkeyup="searchJobs()"/>
@@ -131,7 +131,7 @@
             </div>
 
             <!-- Category Buttons -->
-            <div class="flex flex-wrap justify-center gap-3">
+            <div class="flex flex-wrap justify-center gap-4">
                 <button onclick="filterByCategory('all')" class="category-btn active px-4 py-2 bg-white backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">All</button>
                 <button onclick="filterByCategory('ui-ux')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">UI/UX</button>
                 <button onclick="filterByCategory('frontend')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">Frontend</button>
@@ -142,7 +142,7 @@
     </section>
 
     <!-- JOB LIST SECTION -->
-    <section class="relative pt-36 pb-20">
+    <section class="relative pt-48 md:pt-36 pb-20">
         <div class="w-full px-8 md:px-16">
             <!-- Section Title -->
             <div class="mb-12 text-center">
@@ -360,8 +360,6 @@
 
         // Filter by category function
         function filterByCategory(category) {
-            alert('Button clicked: ' + category);
-
             const jobCards = document.querySelectorAll('.job-card');
             const categoryBtns = document.querySelectorAll('.category-btn');
 
