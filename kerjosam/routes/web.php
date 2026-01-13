@@ -32,3 +32,7 @@ Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/history', function () {
     return view('history');
 })->name('history')->middleware('auth');
+
+Route::get('/profile', function () {
+    return view('profileuser');
+});
