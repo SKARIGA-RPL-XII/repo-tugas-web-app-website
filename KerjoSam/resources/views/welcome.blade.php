@@ -144,7 +144,7 @@
             x-transition:leave-start="scale-100 opacity-100"
             x-transition:leave-end="scale-95 opacity-0">
             <!-- Header -->
-            <!-- <div class="bg-gradient-to-r from-red-500 to-red-600 px-6 py-4 text-white relative">
+            <div class="bg-gradient-to-r from-red-500 to-red-600 px-6 py-4 text-white relative">
                 <button
                     class="absolute top-4 right-4 text-white/80 hover:text-white transition-colors"
                     @click="open = false">
@@ -168,7 +168,7 @@
                         Register
                     </button>
                 </div>
-            </div> -->
+            </div>
 
             <!-- Form Content -->
             <div class="p-6">
@@ -546,7 +546,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+</div>
     </section>
 
     <script>

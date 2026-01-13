@@ -28,3 +28,6 @@ Route::get('/profile', [AuthController::class, 'profile'])->name('profile')->mid
 
 // Job Routes
 Route::get('/job/{id}', [JobController::class, 'show'])->name('job.detail')->middleware('auth');
+Route::get('/welcome', function(){
+    return view('welcome');
+});
