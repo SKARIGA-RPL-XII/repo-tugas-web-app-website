@@ -4,17 +4,46 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Navbar & Banner</title>
+    <title>KerjoSam | Sistem Mencari Lowongan Online</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <style>
-        [x-cloak] {
-            display: none !important;
+        [x-cloak] { display: none !important; }
+        .category-btn.active {
+            background: white !important;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+        .category-btn {
+            cursor: pointer !important;
+            pointer-events: auto !important;
+            z-index: 100 !important;
+            position: relative !important;
+            display: inline-block !important;
+        }
+        .category-btn:hover {
+            cursor: pointer !important;
         }
     </style>
 </head>
 
 <body class="bg-gray-50" x-data="{ open: false, mode: 'login' }" @open-login-modal.window="open = true; mode = 'login'">
+    <!-- Success Alert -->
+    <div id="successAlert" class="fixed top-4 right-4 z-50 max-w-sm w-full bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg hidden">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center">
+                <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span id="alertMessage" class="font-medium"></span>
+            </div>
+            <button onclick="hideAlert()" class="ml-4 text-white hover:text-gray-200">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
     <!-- NAVBAR -->
     <nav class="w-full bg-white shadow-sm  relative z-10">
         <div class="w-full px-8 md:px-16 py-4 flex items-center justify-between">
@@ -320,11 +349,11 @@
         </div>
 
         <!-- Search + Categories floating di bawah banner (center) -->
-        <div class="absolute left-1/2 -bottom-20 transform -translate-x-1/2 w-full px-8 md:px-16 flex flex-col items-center gap-4">
+        <div class="absolute left-1/2 -bottom-20 transform -translate-x-1/2 w-full px-8 md:px-16 flex flex-col items-center gap-4" style="z-index: 50;">
             <!-- Search Bar -->
             <div class="bg-white rounded-full flex items-center px-4 py-2 shadow-lg w-full max-w-7xl">
-                <input type="text" placeholder="Search" class="flex-1 outline-none text-base text-gray-700" />
-                <button class="bg-red-500 text-white w-12 h-12 rounded-full flex items-center justify-center" aria-label="Search">
+                <input type="text" id="searchInput" placeholder="Search jobs..." class="flex-1 outline-none text-base text-gray-700" onkeyup="searchJobs()"/>
+                <button onclick="searchJobs()" class="bg-red-500 text-white w-12 h-12 rounded-full flex items-center justify-center" aria-label="Search">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14z" />
                     </svg>
@@ -332,11 +361,12 @@
             </div>
 
             <!-- Category Buttons -->
-            <div class="flex flex-wrap justify-center gap-3">
-                <button class="px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">UI/UX</button>
-                <button class="px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">Frontend</button>
-                <button class="px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">Backend</button>
-                <button class="px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">Finance</button>
+            <div class="flex flex-wrap justify-center gap-3" style="z-index: 60;">
+                <button onclick="alert('All clicked')" class="category-btn active px-4 py-2 bg-white backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300" style="z-index: 70;">All</button>
+                <button onclick="alert('UI/UX clicked')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300" style="z-index: 70;">UI/UX</button>
+                <button onclick="alert('Frontend clicked')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300" style="z-index: 70;">Frontend</button>
+                <button onclick="alert('Backend clicked')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300" style="z-index: 70;">Backend</button>
+                <button onclick="alert('Finance clicked')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300" style="z-index: 70;">Finance</button>
             </div>
         </div>
     </section>
@@ -356,9 +386,9 @@
             </div>
 
             <!-- Job Cards -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div id="jobCards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Card 1 -->
-                <div class="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between">
+                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between" data-category="frontend" data-title="Frontend Developer" data-company="Tech Corp">
                     <div>
                         <!-- Company -->
                         <div class="flex items-center gap-3 mb-4">
@@ -411,7 +441,7 @@
                 </div>
 
                 <!-- Card 2 -->
-                <div class="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between">
+                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between" data-category="ui-ux" data-title="UI/UX Designer" data-company="Digital Agency">
                     <div>
                         <div class="flex items-center gap-3 mb-4">
                             <img
@@ -458,7 +488,7 @@
                 </div>
 
                 <!-- Card 3 -->
-                <div class="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between">
+                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between" data-category="backend" data-title="Backend Developer" data-company="StartupXYZ">
                     <div>
                         <div class="flex items-center gap-3 mb-4">
                             <img
@@ -522,10 +552,91 @@
         // Auto open login modal if redirected from auth middleware
         document.addEventListener('DOMContentLoaded', function() {
             if (window.location.hash === '#login') {
-                // Use Alpine.js to open modal
                 window.dispatchEvent(new CustomEvent('open-login-modal'));
             }
+
+            // Show success message
+            @if(session('success'))
+                showAlert('{{ session('success') }}');
+                // Auto open login modal after successful registration
+                @if(str_contains(session('success'), 'Registrasi berhasil'))
+                    setTimeout(() => {
+                        document.querySelector('[x-data]').__x.$data.open = true;
+                        document.querySelector('[x-data]').__x.$data.mode = 'login';
+                    }, 1000);
+                @endif
+            @endif
         });
+
+        // Show alert function
+        function showAlert(message) {
+            const alert = document.getElementById('successAlert');
+            const messageEl = document.getElementById('alertMessage');
+            messageEl.textContent = message;
+            alert.classList.remove('hidden');
+
+            setTimeout(() => {
+                alert.classList.add('hidden');
+            }, 5000);
+        }
+
+        function hideAlert() {
+            document.getElementById('successAlert').classList.add('hidden');
+        }
+
+        // Search jobs function
+        function searchJobs() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const jobCards = document.querySelectorAll('.job-card');
+
+            console.log('Search term:', searchTerm);
+            console.log('Found cards:', jobCards.length);
+
+            jobCards.forEach(card => {
+                const title = card.getAttribute('data-title')?.toLowerCase() || '';
+                const company = card.getAttribute('data-company')?.toLowerCase() || '';
+
+                console.log('Card:', title, company);
+
+                if (searchTerm === '' || title.includes(searchTerm) || company.includes(searchTerm)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Filter by category function
+        function filterByCategory(category) {
+            alert('Button clicked: ' + category);
+
+            const jobCards = document.querySelectorAll('.job-card');
+            const categoryBtns = document.querySelectorAll('.category-btn');
+
+            console.log('Filter category:', category);
+            console.log('Found cards:', jobCards.length);
+
+            // Update active button
+            categoryBtns.forEach(btn => {
+                btn.classList.remove('active');
+                const btnText = btn.textContent.toLowerCase().replace('/', '-');
+                if (btnText === category || (category === 'all' && btn.textContent === 'All')) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Filter cards
+            jobCards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                console.log('Card category:', cardCategory);
+
+                if (category === 'all' || cardCategory === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
 
         // Toggle password visibility
         function togglePassword(inputId, iconId) {

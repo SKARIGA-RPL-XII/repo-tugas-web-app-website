@@ -4,12 +4,42 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard - KerjoSam</title>
+    <title>KerjoSam | Sistem Mencari Lowongan Online</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        [x-cloak] { display: none !important; }
+        .category-btn.active {
+            background: white !important;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+        .category-btn {
+            cursor: pointer;
+            pointer-events: auto;
+            z-index: 10;
+            position: relative;
+        }
+    </style>
 </head>
 
 <body class="bg-gray-50">
+    <!-- Success Alert -->
+    <div id="successAlert" class="fixed top-4 right-4 z-50 max-w-sm w-full bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg hidden">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center">
+                <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span id="alertMessage" class="font-medium"></span>
+            </div>
+            <button onclick="hideAlert()" class="ml-4 text-white hover:text-gray-200">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
     <!-- NAVBAR -->
     <nav class="w-full bg-white shadow-sm rounded-b-[50px] relative z-10">
         <div class="container mx-auto px-4 md:px-6 lg:px-14 py-4 flex items-center justify-between">
@@ -84,8 +114,8 @@
         <div class="absolute left-1/2 -bottom-20 sm-bottom-32 transform -translate-x-1/2 w-full px-8 md:px-16 flex flex-col items-center gap-4">
             <!-- Search Bar -->
             <div class="bg-white rounded-full flex items-center px-4 py-2 shadow-lg w-full max-w-7xl">
-                <input type="text" placeholder="Search jobs..." class="flex-1 outline-none text-base text-gray-700" />
-                <button class="bg-red-500 text-white w-12 h-12 rounded-full flex items-center justify-center" aria-label="Search">
+                <input type="text" id="searchInput" placeholder="Search jobs..." class="flex-1 outline-none text-base text-gray-700" onkeyup="searchJobs()"/>
+                <button onclick="searchJobs()" class="bg-red-500 text-white w-12 h-12 rounded-full flex items-center justify-center" aria-label="Search">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14z" />
                     </svg>
@@ -94,10 +124,11 @@
 
             <!-- Category Buttons -->
             <div class="flex flex-wrap justify-center gap-3">
-                <button class="px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">UI/UX</button>
-                <button class="px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">Frontend</button>
-                <button class="px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">Backend</button>
-                <button class="px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">Finance</button>
+                <button onclick="filterByCategory('all')" class="category-btn active px-4 py-2 bg-white backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">All</button>
+                <button onclick="filterByCategory('ui-ux')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">UI/UX</button>
+                <button onclick="filterByCategory('frontend')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">Frontend</button>
+                <button onclick="filterByCategory('backend')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">Backend</button>
+                <button onclick="filterByCategory('finance')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">Finance</button>
             </div>
         </div>
     </section>
@@ -105,7 +136,6 @@
     <!-- JOB LIST SECTION -->
     <section class="relative pt-36 pb-20">
         <div class="w-full px-8 md:px-16">
-
             <!-- Section Title -->
             <div class="mb-12 text-center">
                 <h2 class="text-2xl md:text-3xl font-bold text-gray-800">
@@ -119,7 +149,7 @@
             <!-- Job Cards -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Card 1 -->
-                <div class="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between">
+                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between" data-category="frontend" data-title="Frontend Developer" data-company="Tech Corp">
                     <div>
                         <!-- Company -->
                         <div class="flex items-center gap-3 mb-4">
@@ -172,7 +202,7 @@
                 </div>
 
                 <!-- Card 2 -->
-                <div class="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between">
+                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between" data-category="ui-ux" data-title="UI/UX Designer" data-company="Digital Agency">
                     <div>
                         <div class="flex items-center gap-3 mb-4">
                             <img
@@ -219,7 +249,7 @@
                 </div>
 
                 <!-- Card 3 -->
-                <div class="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between">
+                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between" data-category="backend" data-title="Backend Developer" data-company="StartupXYZ">
                     <div>
                         <div class="flex items-center gap-3 mb-4">
                             <img
@@ -279,6 +309,74 @@
                 dropdown.classList.add('hidden');
             }
         });
+
+        // Show success/error alerts
+        document.addEventListener('DOMContentLoaded', function() {
+            @if(session('success'))
+                showAlert('{{ session('success') }}');
+            @endif
+        });
+
+        // Show alert function
+        function showAlert(message) {
+            const alert = document.getElementById('successAlert');
+            const messageEl = document.getElementById('alertMessage');
+            messageEl.textContent = message;
+            alert.classList.remove('hidden');
+
+            setTimeout(() => {
+                alert.classList.add('hidden');
+            }, 5000);
+        }
+
+        function hideAlert() {
+            document.getElementById('successAlert').classList.add('hidden');
+        }
+
+        // Search jobs function
+        function searchJobs() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const jobCards = document.querySelectorAll('.job-card');
+
+            jobCards.forEach(card => {
+                const title = card.getAttribute('data-title')?.toLowerCase() || '';
+                const company = card.getAttribute('data-company')?.toLowerCase() || '';
+
+                if (searchTerm === '' || title.includes(searchTerm) || company.includes(searchTerm)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Filter by category function
+        function filterByCategory(category) {
+            alert('Button clicked: ' + category);
+
+            const jobCards = document.querySelectorAll('.job-card');
+            const categoryBtns = document.querySelectorAll('.category-btn');
+
+            // Update active button
+            categoryBtns.forEach(btn => {
+                btn.classList.remove('active');
+                const btnText = btn.textContent.toLowerCase().replace('/', '-');
+                if (btnText === category || (category === 'all' && btn.textContent === 'All')) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Filter cards
+            jobCards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+
+                if (category === 'all' || cardCategory === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
     </script>
 </body>
 
