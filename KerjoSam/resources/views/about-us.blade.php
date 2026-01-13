@@ -90,7 +90,7 @@
                 </div>
 
                 <!-- RIGHT ABOUT TEXT -->
-                <div class="relative text-center md:text-right">
+                <div class="">
                     <h2 class="text-5xl md:text-7xl font-black leading-tight">
                         <div class="text-red-500">ABOUT</div>
                         <div class="flex items-center gap-3">
