@@ -50,7 +50,7 @@
     <nav class="w-full bg-white shadow-sm relative z-10">
         <div class="w-full px-8 md:px-16 py-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <img src="/images/logo.png" alt="Logo" class="w-12 h-12 md:w-32 md:h-10 rounded-full object-cover"/>
+                <img src="/images/LogoWeb.png" alt="Logo" class="w-12 h-12 md:w-32 md:h-10 rounded-full object-cover"/>
             </div>
 
             <div class="flex items-center gap-6">
@@ -60,7 +60,7 @@
                         <a href="/dashboard">Home</a>
                     </li>
                     <li class="hover:text-red-500 cursor-pointer">
-                        <a href="#jobs">History</a>
+                        <a href="{{ route('history') }}">History</a>
                     </li>
                     <li class="hover:text-red-500 cursor-pointer">
                         <a href="{{ route('about') }}">About</a>

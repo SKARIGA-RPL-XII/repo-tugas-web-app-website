@@ -3,19 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>About | KerjoSam</title>
+    <title>KerjoSam | Sistem Mencari Lowongan Online</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
         .bg-about {
             background-image: url('/images/about/Overlay1.png');
             background-size: cover;
@@ -35,14 +26,16 @@
     <!-- ================= NAVBAR ================= -->
     <nav class="w-full bg-white shadow-sm relative z-20">
         <div class="w-full px-8 md:px-16 py-4 flex items-center justify-between">
-            <div class="flex items-center gap-3"> <img src="/images/logo.png" alt="Logo" class="w-12 h-12 md:w-32 md:h-10 rounded-full object-cover" /> </div>
+            <div class="flex items-center gap-3">
+                <img src="/images/LogoWeb.png" alt="Logo" class="w-12 h-12 md:w-32 md:h-10 rounded-full object-cover" />
+            </div>
             <div class="flex items-center gap-6"> <!-- MENU KIRI -->
                 <ul class="hidden md:flex gap-8 text-sm text-gray-600">
                     <li class="hover:text-red-500 cursor-pointer">
                         <a href="/dashboard">Home</a>
                     </li>
                     <li class="hover:text-red-500 cursor-pointer">
-                        <a href="#jobs">Jobs</a>
+                        <a href="{{ route('history') }}">History</a>
                     </li>
                     <li class="hover:text-red-500 cursor-pointer">
                         <a href="{{ route('about') }}">About</a>

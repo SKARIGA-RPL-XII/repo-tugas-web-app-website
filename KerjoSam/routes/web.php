@@ -29,3 +29,6 @@ Route::get('/profile', [AuthController::class, 'profile'])->name('profile')->mid
 Route::get('/job/{id}', [JobController::class, 'show'])->name('job.detail')->middleware('auth');
 
 Route::get('/about', [AboutController::class, 'index'])->name('about');
+Route::get('/history', function () {
+    return view('history');
+})->name('history')->middleware('auth');
