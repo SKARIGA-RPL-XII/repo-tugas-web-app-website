@@ -17,12 +17,20 @@
         .category-btn {
             cursor: pointer !important;
             pointer-events: auto !important;
-            z-index: 100 !important;
+            z-index: 40 !important;
             position: relative !important;
             display: inline-block !important;
         }
         .category-btn:hover {
             cursor: pointer !important;
+        }
+        /* Hide scrollbars */
+        * {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        *::-webkit-scrollbar {
+            display: none;
         }
     </style>
 </head>
@@ -44,13 +52,13 @@
             </button>
         </div>
     </div>
+
     <!-- NAVBAR -->
-    <nav class="w-full bg-white shadow-sm  relative z-10">
+    <nav class="w-full bg-white shadow-sm relative z-10">
         <div class="w-full px-8 md:px-16 py-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <img src="/images/logo.png" alt="Logo" class="w-12 h-12 md:w-32 md:h-10 rounded-full object-cover" />
+                <img src="/images/LogoWeb.png" alt="Logo" class="w-12 h-12 md:w-32 md:h-10 rounded-full object-cover"/>
             </div>
-
             <div class="flex items-center gap-6">
                 {{-- MENU KIRI --}}
                 <ul class="hidden md:flex gap-8 text-sm text-gray-600">
@@ -178,12 +186,7 @@
                         <div class="space-y-1">
                             <label class="text-sm font-medium text-gray-700">Email Address</label>
                             <div class="relative">
-                                <input
-                                    type="email"
-                                    name="email"
-                                    placeholder="Enter your email"
-                                    class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                                    required>
+                                <input type="email" name="email" placeholder="Enter your email" class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors" required>
                                 <svg class="w-5 h-5 text-gray-400 absolute left-3 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"></path>
                                 </svg>
@@ -193,13 +196,7 @@
                         <div class="space-y-1">
                             <label class="text-sm font-medium text-gray-700">Password</label>
                             <div class="relative">
-                                <input
-                                    type="password"
-                                    name="password"
-                                    id="loginPassword"
-                                    placeholder="Enter your password"
-                                    class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 pr-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                                    required>
+                                <input type="password" name="password" id="loginPassword" placeholder="Enter your password" class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 pr-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors" required>
                                 <svg class="w-5 h-5 text-gray-400 absolute left-3 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                                 </svg>
@@ -220,9 +217,7 @@
                             <a href="#" class="text-red-600 hover:text-red-700 font-medium">Forgot password?</a>
                         </div>
 
-                        <button
-                            type="submit"
-                            class="w-full bg-gradient-to-r from-red-500 to-red-600 text-white py-3 rounded-lg font-medium hover:from-red-600 hover:to-red-700 transform hover:scale-[1.02] transition-all duration-200 shadow-lg">
+                        <button type="submit" class="w-full bg-gradient-to-r from-red-500 to-red-600 text-white py-3 rounded-lg font-medium hover:from-red-600 hover:to-red-700 transform hover:scale-[1.02] transition-all duration-200 shadow-lg">
                             Sign In
                         </button>
                     </form>
@@ -240,12 +235,7 @@
                         <div class="space-y-1">
                             <label class="text-sm font-medium text-gray-700">Full Name</label>
                             <div class="relative">
-                                <input
-                                    type="text"
-                                    name="name"
-                                    placeholder="Enter your full name"
-                                    class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                                    required>
+                                <input type="text" name="name" placeholder="Enter your full name" class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors" required>
                                 <svg class="w-5 h-5 text-gray-400 absolute left-3 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                                 </svg>
@@ -255,12 +245,7 @@
                         <div class="space-y-1">
                             <label class="text-sm font-medium text-gray-700">Email Address</label>
                             <div class="relative">
-                                <input
-                                    type="email"
-                                    name="email"
-                                    placeholder="Enter your email"
-                                    class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                                    required>
+                                <input type="email" name="email" placeholder="Enter your email" class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors" required>
                                 <svg class="w-5 h-5 text-gray-400 absolute left-3 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"></path>
                                 </svg>
@@ -270,13 +255,7 @@
                         <div class="space-y-1">
                             <label class="text-sm font-medium text-gray-700">Password</label>
                             <div class="relative">
-                                <input
-                                    type="password"
-                                    name="password"
-                                    id="registerPassword"
-                                    placeholder="Create a password"
-                                    class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 pr-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                                    required>
+                                <input type="password" name="password" id="registerPassword" placeholder="Create a password" class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 pr-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors" required>
                                 <svg class="w-5 h-5 text-gray-400 absolute left-3 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                                 </svg>
@@ -292,13 +271,7 @@
                         <div class="space-y-1">
                             <label class="text-sm font-medium text-gray-700">Confirm Password</label>
                             <div class="relative">
-                                <input
-                                    type="password"
-                                    name="password_confirmation"
-                                    id="confirmPassword"
-                                    placeholder="Confirm your password"
-                                    class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 pr-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                                    required>
+                                <input type="password" name="password_confirmation" id="confirmPassword" placeholder="Confirm your password" class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 pr-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors" required>
                                 <svg class="w-5 h-5 text-gray-400 absolute left-3 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                 </svg>
@@ -319,10 +292,7 @@
                                 </span>
                             </label>
                         </div>
-
-                        <button
-                            type="submit"
-                            class="w-full bg-gradient-to-r from-red-500 to-red-600 text-white py-3 rounded-lg font-medium hover:from-red-600 hover:to-red-700 transform hover:scale-[1.02] transition-all duration-200 shadow-lg">
+                        <button type="submit" class="w-full bg-gradient-to-r from-red-500 to-red-600 text-white py-3 rounded-lg font-medium hover:from-red-600 hover:to-red-700 transform hover:scale-[1.02] transition-all duration-200 shadow-lg">
                             Create Account
                         </button>
                     </form>
@@ -334,10 +304,9 @@
     <section class="relative -mt-12 pb-20">
         <!-- Background -->
         <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d" class="w-full h-full object-cover" alt="" />
+            <img src="/images/about/Overlay6.png" class="w-full h-full object-cover" alt="" />
             <div class="absolute inset-0 bg-gradient-to-r from-red-600/90 to-red-400/70"></div>
         </div>
-
         <!-- Content (judul & deskripsi) -->
         <div class="relative w-full px-8 md:px-16 py-24 text-white text-left">
             <h1 class="text-4xl md:text-5xl font-bold leading-tight">
@@ -349,7 +318,7 @@
         </div>
 
         <!-- Search + Categories floating di bawah banner (center) -->
-        <div class="absolute left-1/2 -bottom-20 transform -translate-x-1/2 w-full px-8 md:px-16 flex flex-col items-center gap-4" style="z-index: 50;">
+        <div class="absolute left-1/2 -bottom-32 md:-bottom-20 transform -translate-x-1/2 w-full px-8 md:px-16 flex flex-col items-center gap-4 z-40">
             <!-- Search Bar -->
             <div class="bg-white rounded-full flex items-center px-4 py-2 shadow-lg w-full max-w-7xl">
                 <input type="text" id="searchInput" placeholder="Search jobs..." class="flex-1 outline-none text-base text-gray-700" onkeyup="searchJobs()"/>
@@ -361,20 +330,23 @@
             </div>
 
             <!-- Category Buttons -->
-            <div class="flex flex-wrap justify-center gap-3" style="z-index: 60;">
-                <button onclick="alert('All clicked')" class="category-btn active px-4 py-2 bg-white backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300" style="z-index: 70;">All</button>
-                <button onclick="alert('UI/UX clicked')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300" style="z-index: 70;">UI/UX</button>
-                <button onclick="alert('Frontend clicked')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300" style="z-index: 70;">Frontend</button>
-                <button onclick="alert('Backend clicked')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300" style="z-index: 70;">Backend</button>
-                <button onclick="alert('Finance clicked')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300" style="z-index: 70;">Finance</button>
+            <div class="flex flex-wrap justify-center gap-3">
+                <button onclick="filterByCategory('all')" class="category-btn active px-4 py-2 bg-white backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">All</button>
+                <button onclick="filterByCategory('ui-ux')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">UI/UX</button>
+                <button onclick="filterByCategory('frontend')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">Frontend</button>
+                <button onclick="filterByCategory('backend')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">Backend</button>
+                <button onclick="filterByCategory('finance')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">Finance</button>
             </div>
         </div>
     </section>
 
     <!-- JOB LIST SECTION -->
-    <section class="relative pt-36 pb-20">
-        <div class="w-full px-8 md:px-16">
-
+    <section class="relative pt-48 md:pt-36 pb-20">
+        <!-- Overlay Left -->
+        <img src="/images/about/Overlay5.png" alt="" class="absolute left-0 top-0 h-full object-cover opacity-40 pointer-events-none">
+        <!-- Overlay Right -->
+        <img src="/images/about/Overlay5.png" alt="" class="absolute right-0 top-0 h-full object-cover opacity-40 pointer-events-none scale-x-[-1]">
+        <div class="relative z-10 w-full px-8 md:px-16">
             <!-- Section Title -->
             <div class="mb-12 text-center">
                 <h2 class="text-2xl md:text-3xl font-bold text-gray-800">
@@ -383,6 +355,317 @@
                 <p class="text-gray-500 text-sm mt-2">
                     Find jobs that match your skills and interests
                 </p>
+            </div>
+
+            <!-- Job Cards -->
+            <div id="jobCards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                <!-- Card 1 -->
+                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between" data-category="frontend" data-title="Frontend Developer" data-company="Tech Corp">
+                    <div>
+                        <!-- Company -->
+                        <div class="flex items-center gap-3 mb-4">
+                            <img
+                                src="https://ui-avatars.com/api/?name=Tech+Corp&background=ef4444&color=fff"
+                                class="w-10 h-10 rounded-full"
+                                alt=""
+                            />
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Tech Corp</h4>
+                                <p class="text-xs text-gray-500">Jakarta, Indonesia</p>
+                            </div>
+                        </div>
+
+                        <!-- Job Title -->
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">
+                            Frontend Developer
+                        </h3>
+
+                        <!-- Description -->
+                        <p class="text-sm text-gray-600 line-clamp-3 mb-4">
+                            We are looking for a Frontend Developer experienced in
+                            HTML, CSS, JavaScript, and modern frameworks.
+                        </p>
+
+                        <!-- Tags -->
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 text-xs rounded-full bg-red-100 text-red-600">
+                                Frontend
+                            </span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-blue-100 text-blue-600">
+                                Full Time
+                            </span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-green-100 text-green-600">
+                                Remote
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="mt-6 flex items-center justify-between">
+                        <span class="text-sm font-medium text-gray-700">
+                            Rp 6 – 10 Juta
+                        </span>
+                        <a
+                            href="{{ route('job.detail', 1) }}"
+                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition"
+                        >
+                            View Detail
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between" data-category="ui-ux" data-title="UI/UX Designer" data-company="Digital Agency">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <img
+                                src="https://ui-avatars.com/api/?name=Digital+Agency&background=3b82f6&color=fff"
+                                class="w-10 h-10 rounded-full"
+                                alt=""
+                            />
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Digital Agency</h4>
+                                <p class="text-xs text-gray-500">Bandung, Indonesia</p>
+                            </div>
+                        </div>
+
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">
+                            UI/UX Designer
+                        </h3>
+
+                        <p class="text-sm text-gray-600 line-clamp-3 mb-4">
+                            Looking for creative UI/UX Designer to join our team and create amazing user experiences.
+                        </p>
+
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 text-xs rounded-full bg-purple-100 text-purple-600">
+                                UI/UX
+                            </span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-blue-100 text-blue-600">
+                                Full Time
+                            </span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-yellow-100 text-yellow-600">
+                                On-site
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 flex items-center justify-between">
+                        <span class="text-sm font-medium text-gray-700">
+                            Rp 5 – 8 Juta
+                        </span>
+                        <a
+                            href="{{ route('job.detail', 2) }}"
+                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition"
+                        >
+                            View Detail
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between" data-category="backend" data-title="Backend Developer" data-company="StartupXYZ">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <img
+                                src="https://ui-avatars.com/api/?name=StartupXYZ&background=10b981&color=fff"
+                                class="w-10 h-10 rounded-full"
+                                alt=""
+                            />
+                            <div>
+                                <h4 class="font-semibold text-gray-800">StartupXYZ</h4>
+                                <p class="text-xs text-gray-500">Surabaya, Indonesia</p>
+                            </div>
+                        </div>
+
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">
+                            Backend Developer
+                        </h3>
+
+                        <p class="text-sm text-gray-600 line-clamp-3 mb-4">
+                            Join our backend team to build scalable applications using modern technologies.
+                        </p>
+
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 text-xs rounded-full bg-green-100 text-green-600">
+                                Backend
+                            </span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-blue-100 text-blue-600">
+                                Full Time
+                            </span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-green-100 text-green-600">
+                                Remote
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 flex items-center justify-between">
+                        <span class="text-sm font-medium text-gray-700">
+                            Rp 8 – 12 Juta
+                        </span>
+                        <a
+                            href="{{ route('job.detail', 3) }}"
+                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition"
+                        >
+                            View Detail
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="jobCards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 my-12">
+                <!-- Card 1 -->
+                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between" data-category="frontend" data-title="Frontend Developer" data-company="Tech Corp">
+                    <div>
+                        <!-- Company -->
+                        <div class="flex items-center gap-3 mb-4">
+                            <img
+                                src="https://ui-avatars.com/api/?name=Tech+Corp&background=ef4444&color=fff"
+                                class="w-10 h-10 rounded-full"
+                                alt=""
+                            />
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Tech Corp</h4>
+                                <p class="text-xs text-gray-500">Jakarta, Indonesia</p>
+                            </div>
+                        </div>
+
+                        <!-- Job Title -->
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">
+                            Frontend Developer
+                        </h3>
+
+                        <!-- Description -->
+                        <p class="text-sm text-gray-600 line-clamp-3 mb-4">
+                            We are looking for a Frontend Developer experienced in
+                            HTML, CSS, JavaScript, and modern frameworks.
+                        </p>
+
+                        <!-- Tags -->
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 text-xs rounded-full bg-red-100 text-red-600">
+                                Frontend
+                            </span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-blue-100 text-blue-600">
+                                Full Time
+                            </span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-green-100 text-green-600">
+                                Remote
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="mt-6 flex items-center justify-between">
+                        <span class="text-sm font-medium text-gray-700">
+                            Rp 6 – 10 Juta
+                        </span>
+                        <a
+                            href="{{ route('job.detail', 1) }}"
+                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition"
+                        >
+                            View Detail
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between" data-category="ui-ux" data-title="UI/UX Designer" data-company="Digital Agency">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <img
+                                src="https://ui-avatars.com/api/?name=Digital+Agency&background=3b82f6&color=fff"
+                                class="w-10 h-10 rounded-full"
+                                alt=""
+                            />
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Digital Agency</h4>
+                                <p class="text-xs text-gray-500">Bandung, Indonesia</p>
+                            </div>
+                        </div>
+
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">
+                            UI/UX Designer
+                        </h3>
+
+                        <p class="text-sm text-gray-600 line-clamp-3 mb-4">
+                            Looking for creative UI/UX Designer to join our team and create amazing user experiences.
+                        </p>
+
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 text-xs rounded-full bg-purple-100 text-purple-600">
+                                UI/UX
+                            </span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-blue-100 text-blue-600">
+                                Full Time
+                            </span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-yellow-100 text-yellow-600">
+                                On-site
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 flex items-center justify-between">
+                        <span class="text-sm font-medium text-gray-700">
+                            Rp 5 – 8 Juta
+                        </span>
+                        <a
+                            href="{{ route('job.detail', 2) }}"
+                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition"
+                        >
+                            View Detail
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between" data-category="backend" data-title="Backend Developer" data-company="StartupXYZ">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <img
+                                src="https://ui-avatars.com/api/?name=StartupXYZ&background=10b981&color=fff"
+                                class="w-10 h-10 rounded-full"
+                                alt=""
+                            />
+                            <div>
+                                <h4 class="font-semibold text-gray-800">StartupXYZ</h4>
+                                <p class="text-xs text-gray-500">Surabaya, Indonesia</p>
+                            </div>
+                        </div>
+
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">
+                            Backend Developer
+                        </h3>
+
+                        <p class="text-sm text-gray-600 line-clamp-3 mb-4">
+                            Join our backend team to build scalable applications using modern technologies.
+                        </p>
+
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 text-xs rounded-full bg-green-100 text-green-600">
+                                Backend
+                            </span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-blue-100 text-blue-600">
+                                Full Time
+                            </span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-green-100 text-green-600">
+                                Remote
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 flex items-center justify-between">
+                        <span class="text-sm font-medium text-gray-700">
+                            Rp 8 – 12 Juta
+                        </span>
+                        <a
+                            href="{{ route('job.detail', 3) }}"
+                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition"
+                        >
+                            View Detail
+                        </a>
+                    </div>
+                </div>
             </div>
 
             <!-- Job Cards -->
@@ -537,6 +820,88 @@
         </div>
     </section>
 
+    <!-- CTA SECTION -->
+    <section class="relative overflow-hidden">
+        <img src="/images/about/Overlay6.png" alt="" class="absolute inset-0 w-full h-full object-cover"/>
+        <!-- Overlay merah biar teks kebaca -->
+        <div class="absolute inset-0 bg-red-600/80"></div>
+        <div class="relative z-10 w-full px-8 md:px-16 py-12 md:py-16 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="text-white text-center md:text-left">
+                <h2 class="text-2xl md:text-3xl font-bold mb-2">
+                    Kita ada Untuk Kalian
+                </h2>
+                <p class="text-white/90">
+                    Ayo Mulai Golek Kerjo Rek!, Cek Ndang Rabi
+                </p>
+            </div>
+
+            <a href="/dashboard" class="bg-white text-red-600 font-semibold px-8 py-4 rounded-2xl hover:bg-red-50 transition">
+                Cari Kerja !
+            </a>
+        </div>
+    </section>
+
+    <footer class="bg-white border-t">
+        <div class="w-full px-4 md:px-8 lg:px-16 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Logo -->
+                <div class="md:col-span-1">
+                    <img src="/images/about/Overlay3.png" alt="KerjoSam Logo" class="h-20 w-auto mb-4">
+                </div>
+                <!-- Link -->
+                <div>
+                    <h3 class="font-semibold mb-4 text-gray-800">Navigasi</h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="/dashboard" class="hover:text-red-500 transition">Home</a></li>
+                        <li><a href="{{ route('about') }}" class="hover:text-red-500 transition">About Us</a></li>
+                        <li><a href="{{ route('history') }}" class="hover:text-red-500 transition">History</a></li>
+                    </ul>
+                </div>
+                <!-- Other -->
+                <div>
+                    <h3 class="font-semibold mb-4 text-gray-800">Other</h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="#" class="hover:text-red-500 transition">Terms & Conditions</a></li>
+                        <li><a href="#" class="hover:text-red-500 transition">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <!-- Contact -->
+                <div>
+                    <h3 class="font-semibold mb-4 text-gray-800">Kontak Kami</h3>
+                    <div class="space-y-3 text-sm text-gray-600">
+                        <!-- Phone -->
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
+                                <svg class="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                </svg>
+                            </div>
+                            <span>+62 822-3456-7890</span>
+                        </div>
+                        <!-- Email -->
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
+                                <svg class="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                            <span>kerjosam@kerjo.id</span>
+                        </div>
+                        <!-- Website -->
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 0c2.5 2.5 4 6 4 10s-1.5 7.5-4 10m0-20C9.5 4.5 8 8 8 12s1.5 7.5 4 10" />
+                                </svg>
+                            </div>
+                            <span>kerjosam.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <script>
         function toggleDropdown() {
             document.getElementById('userDropdown').classList.toggle('hidden');
@@ -599,7 +964,7 @@
                 console.log('Card:', title, company);
 
                 if (searchTerm === '' || title.includes(searchTerm) || company.includes(searchTerm)) {
-                    card.style.display = 'flex';
+                    card.style.display = 'block';
                 } else {
                     card.style.display = 'none';
                 }
@@ -608,13 +973,8 @@
 
         // Filter by category function
         function filterByCategory(category) {
-            alert('Button clicked: ' + category);
-
             const jobCards = document.querySelectorAll('.job-card');
             const categoryBtns = document.querySelectorAll('.category-btn');
-
-            console.log('Filter category:', category);
-            console.log('Found cards:', jobCards.length);
 
             // Update active button
             categoryBtns.forEach(btn => {
@@ -628,7 +988,6 @@
             // Filter cards
             jobCards.forEach(card => {
                 const cardCategory = card.getAttribute('data-category');
-                console.log('Card category:', cardCategory);
 
                 if (category === 'all' || cardCategory === category) {
                     card.style.display = 'flex';
