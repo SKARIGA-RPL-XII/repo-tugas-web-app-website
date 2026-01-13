@@ -13,16 +13,19 @@
             background-position: center;
             background-repeat: no-repeat;
         }
+
         .bg-about-section {
             background-image: url('/images/about/Overlay2.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
         }
+
         * {
             scrollbar-width: none;
             -ms-overflow-style: none;
         }
+
         *::-webkit-scrollbar {
             display: none;
         }
@@ -111,15 +114,11 @@
     <!-- ================= HERO / BACKGROUND ================= -->
     <section>
         <!-- TOP SECTION (WITH BG IMAGE) -->
-        <div class="relative bg-about min-h-screen">
-            <div class="relative grid md:grid-cols-2 gap-16 items-center min-h-screen px-8 md:px-16">
+        <div class="relative bg-about h-[560px]">
+            <div class="relative grid md:grid-cols-1 gap-16 items-center h-[560px] px-8 md:px-16">
                 <!-- LEFT IMAGE -->
-                <div class="flex justify-center md:justify-start overflow-visible">
-                    <img src="/images/about/Overlay3.png" alt="Logo" class="w-[420px] md:w-[600px] lg:w-[700px] aspect-square rounded-full object-contain"/>
-                </div>
-                <!-- RIGHT IMAGE -->
-                <div class="flex justify-center md:justify-end overflow-visible">
-                    <img src="/images/about/Overlay4.png" alt="Team Work" class="w-[420px] md:w-[640px] lg:w-[760px] object-contain"/>
+                <div class="flex justify-center overflow-visible">
+                    <img src="/images/about/Overlay3.png" alt="Logo" class="w-[420px] md:w-[600px] lg:w-[700px] aspect-square rounded-full object-contain" />
                 </div>
             </div>
         </div>
@@ -153,7 +152,7 @@
 
     <!-- CTA SECTION -->
     <section class="relative overflow-hidden">
-        <img src="/images/about/Overlay6.png" alt="" class="absolute inset-0 w-full h-full object-cover"/>
+        <img src="/images/about/Overlay6.png" alt="" class="absolute inset-0 w-full h-full object-cover" />
         <!-- Overlay merah biar teks kebaca -->
         <div class="absolute inset-0 bg-red-600/80"></div>
         <div class="relative z-10 w-full px-8 md:px-16 py-12 md:py-16 flex flex-col md:flex-row items-center justify-between gap-6">
@@ -242,7 +241,7 @@
             document.getElementById('mobileMenu').classList.toggle('hidden');
         }
 
-        document.addEventListener('click', function (e) {
+        document.addEventListener('click', function(e) {
             const dropdown = document.getElementById('userDropdown');
             const mobileMenu = document.getElementById('mobileMenu');
             if (!e.target.closest('.relative')) {
@@ -254,4 +253,5 @@
         });
     </script>
 </body>
+
 </html>
