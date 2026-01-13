@@ -26,7 +26,16 @@
                         <a href="{{ route('about') }}">About</a>
                     </li>
                 </ul>
-                <div class="relative">
+                
+                <!-- MOBILE MENU BUTTON -->
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2">
+                    <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+                
+                <!-- USER PROFILE (DESKTOP) -->
+                <div class="relative hidden md:block">
                     <button onclick="toggleDropdown()" class="flex items-center gap-2 focus:outline-none">
                         <div class="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center text-white text-sm font-semibold">
                             {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
@@ -52,6 +61,43 @@
                 </div>
             </div>
         </div>
+        
+        <!-- MOBILE MENU -->
+        <div id="mobileMenu" class="md:hidden bg-white border-t border-gray-100 hidden">
+            <div class="px-8 py-4">
+                <!-- User Info -->
+                <div class="flex items-center gap-3 pb-4 border-b border-gray-100">
+                    <div class="w-10 h-10 rounded-full bg-red-500 flex items-center justify-center text-white text-sm font-semibold">
+                        {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium text-gray-800">{{ auth()->user()->name }}</p>
+                        <p class="text-xs text-gray-500">{{ auth()->user()->email }}</p>
+                    </div>
+                </div>
+                
+                <!-- Navigation Links -->
+                <div class="py-4 space-y-1">
+                    <a href="/dashboard" class="block px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-50 hover:text-red-500">Home</a>
+                    <a href="{{ route('history') }}" class="block px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-50 hover:text-red-500">History</a>
+                    <a href="{{ route('about') }}" class="block px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-50 hover:text-red-500">About</a>
+                    <a href="/profile" class="block px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-50 hover:text-red-500">Profile</a>
+                </div>
+                
+                <!-- Logout -->
+                <div class="pt-2 border-t border-gray-100">
+                    <form method="POST" action="/logout">
+                        @csrf
+                        <button type="submit" class="w-full text-left px-3 py-2 rounded-lg text-sm text-red-500 hover:bg-red-50">
+                            <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+                            </svg>
+                            Logout
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </nav>
 
     <!-- CONTENT -->
@@ -70,10 +116,18 @@
             document.getElementById('userDropdown').classList.toggle('hidden');
         }
 
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+
         document.addEventListener('click', function (e) {
             const dropdown = document.getElementById('userDropdown');
+            const mobileMenu = document.getElementById('mobileMenu');
             if (!e.target.closest('.relative')) {
                 dropdown.classList.add('hidden');
+            }
+            if (!e.target.closest('button[onclick="toggleMobileMenu()"]') && !e.target.closest('#mobileMenu')) {
+                mobileMenu.classList.add('hidden');
             }
         });
     </script>

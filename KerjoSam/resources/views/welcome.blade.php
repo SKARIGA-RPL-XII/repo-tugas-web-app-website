@@ -346,8 +346,6 @@
 
     <!-- JOB LIST SECTION -->
     <section class="relative pt-48 md:pt-36 pb-20">
-        <!-- Decorative Shape -->
-        <img src="/images/shape-wave.png" alt="" class="pointer-events-none select-none absolute right-0 top-0 h-full max-w-none opacity-90 translate-x-1/3 md:translate-x-1/4"/>
         <div class="w-full px-8 md:px-16">
             <!-- Section Title -->
             <div class="mb-12 text-center">
