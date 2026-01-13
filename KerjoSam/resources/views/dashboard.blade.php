@@ -60,10 +60,10 @@
                         <a href="/dashboard">Home</a>
                     </li>
                     <li class="hover:text-red-500 cursor-pointer">
-                        <a href="#jobs">Jobs</a>
+                        <a href="#jobs">History</a>
                     </li>
                     <li class="hover:text-red-500 cursor-pointer">
-                        <a href="#about">About</a>
+                        <a href="{{ route('about') }}">About</a>
                     </li>
                 </ul>
 
@@ -379,7 +379,6 @@
             // Filter cards
             jobCards.forEach(card => {
                 const cardCategory = card.getAttribute('data-category');
-
                 if (category === 'all' || cardCategory === category) {
                     card.style.display = 'flex';
                 } else {

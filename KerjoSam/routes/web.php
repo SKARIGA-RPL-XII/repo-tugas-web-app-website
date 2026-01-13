@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\JobController;
 
 Route::get('/', function () {
@@ -26,3 +27,5 @@ Route::get('/profile', [AuthController::class, 'profile'])->name('profile')->mid
 
 // Job Routes
 Route::get('/job/{id}', [JobController::class, 'show'])->name('job.detail')->middleware('auth');
+
+Route::get('/about', [AboutController::class, 'index'])->name('about');
