@@ -19,6 +19,13 @@
             background-position: center;
             background-repeat: no-repeat;
         }
+        * {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        *::-webkit-scrollbar {
+            display: none;
+        }
     </style>
 </head>
 

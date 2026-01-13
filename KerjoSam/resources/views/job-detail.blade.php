@@ -5,6 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $job['title'] }} - {{ $job['company'] }}</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        *::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+    <script>
+        function toggleDropdown() {
+            const dropdown = document.getElementById('userDropdown');
+            dropdown.classList.toggle('hidden');
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('userDropdown');
+            const button = event.target.closest('button[onclick="toggleDropdown()"]');
+            
+            if (!button && !dropdown.contains(event.target)) {
+                dropdown.classList.add('hidden');
+            }
+        });
+    </script>
 </head>
 <body class="bg-gray-50">
     <!-- NAVBAR -->
@@ -19,6 +44,12 @@
                     @auth
                         <li class="hover:text-red-500 cursor-pointer">
                             <a href="/">Home</a>
+                        </li>
+                        <li class="hover:text-red-500 cursor-pointer">
+                            <a href="{{ route('history') }}">History</a>
+                        </li>
+                        <li class="hover:text-red-500 cursor-pointer">
+                            <a href="{{ route('about') }}">About</a>
                         </li>
                     @endauth
                 </ul>
@@ -47,8 +78,7 @@
                             <span class="text-sm text-gray-600">
                                 {{ auth()->user()->name }}
                             </span>
-                            <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2"
-                                viewBox="0 0 24 24">
+                            <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                             </svg>
                         </button>
@@ -73,7 +103,7 @@
         </div>
     </nav>
 
-        <section class="relative -mt-12 pb-20">
+    <section class="relative -mt-12 pb-20">
         <!-- Background -->
         <div class="absolute inset-0">
             <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d" class="w-full h-full object-cover" alt="" />

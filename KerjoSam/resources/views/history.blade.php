@@ -6,6 +6,15 @@
     <title>History | KerjoSam</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        * {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        *::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
 </head>
 <body class="bg-gray-50">
     <!-- NAVBAR -->
