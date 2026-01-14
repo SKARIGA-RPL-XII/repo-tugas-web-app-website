@@ -13,16 +13,19 @@
             background-position: center;
             background-repeat: no-repeat;
         }
+
         .bg-about-section {
             background-image: url('/images/about/Overlay2.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
         }
+
         * {
             scrollbar-width: none;
             -ms-overflow-style: none;
         }
+
         *::-webkit-scrollbar {
             display: none;
         }
@@ -113,26 +116,23 @@
         <!-- TOP SECTION (WITH BG IMAGE) -->
         <div class="relative bg-about min-h-screen">
             <div class="relative grid md:grid-cols-2 gap-16 items-center min-h-screen px-8 md:px-16">
-                <!-- LEFT IMAGE -->
-                <div class="flex justify-center md:justify-start overflow-visible">
-                    <img src="/images/about/Overlay3.png" alt="Logo" class="w-[420px] md:w-[600px] lg:w-[700px] aspect-square rounded-full object-contain"/>
-                </div>
-                <!-- RIGHT IMAGE -->
-                <div class="flex justify-center md:justify-end overflow-visible">
-                    <img src="/images/about/Overlay4.png" alt="Team Work" class="w-[420px] md:w-[640px] lg:w-[760px] object-contain"/>
+                <div class="relative flex justify-center items-center md:col-span-2">
+                    <!-- Background merah -->
+                    <img src="/images/about/Overlay7.png" alt="Background" class="w-[360px] sm:w-[420px] md:w-[520px] lg:w-[450px] aspect-square object-contain -mt-12 md:-mt-20" />
+                    <!-- Logo KerjoSam -->
+                    <img src="/images/about/Overlay3.png" alt="KerjoSam" class="absolute w-[200px] sm:w-[200px] md:w-[460px] lg:w-[700px]" />
                 </div>
             </div>
         </div>
 
-        <div class="relative bg-about-section py-20">
+        <div class="">
             <div class="w-full px-8 md:px-16">
                 <!-- ABOUT TITLE -->
-                <div class="w-full text-center mb-20 pt-16">
+                <div class="w-full text-center mb-15 pt-16">
                     <h2 class="text-5xl md:text-7xl font-black leading-tight text-red-500">
-                        ABOUT
+                        ABOUT US
                     </h2>
                 </div>
-
                 <!-- BOTTOM SECTION -->
                 <div class="flex justify-center pb-16">
                     <div class="max-w-4xl text-center space-y-8">
@@ -232,26 +232,26 @@
             </div>
         </div>
     </footer>
-
-    <script>
-        function toggleDropdown() {
-            document.getElementById('userDropdown').classList.toggle('hidden');
-        }
-
-        function toggleMobileMenu() {
-            document.getElementById('mobileMenu').classList.toggle('hidden');
-        }
-
-        document.addEventListener('click', function (e) {
-            const dropdown = document.getElementById('userDropdown');
-            const mobileMenu = document.getElementById('mobileMenu');
-            if (!e.target.closest('.relative')) {
-                dropdown.classList.add('hidden');
-            }
-            if (!e.target.closest('button[onclick="toggleMobileMenu()"]') && !e.target.closest('#mobileMenu')) {
-                mobileMenu.classList.add('hidden');
-            }
-        });
-    </script>
 </body>
+<script>
+    function toggleDropdown() {
+        document.getElementById('userDropdown').classList.toggle('hidden');
+    }
+
+    function toggleMobileMenu() {
+        document.getElementById('mobileMenu').classList.toggle('hidden');
+    }
+
+    document.addEventListener('click', function(e) {
+        const dropdown = document.getElementById('userDropdown');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (!e.target.closest('.relative')) {
+            dropdown.classList.add('hidden');
+        }
+        if (!e.target.closest('button[onclick="toggleMobileMenu()"]') && !e.target.closest('#mobileMenu')) {
+            mobileMenu.classList.add('hidden');
+        }
+    });
+</script>
+
 </html>

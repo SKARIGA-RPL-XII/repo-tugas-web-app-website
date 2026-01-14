@@ -103,24 +103,6 @@
         </div>
     </nav>
 
-    <section class="relative -mt-12 pb-20">
-        <!-- Background -->
-        <div class="absolute inset-0">
-            <img src="/images/about/Overlay6.png" class="w-full h-full object-cover" alt="" />
-            <div class="absolute inset-0 bg-gradient-to-r from-red-600/90 to-red-400/70"></div>
-        </div>
-
-        <!-- Content (judul & deskripsi) -->
-        <div class="relative w-full px-8 md:px-12 py-24 text-white text-left">
-            <h1 class="text-4xl md:text-5xl font-bold leading-tight">
-                Explore Opportunities <br /> and Learn
-            </h1>
-            <p class="mt-4 max-w-lg text-sm text-red-100">
-                Browse job listings, tutorials, and career resources.
-            </p>
-        </div>
-    </section>
-
     <!-- JOB DETAIL SECTION -->
     <section class="py-12">
         <div class="w-full max-w-4xl mx-auto px-6 md:px-8">

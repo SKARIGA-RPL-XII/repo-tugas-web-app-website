@@ -108,7 +108,7 @@
             </div>
         </div>
     </nav>
-
+    
     <!-- CONTENT -->
     <div class="w-full px-8 md:px-16 py-8">
         <h1 class="text-3xl font-bold text-gray-800 mb-8 text-center">
@@ -140,7 +140,7 @@
             </a>
         </div>
     </section>
-    
+
     <footer class="bg-white border-t">
         <div class="w-full px-4 md:px-8 lg:px-16 py-12">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
