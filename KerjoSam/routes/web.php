@@ -33,3 +33,9 @@ Route::get('/job/{id}', [JobController::class, 'show'])->name('job.detail')->mid
 Route::get('/admin/tools', function () {
     return view('tools');
 });
+
+// Form profile Routes
+Route::get('/form-profile', function () {
+    return view('form-profile');
+});
+
