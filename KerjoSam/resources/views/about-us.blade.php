@@ -32,8 +32,7 @@
     </style>
 </head>
 
-<body class="bg-white overflow-x-hidden">
-    <!-- ================= NAVBAR ================= -->
+<body class="bg-gray-50 text-gray-800 antialiased overflow-x-hidden">
     <nav class="w-full bg-white shadow-sm relative z-20">
         <div class="w-full px-8 md:px-16 py-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
@@ -114,24 +113,26 @@
     <!-- ================= HERO / BACKGROUND ================= -->
     <section>
         <!-- TOP SECTION (WITH BG IMAGE) -->
-        <div class="relative bg-about h-[560px]">
-            <div class="relative grid md:grid-cols-1 gap-16 items-center h-[560px] px-8 md:px-16">
-                <!-- LEFT IMAGE -->
-                <div class="flex justify-center overflow-visible">
-                    <img src="/images/about/Overlay3.png" alt="Logo" class="w-[420px] md:w-[600px] lg:w-[700px] aspect-square rounded-full object-contain" />
+        <div class="relative bg-about min-h-screen">
+            <div class="relative grid md:grid-cols-2 gap-16 items-center min-h-screen px-8 md:px-16">
+                <div class="relative flex justify-center items-center md:col-span-2">
+                    <!-- Background merah -->
+                    <img src="/images/about/Overlay7.png" alt="Background" class="w-[360px] sm:w-[420px] md:w-[520px] lg:w-[450px] aspect-square object-contain -mt-12 md:-mt-20" />
+                    <!-- Logo KerjoSam -->
+                    <img src="/images/about/Overlay3.png" class="absolute w-[200px] sm:w-[200px] md:w-[460px] lg:w-[700px]" />
                 </div>
             </div>
         </div>
 
-        <div class="relative bg-about-section py-20">
+        <div class="about-section w-full">
             <div class="w-full px-8 md:px-16">
                 <!-- ABOUT TITLE -->
-                <div class="w-full text-center mb-20 pt-16">
+                <div class="w-full text-center mb-20 pt-20">
                     <h2 class="text-5xl md:text-7xl font-black leading-tight text-red-500">
-                        ABOUT
+                        ABOUT US
                     </h2>
                 </div>
-
+                </div>
                 <!-- BOTTOM SECTION -->
                 <div class="flex justify-center pb-16">
                     <div class="max-w-4xl text-center space-y-8">
@@ -154,8 +155,8 @@
     <section class="relative overflow-hidden">
         <img src="/images/about/Overlay6.png" alt="" class="absolute inset-0 w-full h-full object-cover" />
         <!-- Overlay merah biar teks kebaca -->
-        <div class="absolute inset-0 bg-red-600/80"></div>
-        <div class="relative z-10 w-full px-8 md:px-16 py-12 md:py-16 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-red-600/40 to-transparent"></div>
+        <div class="relative z-10 w-full px-6 md:px-12 py-8 md:py-10 flex flex-col md:flex-row items-center justify-between gap-6">
             <div class="text-white text-center md:text-left">
                 <h2 class="text-2xl md:text-3xl font-bold mb-2">
                     Kita ada Untuk Kalian

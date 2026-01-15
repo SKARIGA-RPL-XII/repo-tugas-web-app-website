@@ -15,7 +15,7 @@
         }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-50 text-gray-800 antialiased">
     <div class="min-h-screen py-12">
         <div class="max-w-md mx-auto bg-white rounded-lg shadow-md p-6">
             <div class="text-center">
