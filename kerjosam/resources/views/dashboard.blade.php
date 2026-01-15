@@ -506,7 +506,7 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <!-- Logo -->
                 <div class="md:col-span-1">
-                    <img src="/images/about/Overlay3.png" alt="KerjoSam Logo" class="h-20 w-auto mb-4">
+                    <img src="/images/about/Overlay3.png" alt="KerjoSam Logo" class="h-32 w-auto mb-4">
                 </div>
                 <!-- Link -->
                 <div>
