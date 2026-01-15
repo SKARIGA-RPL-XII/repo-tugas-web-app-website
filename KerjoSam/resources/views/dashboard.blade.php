@@ -29,7 +29,7 @@
         }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-50 text-gray-800 antialiased">
     <!-- Success Alert -->
     <div id="successAlert" class="fixed top-4 right-4 z-50 max-w-sm w-full bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg hidden">
         <div class="flex items-center justify-between">
@@ -143,16 +143,16 @@
         </div>
     </nav>
 
-    <section class="relative -mt-12 pb-20">
+    <section class="relative -mt-12 pb-24 md:pb-32">
         <!-- Background -->
         <div class="absolute inset-0">
-            <img src="/images/about/Overlay6.png" class="w-full h-full object-cover" alt="" />
-            <div class="absolute inset-0 bg-gradient-to-r from-red-600/90 to-red-400/70"></div>
+            <img src="/images/about/Overlay6.png" class="w-full h-full object-cover object-top" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-red-600/40 to-transparent"></div>
         </div>
 
         <!-- Content -->
         <div class="relative w-full px-8 md:px-16 py-24 text-white text-left">
-            <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
                 Welcome back, {{ auth()->user()->name }}! <br /> Find Your Dream Job
             </h1>
             <p class="mt-4 max-w-lg text-sm text-red-100">
@@ -163,9 +163,9 @@
         <!-- Search + Categories -->
         <div class="absolute left-1/2 -bottom-32 md:-bottom-20 transform -translate-x-1/2 w-full px-8 md:px-16 flex flex-col items-center gap-4 z-40">
             <!-- Search Bar -->
-            <div class="bg-white rounded-full flex items-center px-4 py-2 shadow-lg w-full max-w-7xl">
+            <div class="bg-white rounded-full flex items-center px-3 py-2 md:px-4 shadow-lg w-full max-w-7xl">
                 <input type="text" id="searchInput" placeholder="Search jobs..." class="flex-1 outline-none text-base text-gray-700" onkeyup="searchJobs()"/>
-                <button onclick="searchJobs()" class="bg-red-500 text-white w-12 h-12 rounded-full flex items-center justify-center" aria-label="Search">
+                <button onclick="searchJobs()" class="bg-red-500 text-white w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center" aria-label="Search">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14z"/>
                     </svg>
@@ -173,7 +173,7 @@
             </div>
 
             <!-- Category Buttons -->
-            <div class="flex flex-wrap justify-center gap-4">
+            <div class="flex flex-wrap justify-center gap-2 md:gap-4">
                 <button onclick="filterByCategory('all')" class="category-btn active px-4 py-2 bg-white backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">All</button>
                 <button onclick="filterByCategory('ui-ux')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">UI/UX</button>
                 <button onclick="filterByCategory('frontend')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">Frontend</button>
@@ -185,6 +185,11 @@
 
     <!-- JOB LIST SECTION -->
     <section class="relative pt-48 md:pt-36 pb-20">
+        <!-- BACKGROUND / OVERLAY (DIAM) -->
+        <div class="absolute inset-0 pointer-events-none">
+            <img src="/images/about/Overlay5.png" class="absolute left-0 top-0 h-full w-[120px] md:w-[300px] object-cover opacity-35 md:opacity-40"/>
+            <img src="/images/about/Overlay5.png" class="absolute right-0 top-0 h-full w-[120px] md:w-[300px] object-cover opacity-35 md:opacity-40 scale-x-[-1]"/>
+        </div>
         <div class="relative z-10 w-full px-8 md:px-16">
             <!-- Section Title -->
             <div class="mb-12 text-center">
@@ -350,7 +355,6 @@
                         </a>
                     </div>
                 </div>
-
                 <!-- Card 4 -->
                 <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between" data-category="mobile" data-title="Mobile Developer" data-company="App Studio">
                     <div>
@@ -480,8 +484,8 @@
     <section class="relative overflow-hidden">
         <img src="/images/about/Overlay6.png" alt="" class="absolute inset-0 w-full h-full object-cover"/>
         <!-- Overlay merah biar teks kebaca -->
-        <div class="absolute inset-0 bg-red-600/80"></div>
-        <div class="relative z-10 w-full px-8 md:px-16 py-12 md:py-16 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-red-600/40 to-transparent"></div>
+        <div class="relative z-10 w-full px-6 md:px-12 py-8 md:py-10 flex flex-col md:flex-row items-center justify-between gap-6">
             <div class="text-white text-center md:text-left">
                 <h2 class="text-2xl md:text-3xl font-bold mb-2">
                     Kita ada Untuk Kalian

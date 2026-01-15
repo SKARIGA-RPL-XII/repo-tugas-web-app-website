@@ -21,7 +21,7 @@
         }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-50 text-gray-800 antialiased">
     <!-- NAVBAR -->
     <nav class="w-full bg-white shadow-sm relative z-10">
         <div class="w-full px-8 md:px-12 py-4 flex items-center justify-between">
@@ -222,8 +222,8 @@
     <section class="relative overflow-hidden">
         <img src="/images/about/Overlay6.png" alt="" class="absolute inset-0 w-full h-full object-cover"/>
         <!-- Overlay merah biar teks kebaca -->
-        <div class="absolute inset-0 bg-red-600/80"></div>
-        <div class="relative z-10 w-full px-8 md:px-16 py-12 md:py-16 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-red-600/40 to-transparent"></div>
+        <div class="relative z-10 w-full px-6 md:px-12 py-8 md:py-10 flex flex-col md:flex-row items-center justify-between gap-6">
             <div class="text-white text-center md:text-left">
                 <h2 class="text-2xl md:text-3xl font-bold mb-2">
                     Kita ada Untuk Kalian
