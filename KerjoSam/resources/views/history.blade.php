@@ -14,6 +14,12 @@
         *::-webkit-scrollbar {
             display: none;
         }
+        .bg-about {
+            background-image: url('/images/about/Overlay1.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -108,17 +114,80 @@
             </div>
         </div>
     </nav>
-    
-    <!-- CONTENT -->
-    <div class="w-full px-8 md:px-16 py-8">
-        <h1 class="text-3xl font-bold text-gray-800 mb-8 text-center">
-            History
-        </h1>
 
-        <div class="bg-white rounded-lg shadow-sm p-6">
-            <p class="text-gray-500 text-center py-8">No job applications yet.</p>
+    <!-- SECTION : HISTORY -->
+    <section class="relative bg-about min-h-screen overflow-hidden">
+        <!-- FADE BOTTOM -->
+        <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-white pointer-events-none"></div>
+        <div class="relative z-10 w-full px-8 md:px-16 pt-24 pb-16">
+            <!-- TITLE (TENGAH ATAS) -->
+            <h1 class="text-3xl font-bold text-gray-800 mb-12 text-center">
+                HISTORY
+            </h1>
+            <!-- CARD GRID -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- CARD -->
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" class="w-full h-36 object-cover" />
+                    <div class="p-5">
+                        <h3 class="font-semibold text-gray-800">Copy Writing Artikel</h3>
+                        <div class="flex gap-2 mt-2 text-xs">
+                            <span class="px-3 py-1 border border-red-400 text-red-500 rounded-full">Copy Writing</span>
+                            <span class="px-3 py-1 border border-red-400 text-red-500 rounded-full">Artikel</span>
+                        </div>
+                        <span class="inline-block mt-4 px-4 py-1 text-xs rounded-full bg-yellow-100 text-yellow-700">
+                            MENUNGGU
+                        </span>
+                    </div>
+                </div>
+
+                <!-- CARD -->
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" class="w-full h-36 object-cover" />
+                    <div class="p-5">
+                        <h3 class="font-semibold text-gray-800">Copy Writing Artikel</h3>
+                        <div class="flex gap-2 mt-2 text-xs">
+                            <span class="px-3 py-1 border border-red-400 text-red-500 rounded-full">Copy Writing</span>
+                            <span class="px-3 py-1 border border-red-400 text-red-500 rounded-full">Artikel</span>
+                        </div>
+                        <span class="inline-block mt-4 px-4 py-1 text-xs rounded-full bg-green-100 text-green-700">
+                            DITERIMA
+                        </span>
+                    </div>
+                </div>
+
+                <!-- CARD -->
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" class="w-full h-36 object-cover" />
+                    <div class="p-5">
+                        <h3 class="font-semibold text-gray-800">Copy Writing Artikel</h3>
+                        <div class="flex gap-2 mt-2 text-xs">
+                            <span class="px-3 py-1 border border-red-400 text-red-500 rounded-full">Copy Writing</span>
+                            <span class="px-3 py-1 border border-red-400 text-red-500 rounded-full">Artikel</span>
+                        </div>
+                        <span class="inline-block mt-4 px-4 py-1 text-xs rounded-full bg-green-100 text-green-700">
+                            DITERIMA
+                        </span>
+                    </div>
+                </div>
+
+                <!-- CARD -->
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" class="w-full h-36 object-cover" />
+                    <div class="p-5">
+                        <h3 class="font-semibold text-gray-800">Copy Writing Artikel</h3>
+                        <div class="flex gap-2 mt-2 text-xs">
+                            <span class="px-3 py-1 border border-red-400 text-red-500 rounded-full">Copy Writing</span>
+                            <span class="px-3 py-1 border border-red-400 text-red-500 rounded-full">Artikel</span>
+                        </div>
+                        <span class="inline-block mt-4 px-4 py-1 text-xs rounded-full bg-yellow-100 text-yellow-700">
+                            MENUNGGU
+                        </span>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
     <!-- CTA SECTION -->
     <section class="relative overflow-hidden">

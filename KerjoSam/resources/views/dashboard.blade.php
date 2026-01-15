@@ -185,10 +185,6 @@
 
     <!-- JOB LIST SECTION -->
     <section class="relative pt-48 md:pt-36 pb-20">
-        <!-- Overlay Left -->
-        <img src="/images/about/Overlay5.png" alt="" class="absolute left-0 top-0 h-full object-cover opacity-40 pointer-events-none">
-        <!-- Overlay Right -->
-        <img src="/images/about/Overlay5.png" alt="" class="absolute right-0 top-0 h-full object-cover opacity-40 pointer-events-none scale-x-[-1]">
         <div class="relative z-10 w-full px-8 md:px-16">
             <!-- Section Title -->
             <div class="mb-12 text-center">
@@ -354,313 +350,124 @@
                         </a>
                     </div>
                 </div>
-            </div>
 
-            <div id="jobCards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 my-12">
-                <!-- Card 1 -->
-                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between" data-category="frontend" data-title="Frontend Developer" data-company="Tech Corp">
+                <!-- Card 4 -->
+                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between" data-category="mobile" data-title="Mobile Developer" data-company="App Studio">
                     <div>
-                        <!-- Company -->
                         <div class="flex items-center gap-3 mb-4">
-                            <img
-                                src="https://ui-avatars.com/api/?name=Tech+Corp&background=ef4444&color=fff"
-                                class="w-10 h-10 rounded-full"
-                                alt=""
-                            />
+                            <img src="https://ui-avatars.com/api/?name=App+Studio&background=6366f1&color=fff"
+                                class="w-10 h-10 rounded-full" />
                             <div>
-                                <h4 class="font-semibold text-gray-800">Tech Corp</h4>
+                                <h4 class="font-semibold text-gray-800">App Studio</h4>
+                                <p class="text-xs text-gray-500">Yogyakarta, Indonesia</p>
+                            </div>
+                        </div>
+
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">
+                            Mobile Developer
+                        </h3>
+
+                        <p class="text-sm text-gray-600 line-clamp-3 mb-4">
+                            Develop modern mobile applications using Flutter or React Native.
+                        </p>
+
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 text-xs rounded-full bg-indigo-100 text-indigo-600">
+                                Mobile
+                            </span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-blue-100 text-blue-600">
+                                Full Time
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 flex items-center justify-between">
+                        <span class="text-sm font-medium text-gray-700">
+                            Rp 7 – 11 Juta
+                        </span>
+                        <a href="{{ route('job.detail', 4) }}" class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600">
+                            View Detail
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between" data-category="data" data-title="Data Analyst" data-company="Insight Labs">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <img src="https://ui-avatars.com/api/?name=Insight+Labs&background=0ea5e9&color=fff"
+                                class="w-10 h-10 rounded-full" />
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Insight Labs</h4>
+                                <p class="text-xs text-gray-500">Remote</p>
+                            </div>
+                        </div>
+
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">
+                            Data Analyst
+                        </h3>
+
+                        <p class="text-sm text-gray-600 line-clamp-3 mb-4">
+                            Analyze data, create reports, and provide insights for business decisions.
+                        </p>
+
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 text-xs rounded-full bg-cyan-100 text-cyan-600">
+                                Data
+                            </span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-green-100 text-green-600">
+                                Remote
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 flex items-center justify-between">
+                        <span class="text-sm font-medium text-gray-700">
+                            Rp 6 – 9 Juta
+                        </span>
+                        <a href="{{ route('job.detail', 5) }}"
+                        class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600">
+                            View Detail
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between" data-category="devops" data-title="DevOps Engineer" data-company="CloudHub">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <img src="https://ui-avatars.com/api/?name=CloudHub&background=22c55e&color=fff"
+                                class="w-10 h-10 rounded-full" />
+                            <div>
+                                <h4 class="font-semibold text-gray-800">CloudHub</h4>
                                 <p class="text-xs text-gray-500">Jakarta, Indonesia</p>
                             </div>
                         </div>
 
-                        <!-- Job Title -->
                         <h3 class="text-lg font-semibold text-gray-900 mb-3">
-                            Frontend Developer
-                        </h3>
-
-                        <!-- Description -->
-                        <p class="text-sm text-gray-600 line-clamp-3 mb-4">
-                            We are looking for a Frontend Developer experienced in
-                            HTML, CSS, JavaScript, and modern frameworks.
-                        </p>
-
-                        <!-- Tags -->
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 text-xs rounded-full bg-red-100 text-red-600">
-                                Frontend
-                            </span>
-                            <span class="px-3 py-1 text-xs rounded-full bg-blue-100 text-blue-600">
-                                Full Time
-                            </span>
-                            <span class="px-3 py-1 text-xs rounded-full bg-green-100 text-green-600">
-                                Remote
-                            </span>
-                        </div>
-                    </div>
-
-                    <!-- Footer -->
-                    <div class="mt-6 flex items-center justify-between">
-                        <span class="text-sm font-medium text-gray-700">
-                            Rp 6 – 10 Juta
-                        </span>
-                        <a
-                            href="{{ route('job.detail', 1) }}"
-                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition"
-                        >
-                            View Detail
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between" data-category="ui-ux" data-title="UI/UX Designer" data-company="Digital Agency">
-                    <div>
-                        <div class="flex items-center gap-3 mb-4">
-                            <img
-                                src="https://ui-avatars.com/api/?name=Digital+Agency&background=3b82f6&color=fff"
-                                class="w-10 h-10 rounded-full"
-                                alt=""
-                            />
-                            <div>
-                                <h4 class="font-semibold text-gray-800">Digital Agency</h4>
-                                <p class="text-xs text-gray-500">Bandung, Indonesia</p>
-                            </div>
-                        </div>
-
-                        <h3 class="text-lg font-semibold text-gray-900 mb-3">
-                            UI/UX Designer
+                            DevOps Engineer
                         </h3>
 
                         <p class="text-sm text-gray-600 line-clamp-3 mb-4">
-                            Looking for creative UI/UX Designer to join our team and create amazing user experiences.
+                            Manage CI/CD pipelines, cloud infrastructure, and system reliability.
                         </p>
 
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 text-xs rounded-full bg-purple-100 text-purple-600">
-                                UI/UX
+                            <span class="px-3 py-1 text-xs rounded-full bg-emerald-100 text-emerald-600">
+                                DevOps
                             </span>
                             <span class="px-3 py-1 text-xs rounded-full bg-blue-100 text-blue-600">
                                 Full Time
-                            </span>
-                            <span class="px-3 py-1 text-xs rounded-full bg-yellow-100 text-yellow-600">
-                                On-site
                             </span>
                         </div>
                     </div>
 
                     <div class="mt-6 flex items-center justify-between">
                         <span class="text-sm font-medium text-gray-700">
-                            Rp 5 – 8 Juta
+                            Rp 9 – 14 Juta
                         </span>
-                        <a
-                            href="{{ route('job.detail', 2) }}"
-                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition"
-                        >
-                            View Detail
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between" data-category="backend" data-title="Backend Developer" data-company="StartupXYZ">
-                    <div>
-                        <div class="flex items-center gap-3 mb-4">
-                            <img
-                                src="https://ui-avatars.com/api/?name=StartupXYZ&background=10b981&color=fff"
-                                class="w-10 h-10 rounded-full"
-                                alt=""
-                            />
-                            <div>
-                                <h4 class="font-semibold text-gray-800">StartupXYZ</h4>
-                                <p class="text-xs text-gray-500">Surabaya, Indonesia</p>
-                            </div>
-                        </div>
-
-                        <h3 class="text-lg font-semibold text-gray-900 mb-3">
-                            Backend Developer
-                        </h3>
-
-                        <p class="text-sm text-gray-600 line-clamp-3 mb-4">
-                            Join our backend team to build scalable applications using modern technologies.
-                        </p>
-
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 text-xs rounded-full bg-green-100 text-green-600">
-                                Backend
-                            </span>
-                            <span class="px-3 py-1 text-xs rounded-full bg-blue-100 text-blue-600">
-                                Full Time
-                            </span>
-                            <span class="px-3 py-1 text-xs rounded-full bg-green-100 text-green-600">
-                                Remote
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="mt-6 flex items-center justify-between">
-                        <span class="text-sm font-medium text-gray-700">
-                            Rp 8 – 12 Juta
-                        </span>
-                        <a
-                            href="{{ route('job.detail', 3) }}"
-                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition"
-                        >
-                            View Detail
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Job Cards -->
-            <div id="jobCards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Card 1 -->
-                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between" data-category="frontend" data-title="Frontend Developer" data-company="Tech Corp">
-                    <div>
-                        <!-- Company -->
-                        <div class="flex items-center gap-3 mb-4">
-                            <img
-                                src="https://ui-avatars.com/api/?name=Tech+Corp&background=ef4444&color=fff"
-                                class="w-10 h-10 rounded-full"
-                                alt=""
-                            />
-                            <div>
-                                <h4 class="font-semibold text-gray-800">Tech Corp</h4>
-                                <p class="text-xs text-gray-500">Jakarta, Indonesia</p>
-                            </div>
-                        </div>
-
-                        <!-- Job Title -->
-                        <h3 class="text-lg font-semibold text-gray-900 mb-3">
-                            Frontend Developer
-                        </h3>
-
-                        <!-- Description -->
-                        <p class="text-sm text-gray-600 line-clamp-3 mb-4">
-                            We are looking for a Frontend Developer experienced in
-                            HTML, CSS, JavaScript, and modern frameworks.
-                        </p>
-
-                        <!-- Tags -->
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 text-xs rounded-full bg-red-100 text-red-600">
-                                Frontend
-                            </span>
-                            <span class="px-3 py-1 text-xs rounded-full bg-blue-100 text-blue-600">
-                                Full Time
-                            </span>
-                            <span class="px-3 py-1 text-xs rounded-full bg-green-100 text-green-600">
-                                Remote
-                            </span>
-                        </div>
-                    </div>
-
-                    <!-- Footer -->
-                    <div class="mt-6 flex items-center justify-between">
-                        <span class="text-sm font-medium text-gray-700">
-                            Rp 6 – 10 Juta
-                        </span>
-                        <a
-                            href="{{ route('job.detail', 1) }}"
-                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition"
-                        >
-                            View Detail
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between" data-category="ui-ux" data-title="UI/UX Designer" data-company="Digital Agency">
-                    <div>
-                        <div class="flex items-center gap-3 mb-4">
-                            <img
-                                src="https://ui-avatars.com/api/?name=Digital+Agency&background=3b82f6&color=fff"
-                                class="w-10 h-10 rounded-full"
-                                alt=""
-                            />
-                            <div>
-                                <h4 class="font-semibold text-gray-800">Digital Agency</h4>
-                                <p class="text-xs text-gray-500">Bandung, Indonesia</p>
-                            </div>
-                        </div>
-
-                        <h3 class="text-lg font-semibold text-gray-900 mb-3">
-                            UI/UX Designer
-                        </h3>
-
-                        <p class="text-sm text-gray-600 line-clamp-3 mb-4">
-                            Looking for creative UI/UX Designer to join our team and create amazing user experiences.
-                        </p>
-
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 text-xs rounded-full bg-purple-100 text-purple-600">
-                                UI/UX
-                            </span>
-                            <span class="px-3 py-1 text-xs rounded-full bg-blue-100 text-blue-600">
-                                Full Time
-                            </span>
-                            <span class="px-3 py-1 text-xs rounded-full bg-yellow-100 text-yellow-600">
-                                On-site
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="mt-6 flex items-center justify-between">
-                        <span class="text-sm font-medium text-gray-700">
-                            Rp 5 – 8 Juta
-                        </span>
-                        <a
-                            href="{{ route('job.detail', 2) }}"
-                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition"
-                        >
-                            View Detail
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between" data-category="backend" data-title="Backend Developer" data-company="StartupXYZ">
-                    <div>
-                        <div class="flex items-center gap-3 mb-4">
-                            <img
-                                src="https://ui-avatars.com/api/?name=StartupXYZ&background=10b981&color=fff"
-                                class="w-10 h-10 rounded-full"
-                                alt=""
-                            />
-                            <div>
-                                <h4 class="font-semibold text-gray-800">StartupXYZ</h4>
-                                <p class="text-xs text-gray-500">Surabaya, Indonesia</p>
-                            </div>
-                        </div>
-
-                        <h3 class="text-lg font-semibold text-gray-900 mb-3">
-                            Backend Developer
-                        </h3>
-
-                        <p class="text-sm text-gray-600 line-clamp-3 mb-4">
-                            Join our backend team to build scalable applications using modern technologies.
-                        </p>
-
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 text-xs rounded-full bg-green-100 text-green-600">
-                                Backend
-                            </span>
-                            <span class="px-3 py-1 text-xs rounded-full bg-blue-100 text-blue-600">
-                                Full Time
-                            </span>
-                            <span class="px-3 py-1 text-xs rounded-full bg-green-100 text-green-600">
-                                Remote
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="mt-6 flex items-center justify-between">
-                        <span class="text-sm font-medium text-gray-700">
-                            Rp 8 – 12 Juta
-                        </span>
-                        <a
-                            href="{{ route('job.detail', 3) }}"
-                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition"
-                        >
+                        <a href="{{ route('job.detail', 6) }}"
+                        class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600">
                             View Detail
                         </a>
                     </div>
