@@ -629,6 +629,7 @@
                         </span>
                         <a href="<?php echo e(route('job.detail', 6)); ?>"
                         class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600">
+>>>>>>> origin/toriq-habil-f
                             View Detail
                         </a>
                     </div>
@@ -738,16 +739,17 @@
             }
 
             // Show success message
-            <?php if(session('success')): ?>
-                showAlert('<?php echo e(session('success')); ?>');
+            const successMessage = <?php echo json_encode(session('success'), 15, 512) ?>;
+            if (successMessage) {
+                showAlert(successMessage);
                 // Auto open login modal after successful registration
-                <?php if(str_contains(session('success'), 'Registrasi berhasil')): ?>
+                if (successMessage.includes('Registrasi berhasil')) {
                     setTimeout(() => {
                         document.querySelector('[x-data]').__x.$data.open = true;
                         document.querySelector('[x-data]').__x.$data.mode = 'login';
                     }, 1000);
-                <?php endif; ?>
-            <?php endif; ?>
+                }
+            }
         });
 
         // Show alert function

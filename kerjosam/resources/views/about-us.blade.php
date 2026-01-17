@@ -119,7 +119,13 @@
                     <!-- Background merah -->
                     <img src="/images/about/Overlay7.png" alt="Background" class="w-[360px] sm:w-[420px] md:w-[520px] lg:w-[450px] aspect-square object-contain -mt-12 md:-mt-20" />
                     <!-- Logo KerjoSam -->
+<<<<<<< HEAD:KerjoSam/resources/views/about-us.blade.php
+                    <img src="/images/about/Kerjo.png"
+                        alt="KerjoSam"
+                        class="absolute w-[200px] sm:w-[200px] md:w-[460px] lg:w-[750px] top-12" />
+=======
                     <img src="/images/about/Overlay3.png" class="absolute w-[200px] sm:w-[200px] md:w-[460px] lg:w-[700px]" />
+>>>>>>> b17a3e9d59bdb7219774ded1bc2686748a916d46:kerjosam/resources/views/about-us.blade.php
                 </div>
             </div>
         </div>

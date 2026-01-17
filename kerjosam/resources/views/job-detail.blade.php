@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $job['title'] }} - {{ $job['company'] }}</title>
+    <title>Web Developer - PT Abang Xpress</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         * {
@@ -21,300 +21,287 @@
         }
     </style>
 </head>
+
 <body class="bg-gray-50 text-gray-800 antialiased">
-    <!-- NAVBAR -->
-    <nav class="w-full bg-white shadow-sm relative z-10">
-        <div class="w-full px-8 md:px-12 py-4 flex items-center justify-between">
+
+<!-- NAVBAR (TETAP) -->
+<nav class="w-full bg-white shadow-sm relative z-10">
+        <div class="w-full px-8 md:px-16 py-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
                 <img src="/images/LogoWeb.png" alt="Logo" class="w-12 h-12 md:w-32 md:h-10 rounded-full object-cover"/>
             </div>
+
             <div class="flex items-center gap-6">
-                {{-- MENU KIRI --}}
+                <!-- MENU KIRI -->
                 <ul class="hidden md:flex gap-8 text-sm text-gray-600">
-                    @auth
-                        <li class="hover:text-red-500 cursor-pointer">
-                            <a href="/">Home</a>
-                        </li>
-                        <li class="hover:text-red-500 cursor-pointer">
-                            <a href="{{ route('history') }}">History</a>
-                        </li>
-                        <li class="hover:text-red-500 cursor-pointer">
-                            <a href="{{ route('about') }}">About</a>
-                        </li>
-                    @endauth
+                    <li class="hover:text-red-500 cursor-pointer">
+                        <a href="/dashboard">Home</a>
+                    </li>
+                    <li class="hover:text-red-500 cursor-pointer">
+                        <a href="{{ route('history') }}">History</a>
+                    </li>
+                    <li class="hover:text-red-500 cursor-pointer">
+                        <a href="{{ route('about') }}">About</a>
+                    </li>
+
                 </ul>
 
-                {{-- MENU KANAN --}}
-                @guest
-                   <div class="flex items-center gap-4 text-sm">
-                        <button @click="open = true; mode = 'login'" class="text-gray-600 hover:text-red-500" type="button">
-                            Login
-                        </button>
+                <!-- MOBILE MENU BUTTON -->
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2">
+                    <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
 
-                        <button @click="open = true; mode = 'register'" class="px-4 py-2 bg-red-500 text-white rounded-full hover:bg-red-600" type="button">
-                            Register
-                        </button>
-                    </div>
-                @endguest
-
-                @auth
-                    <!-- JIKA SUDAH LOGIN -->
-                    <div class="relative">
-                        <!-- Trigger -->
-                        <button onclick="toggleDropdown()" class="flex items-center gap-2 focus:outline-none">
-                            <div class="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center text-white text-sm font-semibold">
-                                {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
-                            </div>
-                            <span class="text-sm text-gray-600">
-                                {{ auth()->user()->name }}
-                            </span>
-                            <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-
-                        <!-- Dropdown -->
-                        <div id="userDropdown"
-                            class="absolute right-0 mt-3 w-40 bg-white rounded-xl shadow-lg border border-gray-100 hidden">
-                            <a href="/profile" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50">
-                                Profile
-                            </a>
-                            <form method="POST" action="/logout">
-                                @csrf
-                                <button type="submit"
-                                    class="w-full text-left px-4 py-2 text-sm text-red-500 hover:bg-red-50">
-                                    Logout
-                                </button>
-                            </form>
+                <!-- USER PROFILE (DESKTOP) -->
+                <div class="relative hidden md:block">
+                    <!-- Trigger -->
+                    <button onclick="toggleDropdown()" class="flex items-center gap-2 focus:outline-none">
+                        <div class="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center text-white text-sm font-semibold">
+                            {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
                         </div>
+                        <span class="text-sm text-gray-600">
+                            {{ auth()->user()->name }}
+                        </span>
+                        <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+
+                    <!-- Dropdown -->
+                    <div id="userDropdown" class="absolute right-0 mt-3 w-40 bg-white rounded-xl shadow-lg border border-gray-100 hidden">
+                        <a href="/profile" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50">
+                            Profile
+                        </a>
+                        <form method="POST" action="/logout">
+                            @csrf
+                            <button type="submit" class="w-full text-left px-4 py-2 text-sm text-red-500 hover:bg-red-50">
+                                Logout
+                            </button>
+                        </form>
                     </div>
-                @endauth
+                </div>
+            </div>
+        </div>
+
+        <!-- MOBILE MENU -->
+        <div id="mobileMenu" class="md:hidden bg-white border-t border-gray-100 hidden">
+            <div class="px-8 py-4">
+                <!-- User Info -->
+                <div class="flex items-center gap-3 pb-4 border-b border-gray-100">
+                    <div class="w-10 h-10 rounded-full bg-red-500 flex items-center justify-center text-white text-sm font-semibold">
+                        {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium text-gray-800">{{ auth()->user()->name }}</p>
+                        <p class="text-xs text-gray-500">{{ auth()->user()->email }}</p>
+                    </div>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="py-4 space-y-1">
+                    <a href="/dashboard" class="block px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-50 hover:text-red-500">Home</a>
+                    <a href="{{ route('history') }}" class="block px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-50 hover:text-red-500">History</a>
+                    <a href="{{ route('about') }}" class="block px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-50 hover:text-red-500">About</a>
+                    <a href="/profile" class="block px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-50 hover:text-red-500">Profile</a>
+                </div>
+
+                <!-- Logout -->
+                <div class="pt-2 border-t border-gray-100">
+                    <form method="POST" action="/logout">
+                        @csrf
+                        <button type="submit" class="w-full text-left px-3 py-2 rounded-lg text-sm text-red-500 hover:bg-red-50">
+                            <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+                            </svg>
+                            Logout
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </nav>
 
-    <!-- JOB DETAIL SECTION -->
-    <section class="relative bg-about min-h-screen overflow-hidden">
-        <!-- FADE BOTTOM -->
-        <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-white pointer-events-none"></div>
-        <!-- SMOOTH FADE BOTTOM -->
-        <div class="absolute top-[55vh] left-0 w-full h-32 bg-gradient-to-b from-transparent to-white pointer-events-none"></div>
-        <div class="relative z-10 w-full px-8 md:px-16">
-            <!-- HEADER CARD -->
-            <div class="bg-white rounded-2xl shadow-md p-6 mb-10">
-                <!-- BACK BUTTON -->
-                <a href="{{ url()->previous() }}" class="inline-flex items-center gap-2 text-sm text-red-500 mb-4"> ← Kembali</a>
-                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-                    <!-- LEFT -->
-                    <div class="flex items-center gap-4">
-                        <div class="w-14 h-14 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">
-                            AX
-                        </div>
-                        <div>
-                            <h1 class="text-xl md:text-2xl font-bold text-gray-900">
-                                {{ $job['title'] }}
-                            </h1>
-                            <p class="text-sm text-gray-500">
-                                {{ $job['company'] }}
-                            </p>
-                        </div>
-                    </div>
+<!-- MAIN -->
+<section class="relative bg-about min-h-screen overflow-hidden">
+    <div class="relative z-10 max-w-6xl mx-auto px-6 py-12 space-y-12">
 
-                    <!-- RIGHT -->
-                    <div class="flex flex-col items-end w-fit ml-auto gap-3">
-                        <p class="text-lg font-bold text-gray-900">
-                            6 – 7JT / BULAN
-                        </p>
-                        <span class="h-0.5 w-full bg-gray-900"></span>
-                        <span class="px-3 py-0.5 text-xs rounded-full bg-red-100 text-red-500">
-                            Part Time
-                        </span>
-                    </div>
-                </div>
+        <!-- HEADER CARD -->
+        <div class="bg-white border-4 border-white rounded-3xl p-8 flex items-center gap-6 shadow-lg">
+            <div class="w-20 h-20 rounded-full bg-blue-600 text-white flex items-center justify-center text-2xl font-bold">
+                AX
             </div>
-
-            <!-- CONTENT GRID -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- DESKRIPSI -->
-                <div class="bg-white rounded-2xl shadow-sm p-6">
-                    <h2 class="font-bold text-gray-900 mb-3">Deskripsi</h2>
-                    <p class="text-sm text-gray-600 leading-relaxed">
-                        {{ $job['description'] }}
-                    </p>
-                </div>
-
-                <!-- ABOUT -->
-                <div class="bg-white rounded-2xl shadow-sm p-6 text-center">
-                    <!-- Title -->
-                    <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">
-                        About Company
-                    </h3>
-                    <!-- Logo / Initial -->
-                    <div class="w-16 h-16 mx-auto rounded-full bg-blue-600 text-white flex items-center justify-center font-bold mb-3">
-                        AX
-                    </div>
-                    <!-- Company Name -->
-                    <h4 class="font-semibold text-gray-800">
-                        {{ $job['company'] }}
-                    </h4>
-                    <!-- Divider -->
-                    <span class="block w-10 h-0.5 bg-gray-300 mx-auto my-3"></span>
-                    <!-- Short Description -->
-                    <p class="text-sm text-gray-500 leading-relaxed">
-                        Perusahaan yang bergerak di bidang teknologi dan pengembangan produk digital.
-                    </p>
-                    <!-- Action -->
-                    <button class="mt-5 px-5 py-2 bg-red-500 text-white text-sm rounded-full hover:bg-red-600 transition">
-                        Kunjungi Profil
-                    </button>
-                </div>
-
-                <!-- SHARE -->
-                <div class="bg-white rounded-2xl shadow-sm p-6 text-center">
-                    <h3 class="font-bold mb-3">Share Job</h3>
-                    <p class="text-sm text-gray-500 mb-4">
-                        Klik tombol dibawah ini untuk copy link
-                    </p>
-                    <button class="px-6 py-2 bg-red-500 text-white rounded-full text-sm">
-                        COPY LINK
-                    </button>
-                </div>
-
-                <!-- KETENTUAN -->
-                <div class="bg-white rounded-2xl shadow-sm p-6">
-                    <h3 class="font-bold mb-3">Ketentuan</h3>
-                    <ul class="text-sm text-gray-600 space-y-2 list-disc list-inside">
-                        @foreach($job['requirements'] as $req)
-                            <li>{{ $req }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
-
-            <!-- SEND CV -->
-            <div class="mt-10 bg-white rounded-2xl shadow-md p-6 md:p-8">
-                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-                    <!-- LEFT -->
-                    <div>
-                        <h2 class="text-xl font-bold text-gray-900 mb-2">
-                            Kirim CV Kamu
-                        </h2>
-                        <p class="text-sm text-gray-600 max-w-md">
-                            Tertarik dengan posisi ini? Kirim CV dan portofolio terbaikmu sekarang.
-                        </p>
-                    </div>
-
-                    <!-- RIGHT -->
-                    <div class="flex items-center gap-3">
-                        <button class="px-6 py-3 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-100 transition">
-                            Upload CV
-                        </button>
-                        <button class="px-7 py-3 text-sm rounded-full bg-red-500 text-white hover:bg-red-600 transition">
-                            Send CV
-                        </button>
-                    </div>
-                </div>
+            <div>
+                <h1 class="text-3xl font-extrabold">WEB DEVELOPER</h1>
+                <p class="text-gray-500 mt-1">PT ABANG XPRESS</p>
             </div>
         </div>
-    </section>
 
-    <!-- CTA SECTION -->
-    <section class="relative overflow-hidden">
-        <img src="/images/about/Overlay6.png" alt="" class="absolute inset-0 w-full h-full object-cover"/>
-        <!-- Overlay merah biar teks kebaca -->
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-red-600/40 to-transparent"></div>
-        <div class="relative z-10 w-full px-6 md:px-12 py-8 md:py-10 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div class="text-white text-center md:text-left">
-                <h2 class="text-2xl md:text-3xl font-bold mb-2">
-                    Kita ada Untuk Kalian
-                </h2>
-                <p class="text-white/90">
-                    Ayo Mulai Golek Kerjo Rek!, Cek Ndang Rabi
+        <!-- DESKRIPSI -->
+        <div class="bg-white border-4 border-white rounded-3xl p-10 text-center shadow-lg">
+            <h2 class="text-xl font-bold mb-4 border-b-2 border-white inline-block px-6 pb-1">
+                DESKRIPSI
+            </h2>
+            <p class="text-gray-700 leading-relaxed max-w-3xl mx-auto mt-4">
+                Kami mencari Web Developer yang kreatif dan teknis untuk membangun serta
+                memelihara situs web yang responsif, efisien, dan memiliki performa tinggi.
+            </p>
+        </div>
+
+        <!-- KETENTUAN -->
+        <div class="bg-white border-4 border-white rounded-3xl p-10 shadow-lg">
+            <h2 class="text-xl font-bold mb-6 text-center">KETENTUAN</h2>
+            <ul class="list-disc list-inside text-gray-700 space-y-3 max-w-xl">
+                <li>Dapat bekerja dalam tim</li>
+                <li>Memiliki Keahlian di bidang Web Developer</li>
+                <li>Memiliki Pengalaman</li>
+            </ul>
+        </div>
+
+        <!-- ACTION -->
+        <div class="grid md:grid-cols-2 gap-10">
+
+            <!-- AJUKAN CV -->
+            <div class="bg-white border-4 border-white rounded-3xl p-8 flex flex-col items-center gap-6 shadow-lg">
+                <div id="uploadArea" class="w-full h-40 border-2 border-dashed border-gray-300 rounded-xl flex flex-col items-center justify-center text-gray-400 cursor-pointer hover:border-gray-400 transition" onclick="document.getElementById('fileInput').click()">
+                    <svg class="w-8 h-8 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                    </svg>
+                    <span id="uploadText">Upload File CV (PDF, DOC, DOCX)</span>
+                </div>
+                <input type="file" id="fileInput" accept=".pdf,.doc,.docx" class="hidden" onchange="handleFileSelect(event)">
+                <button class="w-full py-3 rounded-full bg-yellow-400 font-bold text-lg hover:bg-yellow-500 transition" onclick="submitCV()">
+                    AJUKAN CV
+                </button>
+            </div>
+
+            <!-- SHARE -->
+            <div class="bg-white border-4 border-white rounded-3xl p-8 text-center flex flex-col justify-center shadow-lg">
+                <h3 class="text-xl font-extrabold mb-3">AYO SUKSES!</h3>
+                <p class="text-gray-600 mb-6">
+                    Bagikan Pekerjaan Ini<br>
+                    Dengan Orang Lain, Ayo<br>
+                    Sukses Bareng!
                 </p>
+                <button class="mx-auto px-8 py-3 bg-red-500 text-white rounded-full hover:bg-red-600">
+                    SALIN TAUTAN
+                </button>
             </div>
 
-            <a href="/dashboard" class="bg-white text-red-600 font-semibold px-8 py-4 rounded-2xl hover:bg-red-50 transition">
-                Cari Kerja !
-            </a>
         </div>
-    </section>
 
-    <footer class="bg-white border-t">
-        <div class="w-full px-4 md:px-8 lg:px-16 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <!-- Logo -->
-                <div class="md:col-span-1">
-                    <img src="/images/about/Overlay3.png" alt="KerjoSam Logo" class="h-20 w-auto mb-4">
-                </div>
-                <!-- Link -->
-                <div>
-                    <h3 class="font-semibold mb-4 text-gray-800">Navigasi</h3>
-                    <ul class="space-y-2 text-sm text-gray-600">
-                        <li><a href="/dashboard" class="hover:text-red-500 transition">Home</a></li>
-                        <li><a href="{{ route('about') }}" class="hover:text-red-500 transition">About Us</a></li>
-                        <li><a href="{{ route('history') }}" class="hover:text-red-500 transition">History</a></li>
-                    </ul>
-                </div>
-                <!-- Other -->
-                <div>
-                    <h3 class="font-semibold mb-4 text-gray-800">Other</h3>
-                    <ul class="space-y-2 text-sm text-gray-600">
-                        <li><a href="#" class="hover:text-red-500 transition">Terms & Conditions</a></li>
-                        <li><a href="#" class="hover:text-red-500 transition">Privacy Policy</a></li>
-                    </ul>
-                </div>
-                <!-- Contact -->
-                <div>
-                    <h3 class="font-semibold mb-4 text-gray-800">Kontak Kami</h3>
-                    <div class="space-y-3 text-sm text-gray-600">
-                        <!-- Phone -->
-                        <div class="flex items-center gap-3">
-                            <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
-                                <svg class="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                                </svg>
-                            </div>
-                            <span>+62 822-3456-7890</span>
-                        </div>
-                        <!-- Email -->
-                        <div class="flex items-center gap-3">
-                            <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
-                                <svg class="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                                </svg>
-                            </div>
-                            <span>kerjosam@kerjo.id</span>
-                        </div>
-                        <!-- Website -->
-                        <div class="flex items-center gap-3">
-                            <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 0c2.5 2.5 4 6 4 10s-1.5 7.5-4 10m0-20C9.5 4.5 8 8 8 12s1.5 7.5 4 10" />
-                                </svg>
-                            </div>
-                            <span>kerjosam.com</span>
-                        </div>
-                    </div>
-                </div>
+        <!-- BACK -->
+        <a href="{{ url()->previous() }}"
+           class="inline-flex items-center gap-2 px-6 py-3 bg-red-500 text-white rounded-xl hover:bg-red-600">
+            ← KEMBALI
+        </a>
+
+    </div>
+</section>
+
+<!-- CTA (TETAP) -->
+<section class="relative overflow-hidden">
+    <img src="/images/about/Overlay6.png" alt="" class="absolute inset-0 w-full h-full object-cover"/>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-red-600/40 to-transparent"></div>
+    <div class="relative z-10 w-full px-6 md:px-12 py-8 md:py-10 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="text-white text-center md:text-left">
+            <h2 class="text-2xl md:text-3xl font-bold mb-2">Kita ada Untuk Kalian</h2>
+            <p class="text-white/90">Ayo Mulai Golek Kerjo Rek!, Cek Ndang Rabi</p>
+        </div>
+        <a href="/dashboard" class="bg-white text-red-600 font-semibold px-8 py-4 rounded-2xl hover:bg-red-50 transition">
+            Cari Kerja !
+        </a>
+    </div>
+</section>
+
+<!-- FOOTER (SAMA SEPERTI SEBELUMNYA) -->
+<footer class="bg-white border-t">
+    <div class="w-full px-4 md:px-8 lg:px-16 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <img src="/images/about/Overlay3.png" class="h-20 mb-4">
+            </div>
+
+            <div>
+                <h3 class="font-semibold mb-4">Navigasi</h3>
+                <ul class="space-y-2 text-sm text-gray-600">
+                    <li><a href="/dashboard" class="hover:text-red-500">Home</a></li>
+                    <li><a href="{{ route('about') }}" class="hover:text-red-500">About Us</a></li>
+                    <li><a href="{{ route('history') }}" class="hover:text-red-500">History</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="font-semibold mb-4">Other</h3>
+                <ul class="space-y-2 text-sm text-gray-600">
+                    <li><a href="#" class="hover:text-red-500">Terms & Conditions</a></li>
+                    <li><a href="#" class="hover:text-red-500">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="font-semibold mb-4">Kontak Kami</h3>
+                <p class="text-sm text-gray-600">kerjosam@kerjo.id</p>
+                <p class="text-sm text-gray-600">+62 822-3456-7890</p>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
 
-    <script>
-        function toggleDropdown() {
-            const dropdown = document.getElementById('userDropdown');
-            dropdown.classList.toggle('hidden');
-        }
-
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(event) {
-            const dropdown = document.getElementById('userDropdown');
-            const button = event.target.closest('button[onclick="toggleDropdown()"]');
-
-            if (!button && !dropdown.contains(event.target)) {
-                dropdown.classList.add('hidden');
-            }
-        });
-    </script>
 </body>
+
+<script>
+    let selectedFile = null;
+
+    function handleFileSelect(event) {
+        const file = event.target.files[0];
+        if (file) {
+            selectedFile = file;
+            const uploadText = document.getElementById('uploadText');
+            const uploadArea = document.getElementById('uploadArea');
+            
+            uploadText.textContent = `File terpilih: ${file.name}`;
+            uploadArea.classList.remove('border-gray-300');
+            uploadArea.classList.add('border-green-400', 'bg-green-50');
+        }
+    }
+
+    function submitCV() {
+        if (!selectedFile) {
+            alert('Silakan pilih file CV terlebih dahulu!');
+            return;
+        }
+        
+        // Simulasi upload - bisa diganti dengan AJAX request ke server
+        alert(`CV ${selectedFile.name} berhasil diajukan!`);
+        
+        // Reset form
+        selectedFile = null;
+        document.getElementById('fileInput').value = '';
+        document.getElementById('uploadText').textContent = 'Upload File CV (PDF, DOC, DOCX)';
+        const uploadArea = document.getElementById('uploadArea');
+        uploadArea.classList.remove('border-green-400', 'bg-green-50');
+        uploadArea.classList.add('border-gray-300');
+    }
+
+    function toggleDropdown() {
+        document.getElementById('userDropdown').classList.toggle('hidden');
+    }
+
+    function toggleMobileMenu() {
+        document.getElementById('mobileMenu').classList.toggle('hidden');
+    }
+
+    document.addEventListener('click', function(e) {
+        const dropdown = document.getElementById('userDropdown');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (!e.target.closest('.relative')) {
+            dropdown.classList.add('hidden');
+        }
+        if (!e.target.closest('button[onclick="toggleMobileMenu()"]') && !e.target.closest('#mobileMenu')) {
+            mobileMenu.classList.add('hidden');
+        }
+    });
+</script>
+
 </html>
