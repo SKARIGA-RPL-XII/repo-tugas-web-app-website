@@ -27,9 +27,6 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/profile', [AuthController::class, 'profile'])->name('profile')->middleware('auth');
 
 // Job Routes
-<<<<<<< HEAD:KerjoSam/routes/web.php
-Route::get('/job/{id}', [JobController::class, 'show'])->name('job.detail')->middleware('auth');
-=======
 Route::get('/job/{id}', [JobController::class, 'show'])->name('job.detail')->middleware('auth');
 
 Route::get('/about', [AboutController::class, 'index'])->name('about');
@@ -40,4 +37,3 @@ Route::get('/history', function () {
 Route::get('/profile', function () {
     return view('profileuser');
 });
->>>>>>> origin/wisnu-candra:kerjosam/routes/web.php
