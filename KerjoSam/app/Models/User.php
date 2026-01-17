@@ -17,11 +17,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-<<<<<<< HEAD:KerjoSam/app/Models/User.php
-        'role', // ⬅️ PENTING
-=======
         'email_verified_at',
->>>>>>> origin/wisnu-candra:kerjosam/app/Models/User.php
     ];
 
     /**

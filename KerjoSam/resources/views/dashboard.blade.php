@@ -670,8 +670,4 @@
         }
     </script>
 </body>
-<<<<<<< HEAD:KerjoSam/resources/views/dashboard.blade.php
-=======
-
->>>>>>> origin/wisnu-candra:kerjosam/resources/views/dashboard.blade.php
 </html>
