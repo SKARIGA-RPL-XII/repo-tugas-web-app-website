@@ -35,6 +35,6 @@ Route::get('/history', function () {
     return view('history');
 })->name('history')->middleware('auth');
 
-Route::get('/profile', function () {
+Route::get('/profilee', function () {
     return view('profileuser');
 });
