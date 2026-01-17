@@ -629,7 +629,6 @@
                         </span>
                         <a href="<?php echo e(route('job.detail', 6)); ?>"
                         class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600">
-
                             View Detail
                         </a>
                     </div>
