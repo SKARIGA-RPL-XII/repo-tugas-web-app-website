@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +11,11 @@
             scrollbar-width: none;
             -ms-overflow-style: none;
         }
+
         *::-webkit-scrollbar {
             display: none;
         }
+
         .bg-about {
             background-image: url('/images/about/Overlay1.png');
             background-size: cover;
@@ -21,73 +24,74 @@
         }
     </style>
 </head>
+
 <body class="bg-gray-50 text-gray-800 antialiased">
     <!-- NAVBAR -->
     <nav class="w-full bg-white shadow-sm relative z-10">
         <div class="w-full px-8 md:px-12 py-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <img src="/images/LogoWeb.png" alt="Logo" class="w-12 h-12 md:w-32 md:h-10 rounded-full object-cover"/>
+                <img src="/images/LogoWeb.png" alt="Logo" class="w-12 h-12 md:w-32 md:h-10 rounded-full object-cover" />
             </div>
             <div class="flex items-center gap-6">
                 {{-- MENU KIRI --}}
                 <ul class="hidden md:flex gap-8 text-sm text-gray-600">
                     @auth
-                        <li class="hover:text-red-500 cursor-pointer">
-                            <a href="/">Home</a>
-                        </li>
-                        <li class="hover:text-red-500 cursor-pointer">
-                            <a href="{{ route('history') }}">History</a>
-                        </li>
-                        <li class="hover:text-red-500 cursor-pointer">
-                            <a href="{{ route('about') }}">About</a>
-                        </li>
+                    <li class="hover:text-red-500 cursor-pointer">
+                        <a href="/">Home</a>
+                    </li>
+                    <li class="hover:text-red-500 cursor-pointer">
+                        <a href="{{ route('history') }}">History</a>
+                    </li>
+                    <li class="hover:text-red-500 cursor-pointer">
+                        <a href="{{ route('about') }}">About</a>
+                    </li>
                     @endauth
                 </ul>
 
                 {{-- MENU KANAN --}}
                 @guest
-                   <div class="flex items-center gap-4 text-sm">
-                        <button @click="open = true; mode = 'login'" class="text-gray-600 hover:text-red-500" type="button">
-                            Login
-                        </button>
+                <div class="flex items-center gap-4 text-sm">
+                    <button @click="open = true; mode = 'login'" class="text-gray-600 hover:text-red-500" type="button">
+                        Login
+                    </button>
 
-                        <button @click="open = true; mode = 'register'" class="px-4 py-2 bg-red-500 text-white rounded-full hover:bg-red-600" type="button">
-                            Register
-                        </button>
-                    </div>
+                    <button @click="open = true; mode = 'register'" class="px-4 py-2 bg-red-500 text-white rounded-full hover:bg-red-600" type="button">
+                        Register
+                    </button>
+                </div>
                 @endguest
 
                 @auth
-                    <!-- JIKA SUDAH LOGIN -->
-                    <div class="relative">
-                        <!-- Trigger -->
-                        <button onclick="toggleDropdown()" class="flex items-center gap-2 focus:outline-none">
-                            <div class="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center text-white text-sm font-semibold">
-                                {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
-                            </div>
-                            <span class="text-sm text-gray-600">
-                                {{ auth()->user()->name }}
-                            </span>
-                            <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-
-                        <!-- Dropdown -->
-                        <div id="userDropdown"
-                            class="absolute right-0 mt-3 w-40 bg-white rounded-xl shadow-lg border border-gray-100 hidden">
-                            <a href="/profile" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50">
-                                Profile
-                            </a>
-                            <form method="POST" action="/logout">
-                                @csrf
-                                <button type="submit"
-                                    class="w-full text-left px-4 py-2 text-sm text-red-500 hover:bg-red-50">
-                                    Logout
-                                </button>
-                            </form>
+                <!-- JIKA SUDAH LOGIN -->
+                <div class="relative">
+                    <!-- Trigger -->
+                    <button onclick="toggleDropdown()" class="flex items-center gap-2 focus:outline-none">
+                        <div class="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center text-white text-sm font-semibold">
+                            {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
                         </div>
+                        <span class="text-sm text-gray-600">
+                            {{ auth()->user()->name }}
+                        </span>
+                        <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+
+                    <!-- Dropdown -->
+                    <div id="userDropdown"
+                        class="absolute right-0 mt-3 w-40 bg-white rounded-xl shadow-lg border border-gray-100 hidden">
+                        <a href="/profile" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50">
+                            Profile
+                        </a>
+                        <form method="POST" action="/logout">
+                            @csrf
+                            <button type="submit"
+                                class="w-full text-left px-4 py-2 text-sm text-red-500 hover:bg-red-50">
+                                Logout
+                            </button>
+                        </form>
                     </div>
+                </div>
                 @endauth
             </div>
         </div>
@@ -185,7 +189,7 @@
                     <h3 class="font-bold mb-3">Ketentuan</h3>
                     <ul class="text-sm text-gray-600 space-y-2 list-disc list-inside">
                         @foreach($job['requirements'] as $req)
-                            <li>{{ $req }}</li>
+                        <li>{{ $req }}</li>
                         @endforeach
                     </ul>
                 </div>
@@ -220,7 +224,7 @@
 
     <!-- CTA SECTION -->
     <section class="relative overflow-hidden">
-        <img src="/images/about/Overlay6.png" alt="" class="absolute inset-0 w-full h-full object-cover"/>
+        <img src="/images/about/Overlay6.png" alt="" class="absolute inset-0 w-full h-full object-cover" />
         <!-- Overlay merah biar teks kebaca -->
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-red-600/40 to-transparent"></div>
         <div class="relative z-10 w-full px-6 md:px-12 py-8 md:py-10 flex flex-col md:flex-row items-center justify-between gap-6">
@@ -317,4 +321,5 @@
         });
     </script>
 </body>
+
 </html>
