@@ -627,6 +627,7 @@
                         </span>
                         <a href="{{ route('job.detail', 6) }}"
                         class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600">
+>>>>>>> origin/toriq-habil-f
                             View Detail
                         </a>
                     </div>
@@ -736,16 +737,17 @@
             }
 
             // Show success message
-            @if(session('success'))
-                showAlert('{{ session('success') }}');
+            const successMessage = @json(session('success'));
+            if (successMessage) {
+                showAlert(successMessage);
                 // Auto open login modal after successful registration
-                @if(str_contains(session('success'), 'Registrasi berhasil'))
+                if (successMessage.includes('Registrasi berhasil')) {
                     setTimeout(() => {
                         document.querySelector('[x-data]').__x.$data.open = true;
                         document.querySelector('[x-data]').__x.$data.mode = 'login';
                     }, 1000);
-                @endif
-            @endif
+                }
+            }
         });
 
         // Show alert function
