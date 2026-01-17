@@ -119,7 +119,9 @@
                     <!-- Background merah -->
                     <img src="/images/about/Overlay7.png" alt="Background" class="w-[360px] sm:w-[420px] md:w-[520px] lg:w-[450px] aspect-square object-contain -mt-12 md:-mt-20" />
                     <!-- Logo KerjoSam -->
-                    <img src="/images/about/Overlay3.png" class="absolute w-[200px] sm:w-[200px] md:w-[460px] lg:w-[700px]" />
+                    <img src="/images/about/Kerjo.png"
+                        alt="KerjoSam"
+                        class="absolute w-[200px] sm:w-[200px] md:w-[460px] lg:w-[750px] top-12" />
                 </div>
             </div>
         </div>
@@ -151,11 +153,12 @@
         </div>
     </section>
 
-    <!-- CTA SECTION -->
+     <!-- CTA SECTION -->
     <section class="relative overflow-hidden">
-        <img src="/images/about/Overlay6.png" alt="" class="absolute inset-0 w-full h-full object-cover" />
+        <img src="/images/about/Overlay6.png" alt="" class="absolute inset-0 w-full h-full object-cover object-[50%_15%]" />
         <!-- Overlay merah biar teks kebaca -->
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-red-600/40 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-r  from-red-600/50  via-red-600/30  to-white">
+        </div>
         <div class="relative z-10 w-full px-6 md:px-12 py-8 md:py-10 flex flex-col md:flex-row items-center justify-between gap-6">
             <div class="text-white text-center md:text-left">
                 <h2 class="text-2xl md:text-3xl font-bold mb-2">
@@ -166,7 +169,7 @@
                 </p>
             </div>
 
-            <a href="/dashboard" class="bg-white text-red-600 font-semibold px-8 py-4 rounded-2xl hover:bg-red-50 transition">
+            <a href="/dashboard" class="bg-[#CC1E1E] text-white font-semibold px-8 py-4 rounded-2xl border-2 border-transparent hover:bg-white hover:border-[#CC1E1E] hover:text-[#CC1E1E] transition-all duration-300">
                 Cari Kerja !
             </a>
         </div>
@@ -176,8 +179,16 @@
         <div class="w-full px-4 md:px-8 lg:px-16 py-12">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <!-- Logo -->
-                <div class="md:col-span-1">
-                    <img src="/images/about/Overlay3.png" alt="KerjoSam Logo" class="h-20 w-auto mb-4">
+                <div class="md:col-span-1 flex flex-col items-start">
+                    <img
+                        src="/images/WhatsApp-Image-2026-01-06-at-22.57.16-7.png"
+                        alt="KerjoSam Logo"
+                        class="w-full max-w-[240px] h-auto object-contain mb-3" />
+
+                    <p class="text-base md:text-lg font-semibold">
+                        <span class="text-[#FD721D]">Kerjo Bareng,</span>
+                        <span class="text-[#CC0000]"> Sukses Bareng</span>
+                    </p>
                 </div>
                 <!-- Link -->
                 <div>
@@ -232,6 +243,7 @@
             </div>
         </div>
     </footer>
+
 
     <script>
         function toggleDropdown() {
