@@ -24,16 +24,19 @@
             z-index: 10;
             position: relative;
         }
+
         /* Hide scrollbars */
         * {
             scrollbar-width: none;
             -ms-overflow-style: none;
         }
+
         *::-webkit-scrollbar {
             display: none;
         }
     </style>
 </head>
+
 <body class="bg-gray-50 text-gray-800 antialiased">
     <!-- Success Alert -->
     <div id="successAlert" class="fixed top-4 right-4 z-50 max-w-sm w-full bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg hidden">
@@ -55,7 +58,7 @@
     <nav class="w-full bg-white shadow-sm relative z-10">
         <div class="w-full px-8 md:px-16 py-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <img src="/images/LogoWeb.png" alt="Logo" class="w-12 h-12 md:w-32 md:h-10 rounded-full object-cover"/>
+                <img src="/images/LogoWeb.png" alt="Logo" class="w-12 h-12 md:w-32 md:h-10 rounded-full object-cover" />
             </div>
 
             <div class="flex items-center gap-6">
@@ -170,7 +173,7 @@
         <div class="absolute left-1/2 -bottom-32 md:-bottom-20 transform -translate-x-1/2 w-full px-8 md:px-16 flex flex-col items-center gap-4 z-40">
             <!-- Search Bar -->
             <div class="bg-white rounded-full flex items-center px-3 py-2 md:px-4 shadow-lg w-full max-w-7xl">
-                <input type="text" id="searchInput" placeholder="Search jobs..." class="flex-1 outline-none text-base text-gray-700" onkeyup="searchJobs()"/>
+                <input type="text" id="searchInput" placeholder="Search jobs..." class="flex-1 outline-none text-base text-gray-700" onkeyup="searchJobs()" />
                 <button onclick="searchJobs()" class="bg-red-500 text-white w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center" aria-label="Search">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14z" />
@@ -193,8 +196,8 @@
     <section class="relative pt-48 md:pt-36 pb-20">
         <!-- BACKGROUND / OVERLAY (DIAM) -->
         <div class="absolute inset-0 pointer-events-none">
-            <img src="/images/about/Overlay5.png" class="absolute left-0 top-0 h-full w-[120px] md:w-[300px] object-cover opacity-35 md:opacity-40"/>
-            <img src="/images/about/Overlay5.png" class="absolute right-0 top-0 h-full w-[120px] md:w-[300px] object-cover opacity-35 md:opacity-40 scale-x-[-1]"/>
+            <img src="/images/about/Overlay5.png" class="absolute left-0 top-0 h-full w-[120px] md:w-[300px] object-cover opacity-35 md:opacity-40" />
+            <img src="/images/about/Overlay5.png" class="absolute right-0 top-0 h-full w-[120px] md:w-[300px] object-cover opacity-35 md:opacity-40 scale-x-[-1]" />
         </div>
         <div class="relative z-10 w-full px-8 md:px-16">
             <!-- Section Title -->
@@ -430,7 +433,7 @@
                             Rp 6 – 9 Juta
                         </span>
                         <a href="{{ route('job.detail', 5) }}"
-                        class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600">
+                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600">
                             View Detail
                         </a>
                     </div>
@@ -471,7 +474,7 @@
                             Rp 9 – 14 Juta
                         </span>
                         <a href="{{ route('job.detail', 6) }}"
-                        class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600">
+                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600">
                             View Detail
                         </a>
                     </div>
@@ -482,9 +485,10 @@
 
     <!-- CTA SECTION -->
     <section class="relative overflow-hidden">
-        <img src="/images/about/Overlay6.png" alt="" class="absolute inset-0 w-full h-full object-cover"/>
+        <img src="/images/about/Overlay6.png" alt="" class="absolute inset-0 w-full h-full object-cover object-[50%_15%]" />
         <!-- Overlay merah biar teks kebaca -->
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-red-600/40 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-r  from-red-600/50  via-red-600/30  to-white">
+        </div>
         <div class="relative z-10 w-full px-6 md:px-12 py-8 md:py-10 flex flex-col md:flex-row items-center justify-between gap-6">
             <div class="text-white text-center md:text-left">
                 <h2 class="text-2xl md:text-3xl font-bold mb-2">
@@ -495,7 +499,7 @@
                 </p>
             </div>
 
-            <a href="/dashboard" class="bg-white text-red-600 font-semibold px-8 py-4 rounded-2xl hover:bg-red-50 transition">
+            <a href="/dashboard" class="bg-[#CC1E1E] text-white font-semibold px-8 py-4 rounded-2xl border-2 border-transparent hover:bg-white hover:border-[#CC1E1E] hover:text-[#CC1E1E] transition-all duration-300">
                 Cari Kerja !
             </a>
         </div>
@@ -505,8 +509,16 @@
         <div class="w-full px-4 md:px-8 lg:px-16 py-12">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <!-- Logo -->
-                <div class="md:col-span-1">
-                    <img src="/images/about/Overlay3.png" alt="KerjoSam Logo" class="h-32 w-auto mb-4">
+                <div class="md:col-span-1 flex flex-col items-start">
+                    <img
+                        src="/images/WhatsApp-Image-2026-01-06-at-22.57.16-7.png"
+                        alt="KerjoSam Logo"
+                        class="w-full max-w-[240px] h-auto object-contain mb-3" />
+
+                    <p class="text-base md:text-lg font-semibold">
+                        <span class="text-[#FD721D]">Kerjo Bareng,</span>
+                        <span class="text-[#CC0000]"> Sukses Bareng</span>
+                    </p>
                 </div>
                 <!-- Link -->
                 <div>
@@ -571,7 +583,7 @@
             document.getElementById('mobileMenu').classList.toggle('hidden');
         }
 
-        document.addEventListener('click', function (e) {
+        document.addEventListener('click', function(e) {
             const dropdown = document.getElementById('userDropdown');
             const mobileMenu = document.getElementById('mobileMenu');
             if (!e.target.closest('.relative')) {
