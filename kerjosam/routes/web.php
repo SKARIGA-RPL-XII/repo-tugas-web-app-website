@@ -33,7 +33,7 @@ Route::get('/job/{id}', [JobController::class, 'show'])->name('job.detail')->mid
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/history', function () {
     return view('history');
-})->name('history')->middleware('auth');
+});
 
 Route::get('/profilee', function () {
     return view('profileuser');
