@@ -126,7 +126,7 @@
                     <!-- Logo KerjoSam -->
                     <img src="/images/about/Kerjo.png"
                         alt="KerjoSam"
-                        class="absolute w-[200px] sm:w-[200px] md:w-[460px] lg:w-[750px]" />
+                        class="absolute w-[200px] sm:w-[200px] md:w-[460px] lg:w-[750px] top-12" />
                 </div>
             </div>
         </div>
