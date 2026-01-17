@@ -5,8 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KerjoSam | Sistem Mencari Lowongan Online</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        *::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-50 text-gray-800 antialiased">
     <div class="min-h-screen py-12">
         <div class="max-w-md mx-auto bg-white rounded-lg shadow-md p-6">
             <div class="text-center">
