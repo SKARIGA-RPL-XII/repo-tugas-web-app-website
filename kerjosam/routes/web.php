@@ -35,6 +35,9 @@ Route::get('/history', function () {
     return view('history');
 });
 
-Route::get('/profilee', function () {
+Route::get('/profile', function () {
     return view('profileuser');
+});
+Route::get('/profile/perusahaan', function () {
+    return view('profileperusahaan');
 });
