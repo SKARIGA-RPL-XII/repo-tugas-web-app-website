@@ -43,61 +43,64 @@
 
     <!-- ================= NAVBAR ================= -->
     <nav class="w-full bg-white border-b shadow-sm relative z-20">
-    <div class="w-full max-w-7xl mx-auto px-8 py-4 flex items-center justify-between">
+        <div class="w-full px-8 py-4 flex items-center justify-between">
 
-        <!-- LOGO -->
-        <div class="flex items-center">
-            <img src="/images/LogoWeb.png" alt="KerjoSam Logo"
-                class="h-12 w-auto object-contain" />
-        </div>
+            <!-- LOGO (KIRI MENTOK) -->
+            <div class="flex items-center gap-3">
+                <img src="/images/LogoWeb.png" alt="Logo" class="w-12 h-12 md:w-32 md:h-10 rounded-full object-cover" />
+            </div>
 
-        <!-- MENU & USER ADMIN -->
-        <div class="flex items-center gap-10">
-            <!-- MENU -->
-            <ul class="hidden md:flex items-center gap-10 text-sm font-medium text-gray-800">
-                <li>
-                    <a href="/dashboard" class="hover:text-red-500 transition">
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('about') }}" class="hover:text-red-500 transition">
-                        About us
-                    </a>
-                </li>
-                <li>
-                    <a href="/admin-tools" class="hover:text-red-500 transition">
-                        Admin Tools
-                    </a>
-                </li>
-            </ul>
+            <!-- MENU + ADMIN (KANAN MENTOK) -->
+            <div class="flex items-center gap-10">
 
-            <!-- USER ADMIN -->
-            <div class="relative flex items-center gap-3 cursor-pointer">
-                <!-- Avatar -->
-                <div class="w-9 h-9 rounded-full bg-gray-300 flex items-center justify-center">
-                    <span class="text-sm font-semibold text-gray-700">A</span>
+                <!-- MENU -->
+                <ul class="hidden md:flex items-center gap-10 text-sm font-medium text-gray-800">
+                    <li>
+                        <a href="/dashboard" class="hover:text-red-500 transition">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('about') }}" class="hover:text-red-500 transition">
+                            About us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/admin/tools" class="hover:text-red-500 transition">
+                            Admin Tools
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- USER ADMIN -->
+                <div class="relative flex items-center gap-3 cursor-pointer">
+                    <!-- Avatar -->
+                    <div class="w-9 h-9 rounded-full bg-gray-300 flex items-center justify-center">
+                        <span class="text-sm font-semibold text-gray-700">A</span>
+                    </div>
+
+                    <span class="text-sm text-gray-800">Admin</span>
+
+                    <svg class="w-4 h-4 text-gray-600"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M19 9l-7 7-7-7" />
+                    </svg>
                 </div>
 
-                <!-- Select + Icon -->
-                <span class="text-sm text-gray-800">Admin</span>
-                <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M19 9l-7 7-7-7" />
-                </svg>
             </div>
+
         </div>
-
-    </div>
-</nav>
-
-
+    </nav>
     <!-- ================= HERO / BACKGROUND ================= -->
     <section class="bg-about min-h-screen pt-32 pb-20">
         <div class="max-w-6xl mx-auto px-6">
 
-            <h1 class="text-5xl md:text-6xl font-black text-center text-red-500 mb-20">
+            <h1 class="text-5xl md:text-6xl font-normal text-center text-black-500 mb-20 uppercase underline">
                 PEKERJAAN
             </h1>
 
@@ -132,7 +135,7 @@
                     <img src="/images/job.jpg" class="h-44 w-full object-cover">
 
                     <div class="p-6">
-                        <h3 class="font-bold text-lg mb-3">Heuristic Evaluation Aplikasi</h3>
+                        <h3 class="font-bold text-lg mb-3">Heuristic Evaluation Aplikasi Jurnal</h3>
 
                         <div class="flex flex-wrap gap-2 mb-6">
                             <span class="px-4 py-1 text-sm border border-red-500 text-red-500 rounded-full">UI/UX</span>
@@ -151,11 +154,14 @@
                     <img src="/images/job.jpg" class="h-44 w-full object-cover">
 
                     <div class="p-6">
-                        <h3 class="font-bold text-lg mb-3">Maintenance Website</h3>
+                        <h3 class="font-bold text-lg mb-3">Maintenance Website SPMB</h3>
 
                         <div class="flex flex-wrap gap-2 mb-6">
                             <span class="px-4 py-1 text-sm border border-red-500 text-red-500 rounded-full">
                                 Web Development
+                            </span>
+                             <span class="px-4 py-1 text-sm border border-red-500 text-red-500 rounded-full">
+                                Website
                             </span>
                         </div>
 
@@ -171,14 +177,11 @@
                     <img src="/images/job.jpg" class="h-44 w-full object-cover">
 
                     <div class="p-6">
-                        <h3 class="font-bold text-lg mb-3">Copy Writing Artikel</h3>
+                        <h3 class="font-bold text-lg mb-3">UAT Website</h3>
 
                         <div class="flex flex-wrap gap-2 mb-6">
                             <span class="px-4 py-1 text-sm border border-red-500 text-red-500 rounded-full">
-                                Copy Writing
-                            </span>
-                            <span class="px-4 py-1 text-sm border border-red-500 text-red-500 rounded-full">
-                                Artikel
+                                Testing
                             </span>
                         </div>
 
@@ -219,13 +222,12 @@
 
                 <!-- LOGO -->
                 <div>
-                    <div class="flex items-center gap-3 mb-4">
+                    <div class="mb-4">
                         <div class="flex items-center gap-3">
                             <img src="/images/LogoWeb.png" alt="Logo" class="w-12 h-12 md:w-32 md:h-10 rounded-full object-cover" />
                         </div>
-                        <div>
-                            <p class="text-sm text-gray-600">Kerjo Bareng, Sukses Bareng</p>
-                        </div>
+
+                        <p class="text-base text-gray-600 font-medium">Kerjo Bareng, Sukses Bareng</p>
                     </div>
                 </div>
 
@@ -263,7 +265,7 @@
                                         d="M3 5a2 2 0 012-2h3.28a1 1 0 01.95.69l1.5 4.49a1 1 0 01-.5 1.21l-2.26 1.13a11.04 11.04 0 005.52 5.52l1.13-2.26a1 1 0 011.21-.5l4.49 1.5a1 1 0 01.69.95V19a2 2 0 01-2 2h-1C9.72 21 3 14.28 3 6V5z" />
                                 </svg>
                             </div>
-                            <span>+62 822-3456-7890</span>
+                            <span>+52946747</span>
                         </div>
 
                         <!-- EMAIL -->
@@ -287,7 +289,7 @@
                                         d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2a3 3 0 013 3v10a3 3 0 01-3 3H7a3 3 0 01-3-3V7a3 3 0 013-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-.75a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z" />
                                 </svg>
                             </div>
-                            <span>@kerjosam.id</span>
+                            <span>@kerjosam_.</span>
                         </div>
 
                         <!-- FACEBOOK -->
@@ -299,7 +301,7 @@
                                         d="M22 12a10 10 0 10-11.5 9.87v-6.99h-2.3V12h2.3V9.8c0-2.28 1.36-3.54 3.44-3.54.99 0 2.03.18 2.03.18v2.24h-1.14c-1.12 0-1.47.7-1.47 1.41V12h2.5l-.4 2.88h-2.1v6.99A10 10 0 0022 12z" />
                                 </svg>
                             </div>
-                            <span>KerjoSam Official</span>
+                            <span>kerjosam</span>
                         </div>
 
                     </div>
