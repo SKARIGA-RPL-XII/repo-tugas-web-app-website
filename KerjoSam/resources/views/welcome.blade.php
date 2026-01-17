@@ -8,10 +8,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <style>
-<<<<<<< HEAD:KerjoSam/resources/views/welcome.blade.php
-        [x-cloak] {
-            display: none !important;
-=======
         [x-cloak] { display: none !important; }
         .category-btn.active {
             background: white !important;
@@ -35,7 +31,6 @@
         }
         *::-webkit-scrollbar {
             display: none;
->>>>>>> origin/wisnu-candra:kerjosam/resources/views/welcome.blade.php
         }
     </style>
 </head>

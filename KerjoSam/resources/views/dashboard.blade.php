@@ -1,10 +1,6 @@
 <!DOCTYPE html>
-<<<<<<< HEAD:KerjoSam/resources/views/dashboard.blade.php
-<html lang="id">
-=======
 <html lang="en">
 
->>>>>>> origin/wisnu-candra:kerjosam/resources/views/dashboard.blade.php
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -62,50 +58,6 @@
                 <img src="/images/LogoWeb.png" alt="Logo" class="w-12 h-12 md:w-32 md:h-10 rounded-full object-cover"/>
             </div>
 
-<<<<<<< HEAD:KerjoSam/resources/views/dashboard.blade.php
-<body class="min-h-screen bg-white relative overflow-hidden">
-
-    <!-- BACKGROUND -->
-    <div
-        class="
-            fixed inset-0 pointer-events-none
-
-            /* desktop */
-            bg-no-repeat bg-cover bg-center
-
-            /* tablet */
-            md:bg-center
-
-            /* mobile: background diperkecil & lebih soft */
-            bg-[length:140%] sm:bg-[length:120%] md:bg-cover
-        "
-        style="background-image: url('{{ asset('images/bg1.png') }}');">
-    </div>
-
-    <!-- CONTENT -->
-    <div class="relative z-10">
-
-        <!-- NAVBAR -->
-        <nav class="bg-white shadow px-10 py-4 flex items-center">
-            <span class="text-xl font-bold">
-                <span class="text-red-600">Kerjo</span>
-                <span class="text-yellow-400">Sam.</span>
-            </span>
-
-            <ul class="flex gap-6 text-sm font-medium ml-auto">
-            <a href="{{ route('welcome') }}" class="hover:text-red-500">HOME</a>
-                <li class="cursor-pointer">ABOUT US</li>
-                <li class="text-red-600 cursor-pointer">ADMIN TOOLS</li>
-            </ul>
-        </nav>
-
-        <!-- MAIN -->
-        <div class="max-w-4xl mx-auto px-6 py-10">
-
-            <!-- TITLE -->
-            <h1 class="text-4xl font-extrabold text-center underline mb-14">
-                ADMIN TOOLS
-=======
             <div class="flex items-center gap-6">
                 <!-- MENU KIRI -->
                 <ul class="hidden md:flex gap-8 text-sm text-gray-600">
@@ -208,7 +160,6 @@
         <div class="relative w-full px-8 md:px-16 py-24 text-white text-left">
             <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
                 Welcome back, {{ auth()->user()->name }}! <br /> Find Your Dream Job
->>>>>>> origin/wisnu-candra:kerjosam/resources/views/dashboard.blade.php
             </h1>
 
         <!-- Search + Categories -->
@@ -374,14 +325,6 @@
                             </div>
                         </div>
 
-<<<<<<< HEAD:KerjoSam/resources/views/dashboard.blade.php
-            <!-- PERUSAHAAN -->
-            <h2 class="text-2xl font-bold underline mb-4">PERUSAHAAN</h2>
-            <div class="mb-10">
-                <div class="flex justify-between items-center bg-gray-100 rounded-xl px-6 py-4 shadow">
-                    <div class="flex items-center gap-3 font-semibold">
-                        👤 PT. SAWERIA
-=======
                         <h3 class="text-lg font-semibold text-gray-900 mb-3">
                             Backend Developer
                         </h3>
@@ -533,7 +476,6 @@
                         class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600">
                             View Detail
                         </a>
->>>>>>> origin/wisnu-candra:kerjosam/resources/views/dashboard.blade.php
                     </div>
                     <button class="bg-red-500 text-white text-sm px-4 py-1 rounded-full">
                         HAPUS AKUN
