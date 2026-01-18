@@ -100,9 +100,10 @@
     <section class="bg-about min-h-screen pt-32 pb-20">
         <div class="max-w-6xl mx-auto px-6">
 
-            <h1 class="text-5xl md:text-6xl font-normal text-center text-black-500 mb-20 uppercase underline">
+            <h1 class="text-5xl md:text-6xl font-bold text-center text-black-500 mb-20 uppercase underline">
                 PEKERJAAN
             </h1>
+
 
             <!-- JOB LIST -->
             <div id="jobList" class="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -160,7 +161,7 @@
                             <span class="px-4 py-1 text-sm border border-red-500 text-red-500 rounded-full">
                                 Web Development
                             </span>
-                             <span class="px-4 py-1 text-sm border border-red-500 text-red-500 rounded-full">
+                            <span class="px-4 py-1 text-sm border border-red-500 text-red-500 rounded-full">
                                 Website
                             </span>
                         </div>
@@ -197,8 +198,6 @@
 
         </div>
     </section>
-
-    <!-- ================= CTA (SAMA SEPERTI ABOUT) ================= -->
     <section class="relative overflow-hidden">
         <img src="/images/about/Overlay6.png" alt="" class="absolute inset-0 w-full h-full object-cover bg-image-position">
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-red-600/40 to-transparent"></div>
@@ -215,7 +214,7 @@
         </div>
     </section>
 
-    <!-- ================= FOOTER (SAMA PERSIS ABOUT US) ================= -->
+    <!-- ================= FOOTER ================= -->
     <footer class="bg-white border-t">
         <div class="w-full px-8 md:px-16 py-12">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">

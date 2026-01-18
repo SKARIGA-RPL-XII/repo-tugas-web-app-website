@@ -53,32 +53,142 @@
 
         <!-- PERUSAHAAN -->
         <h2 class="text-xl font-bold mt-14 mb-4">PERUSAHAAN</h2>
+
         <div class="space-y-3">
             <div class="flex justify-between bg-white px-6 py-3 rounded-xl shadow">
                 <span>PT Saveria</span>
-                <button class="bg-red-500 text-white text-xs px-4 py-1 rounded-full">HAPUS</button>
+                <button class="bg-red-500 text-white text-xs px-4 py-1 rounded-full">
+                    HAPUS
+                </button>
             </div>
+
             <div class="flex justify-between bg-white px-6 py-3 rounded-xl shadow">
                 <span>PT. Matahari</span>
-                <button class="bg-red-500 text-white text-xs px-4 py-1 rounded-full">HAPUS</button>
+                <button class="bg-red-500 text-white text-xs px-4 py-1 rounded-full">
+                    HAPUS
+                </button>
             </div>
+
             <div class="flex justify-between bg-white px-6 py-3 rounded-xl shadow">
                 <span>CV. Cahaya</span>
-                <button class="bg-red-500 text-white text-xs px-4 py-1 rounded-full">HAPUS</button>
+                <button class="bg-red-500 text-white text-xs px-4 py-1 rounded-full">
+                    HAPUS
+                </button>
             </div>
         </div>
 
-        <p class="text-center text-sm mt-4 underline cursor-pointer">SHOW MORE</p>
+        <div class="text-center mt-4">
+            <a href="{{ route('show-more-perusahaan') }}"
+                class="text-sm underline cursor-pointer font-semibold">
+                SHOW MORE
+            </a>
+        </div>
+
 
         <!-- PEKERJAAN -->
         <h2 class="text-xl font-bold mt-14 mb-6">PEKERJAAN</h2>
 
-        <a href="{{ route('show.more.pekerjaan') }}"
-   class="bg-red-500 hover:bg-red-600 transition text-white px-12 py-4 rounded-full font-semibold shadow-lg">
-    SHOW PEKERJAAN
-</a>
+        <!-- CARD LIST -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
 
-        <!-- KATEGORI -->
+            <!-- CARD 1 -->
+            <a href="{{ route('show.more.pekerjaan') }}"
+                class="bg-white rounded-3xl shadow-xl overflow-hidden hover:scale-[1.02] transition">
+                <img src="/images/job.jpg" class="h-44 w-full object-cover">
+                <div class="p-6">
+                    <h3 class="font-bold text-lg mb-4">Copy Writing Artikel</h3>
+                    <div class="flex items-center justify-between">
+                        <div class="flex gap-2">
+                            <span class="px-4 py-1 text-xs border border-red-500 text-red-500 rounded-full">
+                                Copy Writing
+                            </span>
+                            <span class="px-4 py-1 text-xs border border-red-500 text-red-500 rounded-full">
+                                Artikel
+                            </span>
+                        </div>
+                        <span class="bg-red-500 text-white px-6 py-2 rounded-full text-sm font-semibold">
+                            HAPUS
+                        </span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- CARD 2 -->
+            <a href="{{ route('show.more.pekerjaan') }}"
+                class="bg-white rounded-3xl shadow-xl overflow-hidden hover:scale-[1.02] transition">
+                <img src="/images/job.jpg" class="h-44 w-full object-cover">
+                <div class="p-6">
+                    <h3 class="font-bold text-lg mb-4">Heuristic Evaluation Aplikasi Jurnal</h3>
+                    <div class="flex items-center justify-between">
+                        <div class="flex gap-2">
+                            <span class="px-4 py-1 text-xs border border-red-500 text-red-500 rounded-full">
+                                UI/UX
+                            </span>
+                            <span class="px-4 py-1 text-xs border border-red-500 text-red-500 rounded-full">
+                                Testing
+                            </span>
+                        </div>
+                        <span class="bg-red-500 text-white px-6 py-2 rounded-full text-sm font-semibold">
+                            HAPUS
+                        </span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- CARD 3 -->
+            <a href="{{ route('show.more.pekerjaan') }}"
+                class="bg-white rounded-3xl shadow-xl overflow-hidden hover:scale-[1.02] transition">
+                <img src="/images/job.jpg" class="h-44 w-full object-cover">
+                <div class="p-6">
+                    <h3 class="font-bold text-lg mb-4">Maintenance Website SPMB</h3>
+                    <div class="flex items-center justify-between">
+                        <div class="flex gap-2">
+                            <span class="px-4 py-1 text-xs border border-red-500 text-red-500 rounded-full">
+                                Web Development
+                            </span>
+                            <span class="px-4 py-1 text-xs border border-red-500 text-red-500 rounded-full">
+                                Website
+                            </span>
+                        </div>
+                        <span class="bg-red-500 text-white px-6 py-2 rounded-full text-sm font-semibold">
+                            HAPUS
+                        </span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- CARD 4 -->
+            <a href="{{ route('show.more.pekerjaan') }}"
+                class="bg-white rounded-3xl shadow-xl overflow-hidden hover:scale-[1.02] transition">
+                <img src="/images/job.jpg" class="h-44 w-full object-cover">
+                <div class="p-6">
+                    <h3 class="font-bold text-lg mb-4">UAT Website</h3>
+                    <div class="flex items-center justify-between">
+                        <div class="flex gap-2">
+                            <span class="px-4 py-1 text-xs border border-red-500 text-red-500 rounded-full">
+                                Testing
+                            </span>
+                        </div>
+                        <span class="bg-red-500 text-white px-6 py-2 rounded-full text-sm font-semibold">
+                            HAPUS
+                        </span>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+
+        <!-- SHOW MORE (TEXT ONLY) -->
+        <div class="flex justify-center mt-8">
+            <a href="{{ route('show.more.pekerjaan') }}"
+                class="text-sm underline cursor-pointer">
+                SHOW MORE
+            </a>
+        </div>
+
+    </div>
+    <!-- KATEGORI -->
+    <div class="ml-8 mb-16">
         <h2 class="text-xl font-bold mt-14 mb-4">KATEGORI</h2>
         <div class="flex flex-wrap gap-2 mb-6">
             <span class="bg-red-500 text-white text-xs px-3 py-1 rounded-full">Copy Writing</span>
@@ -90,77 +200,130 @@
         <button class="bg-red-500 text-white px-6 py-2 rounded-full text-sm">
             + TAMBAH KATEGORI
         </button>
+    </div>
 
     </div>
 
     <!-- FOOTER BANNER -->
-    <div class="bg-red-700 text-white px-16 py-10 flex items-center justify-between">
-        <div>
-            <h2 class="text-2xl font-bold">Kita ada Untuk Kalian</h2>
-            <p class="text-sm">Ayo Mulai Golek Kerjo Rek, Cek Ndang Rabi</p>
+    <footer class="bg-white border-t">
+        <!-- FOOTER BANNER -->
+        <div class="relative w-full h-48 md:h-64">
+            <img src="/images/about/Overlay6.png" alt="" class="absolute inset-0 w-full h-full object-cover" style="object-position: center 20%;">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-red-600/40 to-transparent"></div>
+            <!-- CONTENT -->
+            <div class="absolute inset-0 flex items-center justify-between px-8 md:px-20 text-white">
+                <div>
+                    <h2 class="text-2xl md:text-4xl font-bold mb-2">
+                        Kita ada Untuk Kalian
+                    </h2>
+                    <p class="text-sm md:text-lg">
+                        Ayo Mulai Golek Kerjo Rek!, Cek Ndang Rabi
+                    </p>
+                </div>
+
+                <a href="/jobs"
+                    class="bg-red-600 hover:bg-red-700 transition px-6 md:px-10 py-3 rounded-xl font-semibold">
+                    Cari Kerja !
+                </a>
+            </div>
         </div>
-        <button class="bg-red-500 px-6 py-3 rounded-lg font-semibold">
-            Cari Kerja !
-        </button>
-    </div>
 
-    <!-- FOOTER -->
-    <footer class="bg-white px-16 py-14">
-        <div class="grid grid-cols-4 gap-10">
-            <div>
-                <h3 class="text-2xl font-bold">
-                    <span class="text-red-600">Kerjo</span>
-                    <span class="text-yellow-400">Sam.</span>
-                </h3>
-                <p class="text-sm text-gray-500">Kerjo Bareng, Sukses Bareng</p>
-            </div>
+        <!-- FOOTER CONTENT -->
+        <div class="w-full px-8 md:px-16 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
 
-            <div>
-                <h4 class="font-semibold mb-3">Link</h4>
-                <ul class="text-sm text-gray-500 space-y-2">
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>History</li>
-                </ul>
-            </div>
+                <!-- LOGO -->
+                <div>
+                    <div class="mb-4">
+                        <div class="flex items-center gap-3">
+                            <img src="/images/LogoWeb.png"
+                                alt="Logo"
+                                class="w-12 h-12 md:w-32 md:h-10 rounded-full object-cover" />
+                        </div>
+                        <p class="text-base text-gray-600 font-medium">
+                            Kerjo Bareng, Sukses Bareng
+                        </p>
+                    </div>
+                </div>
 
-            <div>
-                <h4 class="font-semibold mb-3">Other</h4>
-                <ul class="text-sm text-gray-500 space-y-2">
-                    <li>Terms & Condition</li>
-                    <li>Privacy Policy</li>
-                </ul>
-            </div>
+                <!-- NAVIGASI -->
+                <div>
+                    <h3 class="font-semibold mb-4 text-gray-800">Navigasi</h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="/dashboard" class="hover:text-red-500">Home</a></li>
+                        <li><a href="{{ route('about') }}" class="hover:text-red-500">About</a></li>
+                        <li><a href="{{ route('history') }}" class="hover:text-red-500">History</a></li>
+                    </ul>
+                </div>
 
-            <div>
-                <h4 class="font-bold mb-4">Our Contact</h4>
-                <ul class="space-y-3 text-sm text-gray-700">
+                <!-- OTHER -->
+                <div>
+                    <h3 class="font-semibold mb-4 text-gray-800">Other</h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li>Terms & Conditions</li>
+                        <li>Privacy Policy</li>
+                    </ul>
+                </div>
 
-                    <li class="flex items-center gap-3 bg-gray-100 px-4 py-2 rounded-full w-fit">
-                        <span>📞</span>
-                        <span>+62 946747</span>
-                    </li>
+                <!-- KONTAK -->
+                <div>
+                    <h3 class="font-semibold mb-4 text-gray-800">Kontak Kami</h3>
 
-                    <li class="flex items-center gap-3 bg-gray-100 px-4 py-2 rounded-full w-fit">
-                        <span>📧</span>
-                        <span>kerjosam@kerjo.id</span>
-                    </li>
+                    <div class="space-y-3 text-sm text-gray-600">
 
-                    <li class="flex items-center gap-3 bg-gray-100 px-4 py-2 rounded-full w-fit">
-                        <span>📷</span>
-                        <span>kerjosam_</span>
-                    </li>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                                📞
+                            </div>
+                            <span>+52946747</span>
+                        </div>
 
-                    <li class="flex items-center gap-3 bg-gray-100 px-4 py-2 rounded-full w-fit">
-                        <span>📘</span>
-                        <span>kerjosam</span>
-                    </li>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                                📧
+                            </div>
+                            <span>kerjosam@kerjo.id</span>
+                        </div>
 
-                </ul>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                                📷
+                            </div>
+                            <span>@kerjosam_.</span>
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                                📘
+                            </div>
+                            <span>kerjosam</span>
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
         </div>
     </footer>
+    <script>
+        const cards = document.querySelectorAll('.job-card');
+        const btn = document.getElementById('showMoreBtn');
+        let visible = 4;
 
+        function showCards() {
+            for (let i = 0; i < visible; i++) {
+                if (cards[i]) cards[i].classList.remove('hidden');
+            }
+        }
+
+        showCards();
+
+        btn.addEventListener('click', () => {
+            visible += 2;
+            showCards();
+            if (visible >= cards.length) btn.style.display = 'none';
+        });
+    </script>
 </body>
 
 </html>

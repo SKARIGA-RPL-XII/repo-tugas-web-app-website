@@ -5,6 +5,7 @@
     use Illuminate\Support\Facades\Auth;
     use App\Http\Controllers\AboutController;
     use App\Http\Controllers\JobController;
+    use App\Http\Controllers\CompanyController;
 
     Route::get('/', function () {
         if (Auth::check()) {
@@ -51,4 +52,12 @@
 Route::get('/admin/show-more-pekerjaan', function () {
     return view('show-more-pekerjaan');
 })->name('show.more.pekerjaan');
+
+Route::get('/admin/perusahaan', function () {
+    return view('admin.perusahaan.index');
+});
+
+Route::get('/admin/show-more-perusahaan', function () {
+    return view('show-more-perusahaan');
+})->name('show-more-perusahaan');
 

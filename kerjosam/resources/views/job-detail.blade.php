@@ -23,7 +23,6 @@
 </head>
 
 <body class="bg-gray-50 text-gray-800 antialiased">
-
 <!-- NAVBAR (TETAP) -->
 <nav class="w-full bg-white shadow-sm relative z-10">
         <div class="w-full px-8 md:px-16 py-4 flex items-center justify-between">
@@ -124,34 +123,38 @@
 
 <!-- MAIN -->
 <section class="relative bg-about min-h-screen overflow-hidden">
-    <div class="relative z-10 max-w-6xl mx-auto px-6 py-12 space-y-12">
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-12 space-y-10">
 
         <!-- HEADER CARD -->
-        <div class="bg-white border-4 border-white rounded-3xl p-8 flex items-center gap-6 shadow-lg">
-            <div class="w-20 h-20 rounded-full bg-blue-600 text-white flex items-center justify-center text-2xl font-bold">
+        <div class="bg-white border-4 border-white rounded-3xl p-6 sm:p-8 shadow-lg
+                    flex flex-col md:flex-row items-center gap-4 md:gap-6
+                    text-center md:text-left">
+            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-blue-600 text-white
+                        flex items-center justify-center text-xl sm:text-2xl font-bold">
                 AX
             </div>
             <div>
-                <h1 class="text-3xl font-extrabold">WEB DEVELOPER</h1>
+                <h1 class="text-2xl sm:text-3xl font-extrabold">WEB DEVELOPER</h1>
                 <p class="text-gray-500 mt-1">PT ABANG XPRESS</p>
             </div>
         </div>
 
         <!-- DESKRIPSI -->
-        <div class="bg-white border-4 border-white rounded-3xl p-10 text-center shadow-lg">
-            <h2 class="text-xl font-bold mb-4 border-b-2 border-white inline-block px-6 pb-1">
+        <div class="bg-white border-4 border-white rounded-3xl p-6 sm:p-10
+                    text-center shadow-lg">
+            <h2 class="text-lg sm:text-xl font-bold mb-4 border-b-2 border-white inline-block px-6 pb-1">
                 DESKRIPSI
             </h2>
-            <p class="text-gray-700 leading-relaxed max-w-3xl mx-auto mt-4">
+            <p class="text-gray-700 leading-relaxed max-w-3xl mx-auto mt-4 text-sm sm:text-base">
                 Kami mencari Web Developer yang kreatif dan teknis untuk membangun serta
                 memelihara situs web yang responsif, efisien, dan memiliki performa tinggi.
             </p>
         </div>
 
         <!-- KETENTUAN -->
-        <div class="bg-white border-4 border-white rounded-3xl p-10 shadow-lg">
-            <h2 class="text-xl font-bold mb-6 text-center">KETENTUAN</h2>
-            <ul class="list-disc list-inside text-gray-700 space-y-3 max-w-xl">
+        <div class="bg-white border-4 border-white rounded-3xl p-6 sm:p-10 shadow-lg">
+            <h2 class="text-lg sm:text-xl font-bold mb-6 text-center">KETENTUAN</h2>
+            <ul class="list-disc list-inside text-gray-700 space-y-3 max-w-xl mx-auto text-sm sm:text-base">
                 <li>Dapat bekerja dalam tim</li>
                 <li>Memiliki Keahlian di bidang Web Developer</li>
                 <li>Memiliki Pengalaman</li>
@@ -159,26 +162,31 @@
         </div>
 
         <!-- ACTION -->
-        <div class="grid md:grid-cols-2 gap-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
 
             <!-- AJUKAN CV -->
-            <div class="bg-white border-4 border-white rounded-3xl p-8 flex flex-col items-center gap-6 shadow-lg">
-                <div id="uploadArea" class="w-full h-40 border-2 border-dashed border-gray-300 rounded-xl flex flex-col items-center justify-center text-gray-400 cursor-pointer hover:border-gray-400 transition" onclick="document.getElementById('fileInput').click()">
-                    <svg class="w-8 h-8 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
-                    </svg>
-                    <span id="uploadText">Upload File CV (PDF, DOC, DOCX)</span>
+            <div class="bg-white border-4 border-white rounded-3xl p-6 sm:p-8
+                        flex flex-col items-center gap-6 shadow-lg">
+                <div id="uploadArea"
+                     class="w-full h-36 sm:h-40 border-2 border-dashed border-gray-300
+                            rounded-xl flex flex-col items-center justify-center
+                            text-gray-400 cursor-pointer hover:border-gray-400 transition"
+                     onclick="document.getElementById('fileInput').click()">
+                    <span id="uploadText" class="text-sm sm:text-base text-center">
+                        Upload File CV (PDF, DOC, DOCX)
+                    </span>
                 </div>
-                <input type="file" id="fileInput" accept=".pdf,.doc,.docx" class="hidden" onchange="handleFileSelect(event)">
-                <button class="w-full py-3 rounded-full bg-yellow-400 font-bold text-lg hover:bg-yellow-500 transition" onclick="submitCV()">
+                <input type="file" id="fileInput" accept=".pdf,.doc,.docx" class="hidden">
+                <button class="w-full py-3 rounded-full bg-yellow-400 font-bold text-lg hover:bg-yellow-500 transition">
                     AJUKAN CV
                 </button>
             </div>
 
             <!-- SHARE -->
-            <div class="bg-white border-4 border-white rounded-3xl p-8 text-center flex flex-col justify-center shadow-lg">
-                <h3 class="text-xl font-extrabold mb-3">AYO SUKSES!</h3>
-                <p class="text-gray-600 mb-6">
+            <div class="bg-white border-4 border-white rounded-3xl p-6 sm:p-8
+                        text-center flex flex-col justify-center shadow-lg">
+                <h3 class="text-lg sm:text-xl font-extrabold mb-3">AYO SUKSES!</h3>
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
                     Bagikan Pekerjaan Ini<br>
                     Dengan Orang Lain, Ayo<br>
                     Sukses Bareng!
