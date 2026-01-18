@@ -406,10 +406,7 @@
                         <span class="text-sm font-medium text-gray-700">
                             Rp 6 – 10 Juta
                         </span>
-                        <a
-                            href="{{ route('job.detail', 1) }}"
-                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition"
-                        >
+                        <a href="{{ route('job.detail', 1) }}" class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition">
                             View Detail
                         </a>
                     </div>
@@ -419,11 +416,7 @@
                 <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between" data-category="ui-ux" data-title="UI/UX Designer" data-company="Digital Agency">
                     <div>
                         <div class="flex items-center gap-3 mb-4">
-                            <img
-                                src="https://ui-avatars.com/api/?name=Digital+Agency&background=3b82f6&color=fff"
-                                class="w-10 h-10 rounded-full"
-                                alt=""
-                            />
+                            <img src="https://ui-avatars.com/api/?name=Digital+Agency&background=3b82f6&color=fff" class="w-10 h-10 rounded-full" alt="">
                             <div>
                                 <h4 class="font-semibold text-gray-800">Digital Agency</h4>
                                 <p class="text-xs text-gray-500">Bandung, Indonesia</p>
@@ -455,10 +448,7 @@
                         <span class="text-sm font-medium text-gray-700">
                             Rp 5 – 8 Juta
                         </span>
-                        <a
-                            href="{{ route('job.detail', 2) }}"
-                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition"
-                        >
+                        <a href="{{ route('job.detail', 2) }}" class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition">
                             View Detail
                         </a>
                     </div>
@@ -468,11 +458,7 @@
                 <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between" data-category="backend" data-title="Backend Developer" data-company="StartupXYZ">
                     <div>
                         <div class="flex items-center gap-3 mb-4">
-                            <img
-                                src="https://ui-avatars.com/api/?name=StartupXYZ&background=10b981&color=fff"
-                                class="w-10 h-10 rounded-full"
-                                alt=""
-                            />
+                            <img src="https://ui-avatars.com/api/?name=StartupXYZ&background=10b981&color=fff" class="w-10 h-10 rounded-full" alt=""/>
                             <div>
                                 <h4 class="font-semibold text-gray-800">StartupXYZ</h4>
                                 <p class="text-xs text-gray-500">Surabaya, Indonesia</p>
