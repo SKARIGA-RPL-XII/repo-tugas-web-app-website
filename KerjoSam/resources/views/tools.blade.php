@@ -49,8 +49,10 @@
             <button class="bg-red-500 text-white text-xs px-4 py-1 rounded-full">HAPUS</button>
         </div>
     </div>
-
-    <p class="text-center text-xs mt-4 underline cursor-pointer">SHOW MORE</p>
+    <a href="/admin/show-more-user"
+        class="block text-center text-xs mt-4 underline cursor-pointer">
+        SHOW MORE
+    </a>
 
     <!-- PERUSAHAAN -->
     <h2 class="text-xl font-bold mt-14 mb-4">PERUSAHAAN</h2>

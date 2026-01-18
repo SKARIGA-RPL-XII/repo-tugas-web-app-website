@@ -39,3 +39,9 @@ Route::get('/form-profile', function () {
     return view('form-profile');
 });
 
+// Show more user Routes
+Route::get('/admin/show-more-user', function () {
+    return view('show-moreuser');
+});
+
+
