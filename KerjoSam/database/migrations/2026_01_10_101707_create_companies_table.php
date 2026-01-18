@@ -37,8 +37,8 @@ return new class extends Migration
 
             // Relasi ke user/admin (pemilik perusahaan)
             $table->foreignId('user_id')->nullable()
-                  ->constrained()
-                  ->nullOnDelete();
+                ->constrained()
+                ->nullOnDelete();
 
             $table->timestamps();
         });
