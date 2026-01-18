@@ -9,9 +9,45 @@
 
 <body class="min-h-screen bg-white relative overflow-x-hidden">
 
-    <!-- BACKGROUND -->
-    <div class="absolute inset-0 -z-10 bg-no-repeat bg-cover bg-center"
-        style="background-image: url('{{ asset('images/Group 36.png') }}');">
+<!-- BACKGROUND -->
+<div class="absolute inset-0 -z-10 bg-no-repeat bg-cover bg-center"
+     style="background-image: url('{{ asset('images/Group 36.png') }}');">
+</div>
+
+<!-- NAVBAR -->
+<nav class="fixed top-0 left-0 w-full bg-white shadow px-12 py-4 flex items-center z-50">
+    <span class="text-xl font-bold">
+        <span class="text-red-600">Kerjo</span>
+        <span class="text-yellow-400">Sam.</span>
+    </span>
+
+    <ul class="flex gap-8 text-sm font-medium ml-auto">
+        <li><a href="{{ route('welcome') }}" class="hover:text-red-600 cursor-pointer">Home</a></li>
+        <li><a href="{{ route('about') }}" class="hover:text-red-600 cursor-pointer">About Us</a></li>
+        <li class="text-red-600">Admin Tools</li>
+    </ul>
+</nav>
+
+<!-- MAIN -->
+<div class="max-w-6xl mx-auto px-10 pt-32 pb-20">
+
+    <h1 class="text-4xl font-bold text-center mb-16">ADMIN TOOLS</h1>
+
+    <!-- USER -->
+    <h2 class="text-xl font-bold mb-4">USER</h2>
+    <div class="space-y-3">
+        <div class="flex justify-between bg-white px-6 py-3 rounded-xl shadow">
+            <span>Inad</span>
+            <button class="bg-red-500 text-white text-xs px-4 py-1 rounded-full">HAPUS</button>
+        </div>
+        <div class="flex justify-between bg-white px-6 py-3 rounded-xl shadow border-2 border-blue-400">
+            <span>Danu</span>
+            <button class="bg-red-500 text-white text-xs px-4 py-1 rounded-full">HAPUS</button>
+        </div>
+        <div class="flex justify-between bg-white px-6 py-3 rounded-xl shadow">
+            <span>Wisnu</span>
+            <button class="bg-red-500 text-white text-xs px-4 py-1 rounded-full">HAPUS</button>
+        </div>
     </div>
 
     <!-- NAVBAR -->

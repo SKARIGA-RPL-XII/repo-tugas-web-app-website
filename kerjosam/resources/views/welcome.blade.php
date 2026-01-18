@@ -75,6 +75,16 @@
                     </li>
                     @endauth
                 </ul>
+                @auth
+                {{-- Admin Tools Button --}}
+                @if(auth()->user()->isAdmin())
+                    <a href="{{ route('admin.tools') }}"
+                        class="px-4 py-2 bg-red-500 text-white rounded-full hover:bg-red-600 font-semibold text-sm">
+                        Admin Tools
+                    </a>
+                @endif
+                @endauth
+
 
                 {{-- MENU KANAN --}}
                 @guest
@@ -635,6 +645,7 @@
             </div>
         </div>
     </section>
+    
 
     <!-- CTA SECTION -->
     <section class="relative overflow-hidden">
