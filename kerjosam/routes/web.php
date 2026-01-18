@@ -48,7 +48,11 @@
         return view('form-profile');
     });
 
-Route::get('/admin/show-more-pekerjaan', function () {
-    return view('show-more-pekerjaan');
-})->name('show.more.pekerjaan');
+    Route::get('/admin/show-more-pekerjaan', function () {
+        return view('show-more-pekerjaan');
+    })->name('show.more.pekerjaan');
 
+
+    Route::get('/profile/perusahaan', function () {
+        return view('profileperusahaan');
+    });
