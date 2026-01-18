@@ -69,14 +69,14 @@
                     @endauth
                 </ul>
                 @auth
-                {{-- Admin --}}
-         @if(auth()->user()->isAdmin())
-              <a href="{{ route('welcome') }}"
-              class="text-gray-700 hover:text-red-500 font-semibold">
-              Dashboard
-             </a>
-        @endif
-        @endauth
+                {{-- Admin Tools Button --}}
+                @if(auth()->user()->isAdmin())
+                    <a href="{{ route('admin.tools') }}"
+                        class="px-4 py-2 bg-red-500 text-white rounded-full hover:bg-red-600 font-semibold text-sm">
+                        Admin Tools
+                    </a>
+                @endif
+                @endauth
 
 
                 {{-- MENU KANAN --}}

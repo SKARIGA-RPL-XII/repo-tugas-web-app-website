@@ -70,7 +70,11 @@
                     <li class="hover:text-red-500 cursor-pointer">
                         <a href="{{ route('about') }}">About</a>
                     </li>
-
+                    @if(auth()->user()->isPerusahaan() || auth()->user()->isAdmin())
+                    <li class="hover:text-red-500 cursor-pointer">
+                        <a href="{{ route('job.index') }}">Tambah Lowongan</a>
+                    </li>
+                    @endif
                 </ul>
 
                 <!-- MOBILE MENU BUTTON -->
@@ -130,6 +134,9 @@
                     <a href="/dashboard" class="block px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-50 hover:text-red-500">Home</a>
                     <a href="{{ route('history') }}" class="block px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-50 hover:text-red-500">History</a>
                     <a href="{{ route('about') }}" class="block px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-50 hover:text-red-500">About</a>
+                    @if(auth()->user()->isPerusahaan() || auth()->user()->isAdmin())
+                    <a href="{{ route('job.index') }}" class="block px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-50 hover:text-red-500">Tambah Lowongan</a>
+                    @endif
                     <a href="/profile" class="block px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-50 hover:text-red-500">Profile</a>
                 </div>
 
@@ -498,6 +505,8 @@
             <span class="text-xl">+</span>
             TAMBAH KATEGORI
             </button>
+
+
         </div>
     </section>
 

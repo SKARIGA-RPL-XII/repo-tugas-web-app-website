@@ -3,9 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Job;
+use Illuminate\Support\Facades\Auth;
 
 class JobController extends Controller
 {
+    public function index()
+    {
+        // Ambil lowongan berdasarkan user yang login
+        $jobs = Job::where('user_id', Auth::id())->latest()->get();
+
+        return view('jobs.index', compact('jobs'));
+    }
+
     public function show($id)
     {
         // Data dummy untuk demo
@@ -37,5 +47,67 @@ class JobController extends Controller
         ];
 
         return view('job-detail', compact('job'));
+    }
+
+    public function create()
+    {
+        return view('jobs.create');
+    }
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'company' => 'required|string|max:255',
+            'location' => 'required|string|max:255',
+            'salary' => 'required|string|max:255',
+            'type' => 'required|string',
+            'category' => 'required|string',
+            'description' => 'required|string',
+        ]);
+
+        // Tambahkan user_id dari user yang login
+        $validated['user_id'] = Auth::id();
+
+        // Simpan ke database
+        Job::create($validated);
+
+        return redirect()->route('job.index')->with('success', 'Lowongan berhasil ditambahkan!');
+    }
+
+    public function edit($id)
+    {
+        // Ambil job milik user yang login
+        $job = Job::where('user_id', Auth::id())->findOrFail($id);
+
+        return view('jobs.edit', compact('job'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'company' => 'required|string|max:255',
+            'location' => 'required|string|max:255',
+            'salary' => 'required|string|max:255',
+            'type' => 'required|string',
+            'category' => 'required|string',
+            'description' => 'required|string',
+        ]);
+
+        // Update hanya job milik user yang login
+        $job = Job::where('user_id', Auth::id())->findOrFail($id);
+        $job->update($validated);
+
+        return redirect()->route('job.index')->with('success', 'Lowongan berhasil diupdate!');
+    }
+
+    public function destroy($id)
+    {
+        // Hapus hanya job milik user yang login
+        $job = Job::where('user_id', Auth::id())->findOrFail($id);
+        $job->delete();
+
+        return redirect()->route('job.index')->with('success', 'Lowongan berhasil dihapus!');
     }
 }

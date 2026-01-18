@@ -21,8 +21,8 @@
     </span>
 
     <ul class="flex gap-8 text-sm font-medium ml-auto">
-        <li>Home</li>
-        <li>About Us</li>
+        <li><a href="{{ route('welcome') }}" class="hover:text-red-600 cursor-pointer">Home</a></li>
+        <li><a href="{{ route('about') }}" class="hover:text-red-600 cursor-pointer">About Us</a></li>
         <li class="text-red-600">Admin Tools</li>
     </ul>
 </nav>

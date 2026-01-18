@@ -14,8 +14,8 @@
             <div class="flex items-center gap-3">
                 <img src="/images/LogoWeb.png" alt="Logo" class="w-12 h-12 md:w-32 md:h-10 rounded-full object-cover"/>
             </div>
-            <a href="{{ route('dashboard') }}" class="text-sm text-gray-600 hover:text-red-500">
-                Kembali ke Dashboard
+            <a href="{{ route('job.index') }}" class="text-sm text-gray-600 hover:text-red-500">
+                Kembali ke Daftar Lowongan
             </a>
         </div>
     </nav>
@@ -92,7 +92,7 @@
 
                 <!-- Buttons -->
                 <div class="flex flex-col sm:flex-row justify-between gap-4 mt-8 pt-6 border-t border-gray-200">
-                    <a href="{{ route('dashboard') }}" class="px-8 py-3 bg-gray-500 text-white rounded-full hover:bg-gray-600 transition text-center font-medium">
+                    <a href="{{ route('job.index') }}" class="px-8 py-3 bg-gray-500 text-white rounded-full hover:bg-gray-600 transition text-center font-medium">
                         Batal
                     </a>
                     <button type="submit" class="px-8 py-3 bg-red-500 text-white rounded-full hover:bg-red-600 transition font-medium shadow-lg hover:shadow-xl">
