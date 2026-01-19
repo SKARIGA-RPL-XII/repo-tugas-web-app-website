@@ -35,6 +35,12 @@
     Route::get('/jobs/{id}/edit', [JobController::class, 'edit'])->name('jobs.edit')->middleware('auth');
     Route::put('/jobs/{id}', [JobController::class, 'update'])->name('jobs.update')->middleware('auth');
     Route::delete('/jobs/{id}', [JobController::class, 'destroy'])->name('jobs.destroy')->middleware('auth');
+Route::get('/profile/perusahaan', function () {
+    return view('profileperusahaan');
+});
+
+// Job Routes
+Route::get('/job/{id}', [JobController::class, 'show'])->name('job.detail')->middleware('auth');
 
     Route::get('/about', [AboutController::class, 'index'])->name('about');
     Route::get('/history', function () {

@@ -78,7 +78,6 @@
 
             <!-- FORM -->
             <form class="space-y-6">
-
                 <div>
                     <label class="block text-sm font-medium mb-2">Nama</label>
                     <input type="text"

@@ -75,6 +75,16 @@
                     </li>
                     <?php endif; ?>
                 </ul>
+                <?php if(auth()->guard()->check()): ?>
+                
+                <?php if(auth()->user()->isAdmin()): ?>
+                    <a href="<?php echo e(route('admin.tools')); ?>"
+                        class="px-4 py-2 bg-red-500 text-white rounded-full hover:bg-red-600 font-semibold text-sm">
+                        Admin Tools
+                    </a>
+                <?php endif; ?>
+                <?php endif; ?>
+
 
                 
                 <?php if(auth()->guard()->guest()): ?>
@@ -637,6 +647,7 @@
             </div>
         </div>
     </section>
+    
 
     <!-- CTA SECTION -->
     <section class="relative overflow-hidden">

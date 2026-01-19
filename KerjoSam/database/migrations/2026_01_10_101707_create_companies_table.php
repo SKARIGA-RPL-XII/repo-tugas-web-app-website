@@ -20,7 +20,7 @@ return new class extends Migration
             // Profil perusahaan
             $table->text('about')->nullable(); // Tentang perusahaan
             $table->string('industry')->nullable(); // Bidang usaha
-            $table->integer('employees_count')->nullable(); // Jumlah karyawan
+            $table->unsignedInteger('employees_count')->nullable();
 
             // Lokasi
             $table->string('address')->nullable();

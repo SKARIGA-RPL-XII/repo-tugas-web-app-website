@@ -23,9 +23,8 @@
 </head>
 
 <body class="bg-gray-50 text-gray-800 antialiased">
-
-<!-- NAVBAR (TETAP) -->
-<nav class="w-full bg-white shadow-sm relative z-10">
+    <!-- NAVBAR -->
+    <nav class="w-full bg-white shadow-sm relative z-50">
         <div class="w-full px-8 md:px-16 py-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
                 <img src="/images/LogoWeb.png" alt="Logo" class="w-12 h-12 md:w-32 md:h-10 rounded-full object-cover"/>
@@ -43,7 +42,6 @@
                     <li class="hover:text-red-500 cursor-pointer">
                         <a href="{{ route('about') }}">About</a>
                     </li>
-
                 </ul>
 
                 <!-- MOBILE MENU BUTTON -->
@@ -289,7 +287,6 @@
             </div>
         </div>
     </footer>
-
 
 </body>
 
