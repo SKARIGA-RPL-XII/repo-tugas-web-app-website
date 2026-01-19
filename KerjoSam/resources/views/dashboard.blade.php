@@ -46,6 +46,7 @@
             </button>
         </div>
     </div>
+    
     <!-- NAVBAR -->
     <nav class="w-full bg-white shadow-sm relative z-10">
         <div class="w-full px-8 md:px-16 py-4 flex items-center justify-between">

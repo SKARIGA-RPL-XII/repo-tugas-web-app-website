@@ -8,12 +8,16 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <style>
-        [x-cloak] { display: none !important; }
+        [x-cloak] {
+            display: none !important;
+        }
+
         .category-btn.active {
             background: white !important;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             transform: translateY(-2px);
         }
+
         .category-btn {
             cursor: pointer !important;
             pointer-events: auto !important;
@@ -21,32 +25,43 @@
             position: relative !important;
             display: inline-block !important;
         }
+
         .category-btn:hover {
             cursor: pointer !important;
         }
+
         /* Hide scrollbars */
         * {
             scrollbar-width: none;
             -ms-overflow-style: none;
         }
+
         *::-webkit-scrollbar {
             display: none;
         }
+
+        [x-collapse] {
+            transition: height 0.3s ease;
+        }
     </style>
 </head>
+
 <body class="bg-gray-50" x-data="{ open: false, mode: 'login' }" @open-login-modal.window="open = true; mode = 'login'">
     <!-- Success Alert -->
-    <div id="successAlert" class="fixed top-4 right-4 z-50 max-w-sm w-full bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg hidden">
+    <div id="successAlert"
+        class="fixed top-4 right-4 z-50 max-w-sm w-full bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg hidden">
         <div class="flex items-center justify-between">
             <div class="flex items-center">
                 <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
                 <span id="alertMessage" class="font-medium"></span>
             </div>
             <button onclick="hideAlert()" class="ml-4 text-white hover:text-gray-200">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
                 </svg>
             </button>
         </div>
@@ -56,7 +71,7 @@
     <nav class="w-full bg-white shadow-sm relative z-10">
         <div class="w-full px-8 md:px-16 py-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <img src="/images/LogoWeb.png" alt="Logo" class="w-12 h-12 md:w-32 md:h-10 rounded-full object-cover"/>
+                <img src="/images/LogoWeb.png" alt="Logo" class="w-12 h-12 md:w-32 md:h-10 rounded-full object-cover" />
             </div>
             <div class="flex items-center gap-6">
                 {{-- MENU KIRI --}}
@@ -75,7 +90,8 @@
                             Login
                         </button>
 
-                        <button @click="open = true; mode = 'register'" class="px-4 py-2 bg-red-500 text-white rounded-full hover:bg-red-600" type="button">
+                        <button @click="open = true; mode = 'register'"
+                            class="px-4 py-2 bg-red-500 text-white rounded-full hover:bg-red-600" type="button">
                             Register
                         </button>
                     </div>
@@ -86,7 +102,8 @@
                     <div class="relative">
                         <!-- Trigger -->
                         <button onclick="toggleDropdown()" class="flex items-center gap-2 focus:outline-none">
-                            <div class="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center text-white text-sm font-semibold">
+                            <div
+                                class="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center text-white text-sm font-semibold">
                                 {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
                             </div>
                             <span class="text-sm text-gray-600">
@@ -121,52 +138,37 @@
     <!-- Modal Overlay -->
     <div x-show="open" class="fixed inset-0 z-50 flex items-center justify-center p-4" x-cloak>
         <!-- Background Overlay -->
-        <div
-            class="absolute inset-0 bg-black/60 backdrop-blur-sm"
-            @click="open = false"
-            x-transition:enter="transition-opacity duration-300 ease-out"
-            x-transition:enter-start="opacity-0"
-            x-transition:enter-end="opacity-100"
-            x-transition:leave="transition-opacity duration-200 ease-in"
-            x-transition:leave-start="opacity-100"
-            x-transition:leave-end="opacity-0"
-        ></div>
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" @click="open = false"
+            x-transition:enter="transition-opacity duration-300 ease-out" x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100" x-transition:leave="transition-opacity duration-200 ease-in"
+            x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"></div>
 
         <!-- Modal Panel -->
-        <div
-            class="relative bg-white rounded-2xl shadow-2xl w-full max-w-md mx-auto overflow-hidden"
+        <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-md mx-auto overflow-hidden"
             x-transition:enter="transform transition duration-300 ease-out"
-            x-transition:enter-start="scale-95 opacity-0"
-            x-transition:enter-end="scale-100 opacity-100"
+            x-transition:enter-start="scale-95 opacity-0" x-transition:enter-end="scale-100 opacity-100"
             x-transition:leave="transform transition duration-200 ease-in"
-            x-transition:leave-start="scale-100 opacity-100"
-            x-transition:leave-end="scale-95 opacity-0"
-        >
+            x-transition:leave-start="scale-100 opacity-100" x-transition:leave-end="scale-95 opacity-0">
             <!-- Header -->
             <div class="bg-gradient-to-r from-red-500 to-red-600 px-6 py-4 text-white relative">
-                <button
-                    class="absolute top-4 right-4 text-white/80 hover:text-white transition-colors"
-                    @click="open = false"
-                >
+                <button class="absolute top-4 right-4 text-white/80 hover:text-white transition-colors"
+                    @click="open = false">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
                     </svg>
                 </button>
 
                 <div class="flex space-x-1">
-                    <button
-                        @click="mode = 'login'"
+                    <button @click="mode = 'login'"
                         :class="mode === 'login' ? 'text-white border-b-2 border-white' : 'text-white/70 hover:text-white'"
-                        class="pb-2 px-1 font-medium transition-colors"
-                    >
+                        class="pb-2 px-1 font-medium transition-colors">
                         Login
                     </button>
                     <span class="text-white/50 px-2">|</span>
-                    <button
-                        @click="mode = 'register'"
+                    <button @click="mode = 'register'"
                         :class="mode === 'register' ? 'text-white border-b-2 border-white' : 'text-white/70 hover:text-white'"
-                        class="pb-2 px-1 font-medium transition-colors"
-                    >
+                        class="pb-2 px-1 font-medium transition-colors">
                         Register
                     </button>
                 </div>
@@ -186,9 +188,14 @@
                         <div class="space-y-1">
                             <label class="text-sm font-medium text-gray-700">Email Address</label>
                             <div class="relative">
-                                <input type="email" name="email" placeholder="Enter your email" class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors" required>
-                                <svg class="w-5 h-5 text-gray-400 absolute left-3 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"></path>
+                                <input type="email" name="email" placeholder="Enter your email"
+                                    class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
+                                    required>
+                                <svg class="w-5 h-5 text-gray-400 absolute left-3 top-3.5" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207">
+                                    </path>
                                 </svg>
                             </div>
                         </div>
@@ -196,14 +203,25 @@
                         <div class="space-y-1">
                             <label class="text-sm font-medium text-gray-700">Password</label>
                             <div class="relative">
-                                <input type="password" name="password" id="loginPassword" placeholder="Enter your password" class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 pr-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors" required>
-                                <svg class="w-5 h-5 text-gray-400 absolute left-3 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                                <input type="password" name="password" id="loginPassword"
+                                    placeholder="Enter your password"
+                                    class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 pr-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
+                                    required>
+                                <svg class="w-5 h-5 text-gray-400 absolute left-3 top-3.5" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                                    </path>
                                 </svg>
-                                <button type="button" onclick="togglePassword('loginPassword', 'loginEyeIcon')" class="absolute right-3 top-3.5 text-gray-400 hover:text-gray-600">
-                                    <svg id="loginEyeIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                <button type="button" onclick="togglePassword('loginPassword', 'loginEyeIcon')"
+                                    class="absolute right-3 top-3.5 text-gray-400 hover:text-gray-600">
+                                    <svg id="loginEyeIcon" class="w-5 h-5" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
+                                        </path>
                                     </svg>
                                 </button>
                             </div>
@@ -211,90 +229,296 @@
 
                         <div class="flex items-center justify-between text-sm">
                             <label class="flex items-center">
-                                <input type="checkbox" name="remember" class="rounded border-gray-300 text-red-600 focus:ring-red-500">
+                                <input type="checkbox" name="remember"
+                                    class="rounded border-gray-300 text-red-600 focus:ring-red-500">
                                 <span class="ml-2 text-gray-600">Remember me</span>
                             </label>
                             <a href="#" class="text-red-600 hover:text-red-700 font-medium">Forgot password?</a>
                         </div>
 
-                        <button type="submit" class="w-full bg-gradient-to-r from-red-500 to-red-600 text-white py-3 rounded-lg font-medium hover:from-red-600 hover:to-red-700 transform hover:scale-[1.02] transition-all duration-200 shadow-lg">
+                        <button type="submit"
+                            class="w-full bg-gradient-to-r from-red-500 to-red-600 text-white py-3 rounded-lg font-medium hover:from-red-600 hover:to-red-700 transform hover:scale-[1.02] transition-all duration-200 shadow-lg">
                             Sign In
                         </button>
                     </form>
                 </div>
 
-                <!-- REGISTER FORM -->
-                <div x-show="mode === 'register'" x-transition:enter="transition-opacity duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100">
-                    <div class="text-center mb-6">
+                <!-- REGISTER FORM - COMPACT VERSION -->
+                <div x-show="mode === 'register'" x-transition:enter="transition-opacity duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" class="max-h-[80vh] overflow-y-auto">
+                    <!-- Header -->
+                    <div class="text-center mb-6 sticky top-0 bg-white pb-4 z-10">
                         <h2 class="text-2xl font-bold text-gray-800">Create Account</h2>
                         <p class="text-gray-600 text-sm mt-1">Join us today</p>
                     </div>
-
-                    <form class="space-y-4" method="POST" action="{{ route('register') }}">
+                    <!-- Form -->
+                    <form method="POST" action="{{ route('register') }}" id="registerForm" x-data="registerForm()">
                         @csrf
-                        <div class="space-y-1">
-                            <label class="text-sm font-medium text-gray-700">Full Name</label>
-                            <div class="relative">
-                                <input type="text" name="name" placeholder="Enter your full name" class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors" required>
-                                <svg class="w-5 h-5 text-gray-400 absolute left-3 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                                </svg>
+                        <!-- Global Error Alert -->
+                        @if ($errors->any())
+                            <div class="bg-red-50 border-l-4 border-red-500 p-3 mb-4 rounded text-sm">
+                                <div class="flex items-start">
+                                    <svg class="w-5 h-5 text-red-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <div class="flex-1">
+                                        <p class="text-xs font-medium text-red-800 mb-1">Perbaiki error berikut:</p>
+                                        <ul class="text-xs text-red-700 space-y-0.5">
+                                            @foreach ($errors->all() as $error)
+                                                <li>• {{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+
+                        <!-- Role Selection - Compact -->
+                        <div class="mb-4">
+                            <label class="block text-xs font-semibold text-gray-700 mb-2">Daftar Sebagai *</label>
+                            <div class="grid grid-cols-2 gap-3">
+                                <!-- User Role -->
+                                <div>
+                                    <input type="radio" name="role" id="roleUser" value="user" {{ old('role', 'user') == 'user' ? 'checked' : '' }} class="peer hidden" required x-model="selectedRole">
+                                    <label for="roleUser" class="flex flex-col items-center justify-center p-3 bg-white border-2 border-gray-200 rounded-lg cursor-pointer transition-all hover:border-blue-400 peer-checked:border-blue-600 peer-checked:bg-blue-50">
+                                        <svg class="w-6 h-6 text-gray-600 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                                        </svg>
+                                        <span class="text-sm font-semibold text-gray-800">Users</span>
+                                        <small class="text-xs text-gray-500 text-center mt-0.5">Cari lowongan</small>
+                                    </label>
+                                </div>
+
+                                <!-- Company Role -->
+                                <div>
+                                    <input type="radio" name="role" id="rolePerusahaan" value="perusahaan" {{ old('role') == 'perusahaan' ? 'checked' : '' }} class="peer hidden" x-model="selectedRole">
+                                    <label for="rolePerusahaan" class="flex flex-col items-center justify-center p-3 bg-white border-2 border-gray-200 rounded-lg cursor-pointer transition-all hover:border-blue-400 peer-checked:border-blue-600 peer-checked:bg-blue-50">
+                                        <svg class="w-6 h-6 text-gray-600 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                        </svg>
+                                        <span class="text-sm font-semibold text-gray-800">Perusahaan</span>
+                                        <small class="text-xs text-gray-500 text-center mt-0.5">Pasang lowongan</small>
+                                    </label>
+                                </div>
+                            </div>
+                            @error('role')
+                                <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <!-- Common Fields - Compact -->
+                        <div class="space-y-3 mb-4">
+                            <!-- Full Name -->
+                            <div>
+                                <label for="name" class="block text-xs font-medium text-gray-700 mb-1">
+                                    Nama Lengkap <span class="text-red-500">*</span>
+                                </label>
+                                <input type="text" name="name" id="name" value="{{ old('name') }}" class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('name') border-red-500 @enderror" placeholder="Nama lengkap Anda" required>
+                                @error('name')
+                                    <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <!-- Email -->
+                            <div>
+                                <label for="email" class="block text-xs font-medium text-gray-700 mb-1">
+                                    Email <span class="text-red-500">*</span>
+                                </label>
+                                <input type="email" name="email" id="email" value="{{ old('email') }}"
+                                    class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('email') border-red-500 @enderror"
+                                    placeholder="email@example.com" required>
+                                @error('email')
+                                    <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
 
-                        <div class="space-y-1">
-                            <label class="text-sm font-medium text-gray-700">Email Address</label>
-                            <div class="relative">
-                                <input type="email" name="email" placeholder="Enter your email" class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors" required>
-                                <svg class="w-5 h-5 text-gray-400 absolute left-3 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"></path>
-                                </svg>
+                        <!-- Company Specific Fields - Accordion Style -->
+                        <div x-show="selectedRole === 'perusahaan'" x-transition class="mb-4">
+                            <!-- Required Company Info -->
+                            <div class="space-y-3 mb-3">
+                                <!-- Company Name -->
+                                <div>
+                                    <label for="company_name" class="block text-xs font-medium text-gray-700 mb-1">
+                                        Nama Perusahaan <span class="text-red-500">*</span>
+                                    </label>
+                                    <input type="text" name="company_name" id="company_name" value="{{ old('company_name') }}" class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('company_name') border-red-500 @enderror" placeholder="PT. Nama Perusahaan" x-bind:required="selectedRole === 'perusahaan'">
+                                    @error('company_name')
+                                        <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                                    @enderror
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="space-y-1">
-                            <label class="text-sm font-medium text-gray-700">Password</label>
-                            <div class="relative">
-                                <input type="password" name="password" id="registerPassword" placeholder="Create a password" class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 pr-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors" required>
-                                <svg class="w-5 h-5 text-gray-400 absolute left-3 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-                                </svg>
-                                <button type="button" onclick="togglePassword('registerPassword', 'registerEyeIcon')" class="absolute right-3 top-3.5 text-gray-400 hover:text-gray-600">
-                                    <svg id="registerEyeIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                            <!-- Optional Company Details - Collapsible -->
+                            <div class="border border-gray-200 rounded-lg">
+                                <button type="button" @click="showCompanyDetails = !showCompanyDetails" class="w-full px-3 py-2 flex items-center justify-between text-xs font-medium text-gray-700 hover:bg-gray-50 rounded-lg transition">
+                                    <span class="flex items-center">
+                                        <svg class="w-4 h-4 mr-2 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                        </svg>
+                                        Detail Perusahaan
+                                    </span>
+                                    <svg x-show="!showCompanyDetails" class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                    </svg>
+                                    <svg x-show="showCompanyDetails" class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/>
                                     </svg>
                                 </button>
+
+                                <div x-show="showCompanyDetails" x-collapse class="px-3 pb-3 space-y-3 border-t border-gray-100">
+                                    <!-- Company Email & Phone -->
+                                    <div class="grid grid-cols-2 gap-2">
+                                        <div>
+                                            <label for="company_email" class="block text-xs font-medium text-gray-700 mb-1">Email Perusahaan</label>
+                                            <input type="email" name="company_email" id="company_email" value="{{ old('company_email') }}" class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 @error('company_email') border-red-500 @enderror" placeholder="contact@company.com">
+                                            @error('company_email')
+                                                <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+
+                                        <div>
+                                            <label for="company_phone" class="block text-xs font-medium text-gray-700 mb-1">No. Telepon</label>
+                                            <input type="text" name="company_phone" id="company_phone" value="{{ old('company_phone') }}" class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 @error('company_phone') border-red-500 @enderror" placeholder="+62 xxx">
+                                            @error('company_phone')
+                                                <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <!-- Website -->
+                                    <div>
+                                        <label for="company_website" class="block text-xs font-medium text-gray-700 mb-1">Website</label>
+                                        <input type="url" name="company_website" id="company_website" value="{{ old('company_website') }}" class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 @error('company_website') border-red-500 @enderror" placeholder="https://company.com">
+                                        @error('company_website')
+                                            <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+
+                                    <!-- Industry & Employees -->
+                                    <div class="grid grid-cols-2 gap-2">
+                                        <div>
+                                            <label for="industry" class="block text-xs font-medium text-gray-700 mb-1">Bidang Usaha</label>
+                                            <input type="text" name="industry" id="industry" value="{{ old('industry') }}" class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 @error('industry') border-red-500 @enderror" placeholder="Teknologi">
+                                            @error('industry')
+                                                <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+
+                                        <div>
+                                            <label for="employees_count" class="block text-xs font-medium text-gray-700 mb-1">Jumlah Karyawan</label>
+                                            <input type="number" name="employees_count" id="employees_count" value="{{ old('employees_count') }}" min="1" class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 @error('employees_count') border-red-500 @enderror" placeholder="50">
+                                            @error('employees_count')
+                                                <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <!-- Address -->
+                                    <div>
+                                        <label for="address" class="block text-xs font-medium text-gray-700 mb-1">Alamat</label>
+                                        <textarea name="address" id="address" rows="2" class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 @error('address') border-red-500 @enderror" placeholder="Alamat lengkap">{{ old('address') }}</textarea>
+                                        @error('address')
+                                            <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+
+                                    <!-- City & Province -->
+                                    <div class="grid grid-cols-2 gap-2">
+                                        <div>
+                                            <label for="city" class="block text-xs font-medium text-gray-700 mb-1">Kota</label>
+                                            <input type="text" name="city" id="city" value="{{ old('city') }}" class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 @error('city') border-red-500 @enderror" placeholder="Jakarta">
+                                            @error('city')
+                                                <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+
+                                        <div>
+                                            <label for="province" class="block text-xs font-medium text-gray-700 mb-1">Provinsi</label>
+                                            <input type="text" name="province" id="province" value="{{ old('province') }}" class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 @error('province') border-red-500 @enderror" placeholder="DKI Jakarta">
+                                            @error('province')
+                                                <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <!-- About -->
+                                    <div>
+                                        <label for="about" class="block text-xs font-medium text-gray-700 mb-1">Tentang Perusahaan</label>
+                                        <textarea name="about" id="about" rows="2" class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 @error('about') border-red-500 @enderror" placeholder="Deskripsi singkat perusahaan...">{{ old('about') }}</textarea>
+                                        @error('about')
+                                            <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="space-y-1">
-                            <label class="text-sm font-medium text-gray-700">Confirm Password</label>
-                            <div class="relative">
-                                <input type="password" name="password_confirmation" id="confirmPassword" placeholder="Confirm your password" class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 pr-10 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors" required>
-                                <svg class="w-5 h-5 text-gray-400 absolute left-3 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                                <button type="button" onclick="togglePassword('confirmPassword', 'confirmEyeIcon')" class="absolute right-3 top-3.5 text-gray-400 hover:text-gray-600">
-                                    <svg id="confirmEyeIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-                                    </svg>
-                                </button>
+                        <!-- Password Fields - Compact -->
+                        <div class="space-y-3 mb-4">
+                            <!-- Password -->
+                            <div>
+                                <label for="password" class="block text-xs font-medium text-gray-700 mb-1">
+                                    Password <span class="text-red-500">*</span>
+                                </label>
+                                <div class="relative">
+                                    <input type="password" name="password" id="password" class="w-full px-3 py-2 pr-10 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 @error('password') border-red-500 @enderror" placeholder="Min. 8 karakter" required>
+                                    <button type="button" @click="togglePassword('password')" class="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                @error('password')
+                                    <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <!-- Password Confirmation -->
+                            <div>
+                                <label for="password_confirmation" class="block text-xs font-medium text-gray-700 mb-1">
+                                    Konfirmasi Password <span class="text-red-500">*</span>
+                                </label>
+                                <div class="relative">
+                                    <input type="password" name="password_confirmation" id="password_confirmation" class="w-full px-3 py-2 pr-10 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="Ulangi password" required>
+                                    <button type="button" @click="togglePassword('password_confirmation')" class="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="text-sm">
-                            <label class="flex items-start">
-                                <input type="checkbox" name="terms" class="rounded border-gray-300 text-red-600 focus:ring-red-500 mt-0.5" required>
-                                <span class="ml-2 text-gray-600 leading-relaxed">
-                                    I agree to the <a href="#" class="text-red-600 hover:text-red-700 font-medium">Terms of Service</a> and <a href="#" class="text-red-600 hover:text-red-700 font-medium">Privacy Policy</a>
+                        <!-- Terms -->
+                        <div class="mb-4">
+                            <label class="flex items-start cursor-pointer">
+                                <input type="checkbox" name="terms" id="terms"
+                                    class="mt-0.5 w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500"
+                                    required>
+                                <span class="ml-2 text-xs text-gray-600">
+                                    Saya setuju dengan
+                                    <a href="#" class="text-blue-600 hover:underline">Terms</a> &
+                                    <a href="#" class="text-blue-600 hover:underline">Privacy Policy</a>
                                 </span>
                             </label>
                         </div>
-                        <button type="submit" class="w-full bg-gradient-to-r from-red-500 to-red-600 text-white py-3 rounded-lg font-medium hover:from-red-600 hover:to-red-700 transform hover:scale-[1.02] transition-all duration-200 shadow-lg">
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="w-full bg-blue-600 text-white py-2.5 rounded-lg text-sm font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all">
                             Create Account
                         </button>
+
+                        <!-- Login Link -->
+                        <div class="mt-4 text-center">
+                            <p class="text-xs text-gray-600">
+                                Sudah punya akun?
+                                <a href="#" @click.prevent="mode = 'login'" class="text-blue-600 hover:underline font-medium">
+                                    Login disini
+                                </a>
+                            </p>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -318,24 +542,35 @@
         </div>
 
         <!-- Search + Categories floating di bawah banner (center) -->
-        <div class="absolute left-1/2 -bottom-32 md:-bottom-20 transform -translate-x-1/2 w-full px-8 md:px-16 flex flex-col items-center gap-4 z-40">
+        <div
+            class="absolute left-1/2 -bottom-32 md:-bottom-20 transform -translate-x-1/2 w-full px-8 md:px-16 flex flex-col items-center gap-4 z-40">
             <!-- Search Bar -->
             <div class="bg-white rounded-full flex items-center px-3 py-2 md:px-4 shadow-lg w-full max-w-7xl">
-                <input type="text" id="searchInput" placeholder="Search jobs..." class="flex-1 outline-none text-base text-gray-700" onkeyup="searchJobs()"/>
-                <button onclick="searchJobs()" class="bg-red-500 text-white w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center" aria-label="Search">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14z"/>
+                <input type="text" id="searchInput" placeholder="Search jobs..."
+                    class="flex-1 outline-none text-base text-gray-700" onkeyup="searchJobs()" />
+                <button onclick="searchJobs()"
+                    class="bg-red-500 text-white w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center"
+                    aria-label="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21 21l-4.35-4.35M11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14z" />
                     </svg>
                 </button>
             </div>
 
             <!-- Category Buttons -->
             <div class="flex flex-wrap justify-center gap-2 md:gap-4">
-                <button onclick="filterByCategory('all')" class="category-btn active px-4 py-2 bg-white backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">All</button>
-                <button onclick="filterByCategory('ui-ux')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">UI/UX</button>
-                <button onclick="filterByCategory('frontend')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">Frontend</button>
-                <button onclick="filterByCategory('backend')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">Backend</button>
-                <button onclick="filterByCategory('finance')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">Finance</button>
+                <button onclick="filterByCategory('all')"
+                    class="category-btn active px-4 py-2 bg-white backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">All</button>
+                <button onclick="filterByCategory('ui-ux')"
+                    class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">UI/UX</button>
+                <button onclick="filterByCategory('frontend')"
+                    class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">Frontend</button>
+                <button onclick="filterByCategory('backend')"
+                    class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">Backend</button>
+                <button onclick="filterByCategory('finance')"
+                    class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">Finance</button>
             </div>
         </div>
     </section>
@@ -344,8 +579,10 @@
     <section class="relative pt-48 md:pt-36 pb-20">
         <!-- BACKGROUND / OVERLAY (DIAM) -->
         <div class="absolute inset-0 pointer-events-none">
-            <img src="/images/about/Overlay5.png" class="absolute left-0 top-0 h-full w-[120px] md:w-[300px] object-cover opacity-35 md:opacity-40"/>
-            <img src="/images/about/Overlay5.png" class="absolute right-0 top-0 h-full w-[120px] md:w-[300px] object-cover opacity-35 md:opacity-40 scale-x-[-1]"/>
+            <img src="/images/about/Overlay5.png"
+                class="absolute left-0 top-0 h-full w-[120px] md:w-[300px] object-cover opacity-35 md:opacity-40" />
+            <img src="/images/about/Overlay5.png"
+                class="absolute right-0 top-0 h-full w-[120px] md:w-[300px] object-cover opacity-35 md:opacity-40 scale-x-[-1]" />
         </div>
         <div class="relative z-10 w-full px-8 md:px-16">
             <!-- Section Title -->
@@ -361,15 +598,13 @@
             <!-- Job Cards -->
             <div id="jobCards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
                 <!-- Card 1 -->
-                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between" data-category="frontend" data-title="Frontend Developer" data-company="Tech Corp">
+                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between"
+                    data-category="frontend" data-title="Frontend Developer" data-company="Tech Corp">
                     <div>
                         <!-- Company -->
                         <div class="flex items-center gap-3 mb-4">
-                            <img
-                                src="https://ui-avatars.com/api/?name=Tech+Corp&background=ef4444&color=fff"
-                                class="w-10 h-10 rounded-full"
-                                alt=""
-                            />
+                            <img src="https://ui-avatars.com/api/?name=Tech+Corp&background=ef4444&color=fff"
+                                class="w-10 h-10 rounded-full" alt="" />
                             <div>
                                 <h4 class="font-semibold text-gray-800">Tech Corp</h4>
                                 <p class="text-xs text-gray-500">Jakarta, Indonesia</p>
@@ -406,17 +641,20 @@
                         <span class="text-sm font-medium text-gray-700">
                             Rp 6 – 10 Juta
                         </span>
-                        <a href="{{ route('job.detail', 1) }}" class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition">
+                        <a href="{{ route('job.detail', 1) }}"
+                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition">
                             View Detail
                         </a>
                     </div>
                 </div>
 
                 <!-- Card 2 -->
-                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between" data-category="ui-ux" data-title="UI/UX Designer" data-company="Digital Agency">
+                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between"
+                    data-category="ui-ux" data-title="UI/UX Designer" data-company="Digital Agency">
                     <div>
                         <div class="flex items-center gap-3 mb-4">
-                            <img src="https://ui-avatars.com/api/?name=Digital+Agency&background=3b82f6&color=fff" class="w-10 h-10 rounded-full" alt="">
+                            <img src="https://ui-avatars.com/api/?name=Digital+Agency&background=3b82f6&color=fff"
+                                class="w-10 h-10 rounded-full" alt="">
                             <div>
                                 <h4 class="font-semibold text-gray-800">Digital Agency</h4>
                                 <p class="text-xs text-gray-500">Bandung, Indonesia</p>
@@ -448,17 +686,20 @@
                         <span class="text-sm font-medium text-gray-700">
                             Rp 5 – 8 Juta
                         </span>
-                        <a href="{{ route('job.detail', 2) }}" class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition">
+                        <a href="{{ route('job.detail', 2) }}"
+                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition">
                             View Detail
                         </a>
                     </div>
                 </div>
 
                 <!-- Card 3 -->
-                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between" data-category="backend" data-title="Backend Developer" data-company="StartupXYZ">
+                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between"
+                    data-category="backend" data-title="Backend Developer" data-company="StartupXYZ">
                     <div>
                         <div class="flex items-center gap-3 mb-4">
-                            <img src="https://ui-avatars.com/api/?name=StartupXYZ&background=10b981&color=fff" class="w-10 h-10 rounded-full" alt=""/>
+                            <img src="https://ui-avatars.com/api/?name=StartupXYZ&background=10b981&color=fff"
+                                class="w-10 h-10 rounded-full" alt="" />
                             <div>
                                 <h4 class="font-semibold text-gray-800">StartupXYZ</h4>
                                 <p class="text-xs text-gray-500">Surabaya, Indonesia</p>
@@ -490,17 +731,16 @@
                         <span class="text-sm font-medium text-gray-700">
                             Rp 8 – 12 Juta
                         </span>
-                        <a
-                            href="{{ route('job.detail', 3) }}"
-                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition"
-                        >
+                        <a href="{{ route('job.detail', 3) }}"
+                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition">
                             View Detail
                         </a>
                     </div>
                 </div>
 
                 <!-- Card 4 -->
-                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between" data-category="mobile" data-title="Mobile Developer" data-company="App Studio">
+                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between"
+                    data-category="mobile" data-title="Mobile Developer" data-company="App Studio">
                     <div>
                         <div class="flex items-center gap-3 mb-4">
                             <img src="https://ui-avatars.com/api/?name=App+Studio&background=6366f1&color=fff"
@@ -533,14 +773,16 @@
                         <span class="text-sm font-medium text-gray-700">
                             Rp 7 – 11 Juta
                         </span>
-                        <a href="{{ route('job.detail', 4) }}" class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600">
+                        <a href="{{ route('job.detail', 4) }}"
+                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600">
                             View Detail
                         </a>
                     </div>
                 </div>
 
                 <!-- Card 5 -->
-                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between" data-category="data" data-title="Data Analyst" data-company="Insight Labs">
+                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between"
+                    data-category="data" data-title="Data Analyst" data-company="Insight Labs">
                     <div>
                         <div class="flex items-center gap-3 mb-4">
                             <img src="https://ui-avatars.com/api/?name=Insight+Labs&background=0ea5e9&color=fff"
@@ -574,14 +816,15 @@
                             Rp 6 – 9 Juta
                         </span>
                         <a href="{{ route('job.detail', 5) }}"
-                        class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600">
+                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600">
                             View Detail
                         </a>
                     </div>
                 </div>
 
                 <!-- Card 6 -->
-                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between" data-category="devops" data-title="DevOps Engineer" data-company="CloudHub">
+                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between"
+                    data-category="devops" data-title="DevOps Engineer" data-company="CloudHub">
                     <div>
                         <div class="flex items-center gap-3 mb-4">
                             <img src="https://ui-avatars.com/api/?name=CloudHub&background=22c55e&color=fff"
@@ -615,7 +858,7 @@
                             Rp 9 – 14 Juta
                         </span>
                         <a href="{{ route('job.detail', 6) }}"
-                        class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600">
+                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600">
                             View Detail
                         </a>
                     </div>
@@ -626,10 +869,11 @@
 
     <!-- CTA SECTION -->
     <section class="relative overflow-hidden">
-        <img src="/images/about/Overlay6.png" alt="" class="absolute inset-0 w-full h-full object-cover"/>
+        <img src="/images/about/Overlay6.png" alt="" class="absolute inset-0 w-full h-full object-cover" />
         <!-- Overlay merah biar teks kebaca -->
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-red-600/40 to-transparent"></div>
-        <div class="relative z-10 w-full px-6 md:px-12 py-8 md:py-10 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div
+            class="relative z-10 w-full px-6 md:px-12 py-8 md:py-10 flex flex-col md:flex-row items-center justify-between gap-6">
             <div class="text-white text-center md:text-left">
                 <h2 class="text-2xl md:text-3xl font-bold mb-2">
                     Kita ada Untuk Kalian
@@ -639,7 +883,8 @@
                 </p>
             </div>
 
-            <a href="/dashboard" class="bg-white text-red-600 font-semibold px-8 py-4 rounded-2xl hover:bg-red-50 transition">
+            <a href="/dashboard"
+                class="bg-white text-red-600 font-semibold px-8 py-4 rounded-2xl hover:bg-red-50 transition">
                 Cari Kerja !
             </a>
         </div>
@@ -677,7 +922,9 @@
                         <div class="flex items-center gap-3">
                             <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
                                 <svg class="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                                    </path>
                                 </svg>
                             </div>
                             <span>+62 822-3456-7890</span>
@@ -686,7 +933,9 @@
                         <div class="flex items-center gap-3">
                             <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
                                 <svg class="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                    </path>
                                 </svg>
                             </div>
                             <span>kerjosam@kerjo.id</span>
@@ -694,8 +943,10 @@
                         <!-- Website -->
                         <div class="flex items-center gap-3">
                             <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 0c2.5 2.5 4 6 4 10s-1.5 7.5-4 10m0-20C9.5 4.5 8 8 8 12s1.5 7.5 4 10" />
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-red-500" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 0c2.5 2.5 4 6 4 10s-1.5 7.5-4 10m0-20C9.5 4.5 8 8 8 12s1.5 7.5 4 10" />
                                 </svg>
                             </div>
                             <span>kerjosam.com</span>
@@ -707,6 +958,18 @@
     </footer>
 
     <script>
+        function registerForm() {
+            return {
+                selectedRole: '{{ old("role", "user") }}',
+                showCompanyDetails: false,
+
+                togglePassword(fieldId) {
+                    const field = document.getElementById(fieldId);
+                    field.type = field.type === 'password' ? 'text' : 'password';
+                }
+            }
+        }
+
         function toggleDropdown() {
             document.getElementById('userDropdown').classList.toggle('hidden');
         }
@@ -719,7 +982,7 @@
         });
 
         // Auto open login modal if redirected from auth middleware
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             if (window.location.hash === '#login') {
                 window.dispatchEvent(new CustomEvent('open-login-modal'));
             }
@@ -821,4 +1084,5 @@
         }
     </script>
 </body>
+
 </html>

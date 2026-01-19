@@ -25,6 +25,10 @@ Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/profile', [AuthController::class, 'profile'])->name('profile')->middleware('auth');
 
+Route::get('/profile/perusahaan', function () {
+    return view('profileperusahaan');
+});
+
 // Job Routes
 Route::get('/job/{id}', [JobController::class, 'show'])->name('job.detail')->middleware('auth');
 
