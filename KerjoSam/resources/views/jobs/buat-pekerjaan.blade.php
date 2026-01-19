@@ -61,25 +61,16 @@
                     <input type="text" name="company" class="w-full bg-gray-200 border border-gray-300 rounded-2xl px-5 py-3 outline-none focus:ring-2 focus:ring-red-400" required>
                 </div>
 
-                <div>
-                    <label class="block text-sm mb-1">Lokasi</label>
-                    <input type="text" name="location" class="w-full bg-gray-200 border border-gray-300 rounded-2xl px-5 py-3 outline-none focus:ring-2 focus:ring-red-400" required>
-                </div>
+                
+
+               
+              
+
+                
 
                 <div>
-                    <label class="block text-sm mb-1">Gaji</label>
-                    <input type="text" name="salary" class="w-full bg-gray-200 border border-gray-300 rounded-2xl px-5 py-3 outline-none focus:ring-2 focus:ring-red-400" required>
-                </div>
-
-                <div>
-                    <label class="block text-sm mb-1">Tipe Pekerjaan</label>
-                    <select name="type" class="w-full bg-gray-200 border border-gray-300 rounded-2xl px-5 py-3 outline-none focus:ring-2 focus:ring-red-400" required>
-                        <option value="">-- Pilih Tipe --</option>
-                        <option value="Full Time">Full Time</option>
-                        <option value="Part Time">Part Time</option>
-                        <option value="Freelance">Freelance</option>
-                        <option value="Internship">Internship</option>
-                    </select>
+                    <label class="block text-sm mb-1">Deskripsi</label>
+                    <textarea name="description" rows="4" class="w-full bg-gray-200 border border-gray-300 rounded-2xl px-5 py-3 outline-none focus:ring-2 focus:ring-red-400" required></textarea>
                 </div>
 
                 <div>
@@ -94,11 +85,6 @@
                         <option value="devops">DevOps Engineer</option>
                         <option value="finance">Finance</option>
                     </select>
-                </div>
-
-                <div>
-                    <label class="block text-sm mb-1">Deskripsi</label>
-                    <textarea name="description" rows="4" class="w-full bg-gray-200 border border-gray-300 rounded-2xl px-5 py-3 outline-none focus:ring-2 focus:ring-red-400" required></textarea>
                 </div>
 
                 <div class="flex justify-center pt-6">
