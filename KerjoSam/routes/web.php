@@ -28,13 +28,13 @@
     Route::get('/profile', [AuthController::class, 'profile'])->name('profile')->middleware('auth');
 
     // Job Routes
-    Route::get('/job/{id}', [JobController::class, 'show'])->name('job.detail')->middleware('auth');
-    Route::get('/jobs', [JobController::class, 'index'])->name('job.index')->middleware('auth');
-    Route::get('/job/create', [JobController::class, 'create'])->name('job.create')->middleware('auth');
-    Route::post('/job/store', [JobController::class, 'store'])->name('job.store')->middleware('auth');
-    Route::get('/job/{id}/edit', [JobController::class, 'edit'])->name('job.edit')->middleware('auth');
-    Route::put('/job/{id}', [JobController::class, 'update'])->name('job.update')->middleware('auth');
-    Route::delete('/job/{id}', [JobController::class, 'destroy'])->name('job.destroy')->middleware('auth');
+    Route::get('/jobs', [JobController::class, 'index'])->name('jobs.index')->middleware('auth');
+    Route::get('/buat-lowongan', [JobController::class, 'create'])->name('jobs.create')->middleware('auth');
+    Route::post('/jobs/store', [JobController::class, 'store'])->name('jobs.store')->middleware('auth');
+    Route::get('/jobs/{id}', [JobController::class, 'show'])->name('jobs.show')->middleware('auth');
+    Route::get('/jobs/{id}/edit', [JobController::class, 'edit'])->name('jobs.edit')->middleware('auth');
+    Route::put('/jobs/{id}', [JobController::class, 'update'])->name('jobs.update')->middleware('auth');
+    Route::delete('/jobs/{id}', [JobController::class, 'destroy'])->name('jobs.destroy')->middleware('auth');
 
     Route::get('/about', [AboutController::class, 'index'])->name('about');
     Route::get('/history', function () {
@@ -61,4 +61,8 @@
 
     Route::get('/profile/perusahaan', function () {
         return view('profileperusahaan');
+    });
+    //  Tambah Pekerjaan
+    Route::get('/buat-pekerjaan', function () {
+        return view('buat-pekerjaan');
     });

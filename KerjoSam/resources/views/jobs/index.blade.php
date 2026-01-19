@@ -43,7 +43,7 @@
                     <h1 class="text-2xl md:text-3xl font-bold">Kelola Lowongan Pekerjaan</h1>
                     <p class="text-red-100 text-sm mt-1">Daftar semua lowongan yang telah ditambahkan</p>
                 </div>
-                <a href="{{ route('job.create') }}" class="bg-white text-red-600 px-6 py-3 rounded-full font-semibold hover:bg-red-50 transition flex items-center gap-2">
+                <a href="{{ route('jobs.create') }}" class="bg-white text-red-600 px-6 py-3 rounded-full font-semibold hover:bg-red-50 transition flex items-center gap-2">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
                     </svg>
@@ -81,10 +81,10 @@
                             </td>
                             <td class="px-6 py-4">
                                 <div class="flex items-center justify-center gap-2">
-                                    <a href="{{ route('job.edit', $job->id) }}" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition text-sm">
+                                    <a href="{{ route('jobs.edit', $job->id) }}" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition text-sm">
                                         Edit
                                     </a>
-                                    <form action="{{ route('job.destroy', $job->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus lowongan ini?')">
+                                    <form action="{{ route('jobs.destroy', $job->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus lowongan ini?')">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition text-sm">

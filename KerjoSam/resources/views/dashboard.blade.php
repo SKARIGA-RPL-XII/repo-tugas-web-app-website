@@ -55,7 +55,7 @@
         </div>
     </div>
     <!-- NAVBAR -->
-    <nav class="w-full bg-white shadow-sm relative z-10">
+    <nav class="w-full bg-white shadow-lg relative z-10">
         <div class="w-full px-8 md:px-16 py-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
                 <img src="/images/LogoWeb.png" alt="Logo" class="w-12 h-12 md:w-32 md:h-10 rounded-full object-cover" />
@@ -266,9 +266,7 @@
                             View Detail
                         </a>
                     </div>
-                    <button class="bg-red-500 text-white text-sm px-4 py-1 rounded-full">
-                        HAPUS AKUN
-                    </button>
+                  
                 </div>
 
                 <!-- Card 2 -->
@@ -316,9 +314,7 @@
                             View Detail
                         </a>
                     </div>
-                    <button class="bg-red-500 text-white text-sm px-4 py-1 rounded-full">
-                        HAPUS AKUN
-                    </button>
+                  
                 </div>
 
                 <!-- Card 3 -->
@@ -487,29 +483,9 @@
                             View Detail
                         </a>
                     </div>
-                    <button class="bg-red-500 text-white text-sm px-4 py-1 rounded-full">
-                        HAPUS AKUN
-                    </button>
+                  
                 </div>
             </div>
-            <!-- KATEGORI -->
-            <h2 class="text-2xl font-bold underline mb-4">KATEGORI</h2>
-            <div class="space-y-4 mb-12">
-
-                <div class="flex justify-between items-center bg-gray-100 rounded-xl px-6 py-4 shadow">
-                    <span class="font-semibold">PEMROGRAMAN</span>
-                    <button class="bg-red-500 text-white p-2 rounded">
-                        🗑
-                    </button>
-                </div>
-            </div>
-            <!-- TAMBAH KATEGORI -->
-           <button class="flex items-center gap-2 bg-yellow-400 px-6 py-3 rounded-full font-bold shadow mx-auto">
-            <span class="text-xl">+</span>
-            TAMBAH KATEGORI
-            </button>
-
-
         </div>
     </section>
 

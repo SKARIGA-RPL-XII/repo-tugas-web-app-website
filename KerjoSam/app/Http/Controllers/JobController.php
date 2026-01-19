@@ -51,7 +51,7 @@ class JobController extends Controller
 
     public function create()
     {
-        return view('jobs.create');
+        return view('jobs.buat-pekerjaan');
     }
 
     public function store(Request $request)
@@ -72,7 +72,7 @@ class JobController extends Controller
         // Simpan ke database
         Job::create($validated);
 
-        return redirect()->route('job.index')->with('success', 'Lowongan berhasil ditambahkan!');
+        return redirect()->route('jobs.index')->with('success', 'Lowongan berhasil ditambahkan!');
     }
 
     public function edit($id)
@@ -99,7 +99,7 @@ class JobController extends Controller
         $job = Job::where('user_id', Auth::id())->findOrFail($id);
         $job->update($validated);
 
-        return redirect()->route('job.index')->with('success', 'Lowongan berhasil diupdate!');
+        return redirect()->route('jobs.index')->with('success', 'Lowongan berhasil diupdate!');
     }
 
     public function destroy($id)
@@ -108,6 +108,6 @@ class JobController extends Controller
         $job = Job::where('user_id', Auth::id())->findOrFail($id);
         $job->delete();
 
-        return redirect()->route('job.index')->with('success', 'Lowongan berhasil dihapus!');
+        return redirect()->route('jobs.index')->with('success', 'Lowongan berhasil dihapus!');
     }
 }
