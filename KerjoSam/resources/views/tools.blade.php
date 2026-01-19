@@ -9,104 +9,86 @@
 
 <body class="min-h-screen bg-white relative overflow-x-hidden">
 
-<!-- BACKGROUND -->
-<div class="absolute inset-0 -z-10 bg-no-repeat bg-cover bg-center"
-     style="background-image: url('{{ asset('images/Group 36.png') }}');">
-</div>
-
-<!-- NAVBAR -->
-<nav class="fixed top-0 left-0 w-full bg-white shadow px-12 py-4 flex items-center z-50">
-    <span class="text-xl font-bold">
-        <span class="text-red-600">Kerjo</span>
-        <span class="text-yellow-400">Sam.</span>
-    </span>
-
-    <ul class="flex gap-8 text-sm font-medium ml-auto">
-        <li><a href="{{ route('welcome') }}" class="hover:text-red-600 cursor-pointer">Home</a></li>
-        <li><a href="{{ route('about') }}" class="hover:text-red-600 cursor-pointer">About Us</a></li>
-        <li class="text-red-600">Admin Tools</li>
-    </ul>
-</nav>
-
-<!-- MAIN -->
-<div class="max-w-6xl mx-auto px-10 pt-32 pb-20">
-
-    <h1 class="text-4xl font-bold text-center mb-16">ADMIN TOOLS</h1>
-
-    <!-- USER -->
-    <h2 class="text-xl font-bold mb-4">USER</h2>
-    <div class="space-y-3">
-        <div class="flex justify-between bg-white px-6 py-3 rounded-xl shadow">
-            <span>Inad</span>
-            <button class="bg-red-500 text-white text-xs px-4 py-1 rounded-full">HAPUS</button>
-        </div>
-        <div class="flex justify-between bg-white px-6 py-3 rounded-xl shadow border-2 border-blue-400">
-            <span>Danu</span>
-            <button class="bg-red-500 text-white text-xs px-4 py-1 rounded-full">HAPUS</button>
-        </div>
-        <div class="flex justify-between bg-white px-6 py-3 rounded-xl shadow">
-            <span>Wisnu</span>
-            <button class="bg-red-500 text-white text-xs px-4 py-1 rounded-full">HAPUS</button>
-        </div>
+    <!-- BACKGROUND -->
+    <div class="absolute inset-0 -z-10 bg-no-repeat bg-cover bg-center"
+        style="background-image: url('{{ asset('images/Group 36.png') }}');">
     </div>
 
     <!-- NAVBAR -->
     <nav class="fixed top-0 left-0 w-full bg-white shadow px-12 py-4 flex items-center z-50">
-        <span class="text-xl font-bold">
-            <span class="text-red-600">Kerjo</span>
-            <span class="text-yellow-400">Sam.</span>
-        </span>
+        <img src="/images/LogoWeb.png" alt="" class="w-12 h-12 md:w-32 md:h-10 rounded-full object-cover">
 
         <ul class="flex gap-8 text-sm font-medium ml-auto">
-            <li>Home</li>
-            <li>About Us</li>
+            <li><a href="/admin/tools/" class="hover:text-red-600 cursor-pointer">Home</a></li>
             <li class="text-red-600">Admin Tools</li>
-            <li>Admin ▾</li>
         </ul>
     </nav>
 
+
     <!-- MAIN -->
-    <div class="max-w-6xl mx-auto px-10 pt-32 pb-24">
+    <div class="relative w-full px-8 md:px-16 py-24">
 
         <h1 class="text-4xl font-bold text-center mb-16">ADMIN TOOLS</h1>
 
         <!-- USER -->
         <h2 class="text-xl font-bold mb-4">USER</h2>
         <div class="space-y-4">
-            <div class="flex justify-between items-center bg-white px-6 py-4 rounded-xl shadow">
-                <span>Inad</span>
-                <button class="bg-red-500 text-white text-xs px-4 py-1 rounded-full">HAPUS</button>
+            @forelse($users as $user)
+            <div class="flex justify-between items-center bg-white px-6 py-4 rounded-xl
+            shadow-[0_-4px_10px_rgba(0,0,0,0.08),0_6px_12px_rgba(0,0,0,0.12)]">
+                <span>{{ $user->name }}</span>
+                <form action="{{ route('admin.users.destroy', $user->id) }}"
+                    method="POST"
+                    class="inline"
+                    onsubmit="return confirm('Yakin ingin menghapus user ini?')">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="bg-red-500 text-white text-xs px-4 py-1 rounded-full">HAPUS</button>
+                </form>
             </div>
-            <div class="flex justify-between items-center bg-white px-6 py-4 rounded-xl shadow">
-                <span>Danu</span>
-                <button class="bg-red-500 text-white text-xs px-4 py-1 rounded-full">HAPUS</button>
+            @empty
+            <div class="text-center text-gray-500 py-8">
+                Belum ada user
             </div>
-            <div class="flex justify-between items-center bg-white px-6 py-4 rounded-xl shadow">
-                <span>Wisnu</span>
-                <button class="bg-red-500 text-white text-xs px-4 py-1 rounded-full">HAPUS</button>
-            </div>
+            @endforelse
         </div>
 
-        <p class="text-center text-xs mt-4 underline cursor-pointer">SHOW MORE</p>
+        @if($totalUsers > 4)
+        <a href="{{ route('admin.show-more-user') }}"
+            class="block text-center text-xs mt-4 underline cursor-pointer">
+            SHOW MORE
+        </a>
+        @endif
 
         <!-- PERUSAHAAN -->
         <h2 class="text-xl font-bold mt-14 mb-4">PERUSAHAAN</h2>
         <div class="space-y-4">
-            <div class="flex justify-between items-center bg-white px-6 py-4 rounded-xl shadow">
-                <span>PT Saveria</span>
-                <button class="bg-red-500 text-white text-xs px-4 py-1 rounded-full">HAPUS</button>
+            @forelse($companies as $company)
+            <div class="flex justify-between items-center bg-white px-6 py-4 rounded-xl
+            shadow-[0_-4px_10px_rgba(0,0,0,0.08),0_6px_12px_rgba(0,0,0,0.12)]">
+                <span>{{ $company->name }}</span>
+                <form action="{{ route('admin.users.destroy', $company->id) }}"
+                    method="POST"
+                    class="inline"
+                    onsubmit="return confirm('Yakin ingin menghapus perusahaan ini?')">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="bg-red-500 text-white text-xs px-4 py-1 rounded-full">HAPUS</button>
+                </form>
             </div>
-            <div class="flex justify-between items-center bg-white px-6 py-4 rounded-xl shadow">
-                <span>PT. Matahari</span>
-                <button class="bg-red-500 text-white text-xs px-4 py-1 rounded-full">HAPUS</button>
+            @empty
+            <div class="text-center text-gray-500 py-8">
+                Belum ada perusahaan
             </div>
-            <div class="flex justify-between items-center bg-white px-6 py-4 rounded-xl shadow border-2 border-blue-400">
-                <span>CV. Cahaya</span>
-                <button class="bg-red-500 text-white text-xs px-4 py-1 rounded-full">HAPUS</button>
-            </div>
+            @endforelse
         </div>
 
-        <p class="text-center text-xs mt-4 underline cursor-pointer">SHOW MORE</p>
+        @if($totalCompanies > 4)
+        <a href="{{ route('admin.show-more-perusahaan') }}"
+            class="block text-center text-xs mt-4 underline cursor-pointer">
+            SHOW MORE
+        </a>
+        @endif
 
         <!-- PEKERJAAN -->
         <h2 class="text-xl font-bold mt-14 mb-6">PEKERJAAN</h2>
@@ -171,15 +153,38 @@
 
         <!-- KATEGORI -->
         <h2 class="text-xl font-bold mt-14 mb-4">KATEGORI</h2>
-        <div class="flex flex-wrap gap-2 mb-6">
-            <span class="border border-red-500 text-red-500 text-xs px-3 py-1 rounded-full">Copy Writing</span>
-            <span class="border border-red-500 text-red-500 text-xs px-3 py-1 rounded-full">UI/UX</span>
-            <span class="border border-red-500 text-red-500 text-xs px-3 py-1 rounded-full">Testing</span>
-            <span class="border border-red-500 text-red-500 text-xs px-3 py-1 rounded-full">Maintenance</span>
+
+
+
+        <div class="space-y-3 mb-6">
+            @forelse($categories as $category)
+            <div class="flex items-center justify-between bg-white border rounded-xl px-5 py-3 shadow-sm">
+                <span class="text-sm font-medium text-gray-700">
+                    {{ $category->name }}
+                </span>
+                <div class="flex gap-2">
+                    <button onclick="openEditModal({{ $category->id }}, '{{ $category->name }}')"
+                        class="px-4 py-1.5 text-xs rounded-full bg-yellow-400 text-white">
+                        Edit
+                    </button>
+                    <form action="{{ route('categories.destroy', $category->id) }}" method="POST" class="inline" onsubmit="return confirm('Yakin ingin menghapus kategori ini?')">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="px-4 py-1.5 text-xs rounded-full bg-red-500 text-white">
+                            Hapus
+                        </button>
+                    </form>
+                </div>
+            </div>
+            @empty
+            <div class="text-center text-gray-500 py-8">
+                Belum ada kategori
+            </div>
+            @endforelse
         </div>
 
         <button onclick="openKategoriModal()"
-            class="bg-red-500 text-white px-6 py-2 rounded-full text-sm flex items-center gap-2">
+            class="bg-red-500 text-white px-6 py-2 rounded-full text-sm">
             + TAMBAH KATEGORI
         </button>
 
@@ -190,28 +195,53 @@
         class="fixed inset-0 bg-black/50 flex items-center justify-center hidden z-50">
 
         <div class="bg-white w-[420px] rounded-2xl p-6 shadow-xl">
-            <h2 class="text-2xl font-bold text-center underline mb-6">KATEGORI</h2>
+            <h2 id="modalTitle" class="text-2xl font-bold text-center underline mb-6">
+                TAMBAH KATEGORI
+            </h2>
 
-            <label class="block text-sm font-medium mb-2">Nama Kategori</label>
-            <input type="text"
-                class="w-full px-4 py-2 border rounded-full bg-gray-100">
+            <form id="kategoriForm" action="{{ route('categories.store') }}" method="POST">
+                @csrf
+                <input type="hidden" id="methodField" name="_method" value="">
+                <input type="hidden" id="categoryId" name="category_id" value="">
 
-            <div class="flex justify-between mt-8">
-                <button onclick="closeKategoriModal()"
-                    class="px-6 py-2 border-2 border-red-500 text-red-500 rounded-full">
-                    BATAL
-                </button>
-                <button class="px-6 py-2 bg-yellow-400 text-white rounded-full">
-                    EDIT
-                </button>
-                <button class="px-6 py-2 bg-red-500 text-white rounded-full">
-                    HAPUS
-                </button>
-            </div>
+                <label class="block text-sm font-medium mb-2">
+                    Nama Kategori
+                </label>
+                <input type="text" id="categoryName" name="name" required
+                    placeholder="Masukkan nama kategori"
+                    class="w-full px-4 py-2 border rounded-full bg-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500">
+
+                <div class="flex justify-end gap-3 mt-8">
+                    <button type="button" onclick="closeKategoriModal()"
+                        class="px-6 py-2 border-2 border-red-500 text-red-500 rounded-full">
+                        BATAL
+                    </button>
+                    <button type="submit" class="px-6 py-2 bg-red-500 text-white rounded-full">
+                        SIMPAN
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 
-     <!-- CTA SECTION -->
+    <!-- SUCCESS POPUP -->
+    <div id="successPopup" class="fixed inset-0 bg-black/50 flex items-center justify-center hidden z-50">
+        <div class="bg-white w-[400px] rounded-2xl p-6 shadow-xl text-center">
+            <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Berhasil!</h3>
+            <p id="successMessage" class="text-gray-600 mb-6"></p>
+            <button onclick="closeSuccessPopup()" class="px-6 py-2 bg-green-500 text-white rounded-full hover:bg-green-600">
+                OK
+            </button>
+        </div>
+    </div>
+
+
+    <!-- CTA SECTION -->
     <section class="relative overflow-hidden">
         <img src="/images/about/Overlay6.png" alt="" class="absolute inset-0 w-full h-full object-cover object-[50%_15%]" />
         <!-- Overlay merah biar teks kebaca -->
@@ -252,9 +282,8 @@
                 <div>
                     <h3 class="font-semibold mb-4 text-gray-800">Navigasi</h3>
                     <ul class="space-y-2 text-sm text-gray-600">
-                        <li><a href="/dashboard" class="hover:text-red-500 transition">Home</a></li>
-                        <li><a href="{{ route('about') }}" class="hover:text-red-500 transition">About Us</a></li>
-                        <li><a href="{{ route('history') }}" class="hover:text-red-500 transition">History</a></li>
+                        <li><a href="/admin/tools" class="hover:text-red-500 transition">Home</a></li>
+
                     </ul>
                 </div>
                 <!-- Other -->
@@ -306,11 +335,40 @@
     <script>
         function openKategoriModal() {
             document.getElementById('kategoriModal').classList.remove('hidden');
+            document.getElementById('modalTitle').textContent = 'TAMBAH KATEGORI';
+            document.getElementById('kategoriForm').action = '{{ route("categories.store") }}';
+            document.getElementById('methodField').value = '';
+            document.getElementById('categoryId').value = '';
+            document.getElementById('categoryName').value = '';
+        }
+
+        function openEditModal(id, name) {
+            document.getElementById('kategoriModal').classList.remove('hidden');
+            document.getElementById('modalTitle').textContent = 'EDIT KATEGORI';
+            document.getElementById('kategoriForm').action = '/admin/categories/' + id;
+            document.getElementById('methodField').value = 'PUT';
+            document.getElementById('categoryId').value = id;
+            document.getElementById('categoryName').value = name;
         }
 
         function closeKategoriModal() {
             document.getElementById('kategoriModal').classList.add('hidden');
         }
+
+        function showSuccessPopup(message) {
+            document.getElementById('successMessage').textContent = message;
+            document.getElementById('successPopup').classList.remove('hidden');
+        }
+
+        function closeSuccessPopup() {
+            document.getElementById('successPopup').classList.add('hidden');
+        }
+
+        @if(session('success'))
+        document.addEventListener('DOMContentLoaded', function() {
+            showSuccessPopup('{{ session("success") }}');
+        });
+        @endif
     </script>
 </body>
 

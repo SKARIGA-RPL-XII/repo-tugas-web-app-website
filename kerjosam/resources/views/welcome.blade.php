@@ -85,10 +85,10 @@
                 @auth
                 {{-- Admin Tools Button --}}
                 @if(auth()->user()->isAdmin())
-                    <a href="{{ route('admin.tools') }}"
-                        class="px-4 py-2 bg-red-500 text-white rounded-full hover:bg-red-600 font-semibold text-sm">
-                        Admin Tools
-                    </a>
+                <a href="{{ route('admin.tools') }}"
+                    class="px-4 py-2 bg-red-500 text-white rounded-full hover:bg-red-600 font-semibold text-sm">
+                    Admin Tools
+                </a>
                 @endif
                 @endauth
 
@@ -100,44 +100,21 @@
                         Login
                     </button>
 
-                        <button @click="open = true; mode = 'register'"
-                            class="px-4 py-2 bg-red-500 text-white rounded-full hover:bg-red-600" type="button">
-                            Register
-                        </button>
-                    </div>
+                    <button @click="open = true; mode = 'register'"
+                        class="px-4 py-2 bg-red-500 text-white rounded-full hover:bg-red-600" type="button">
+                        Register
+                    </button>
+                </div>
                 @endguest
 
                 @auth
-                    <!-- JIKA SUDAH LOGIN -->
-                    <div class="relative">
-                        <!-- Trigger -->
-                        <button onclick="toggleDropdown()" class="flex items-center gap-2 focus:outline-none">
-                            <div
-                                class="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center text-white text-sm font-semibold">
-                                {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
-                            </div>
-                            <span class="text-sm text-gray-600">
-                                {{ auth()->user()->name }}
-                            </span>
-                            <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-
-                        <!-- Dropdown -->
-                        <div id="userDropdown"
-                            class="absolute right-0 mt-3 w-40 bg-white rounded-xl shadow-lg border border-gray-100 hidden">
-                            <a href="/profile" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50">
-                                Profile
-                            </a>
-                            <form method="POST" action="/logout">
-                                @csrf
-                                <button type="submit"
-                                    class="w-full text-left px-4 py-2 text-sm text-red-500 hover:bg-red-50">
-                                    Logout
-                                </button>
-                            </form>
+                <!-- JIKA SUDAH LOGIN -->
+                <div class="relative">
+                    <!-- Trigger -->
+                    <button onclick="toggleDropdown()" class="flex items-center gap-2 focus:outline-none">
+                        <div
+                            class="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center text-white text-sm font-semibold">
+                            {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
                         </div>
                         <span class="text-sm text-gray-600">
                             {{ auth()->user()->name }}
@@ -146,6 +123,29 @@
                             viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                         </svg>
+                    </button>
+
+                    <!-- Dropdown -->
+                    <div id="userDropdown"
+                        class="absolute right-0 mt-3 w-40 bg-white rounded-xl shadow-lg border border-gray-100 hidden">
+                        <a href="/profile" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50">
+                            Profile
+                        </a>
+                        <form method="POST" action="/logout">
+                            @csrf
+                            <button type="submit"
+                                class="w-full text-left px-4 py-2 text-sm text-red-500 hover:bg-red-50">
+                                Logout
+                            </button>
+                        </form>
+                    </div>
+                    <span class="text-sm text-gray-600">
+                        {{ auth()->user()->name }}
+                    </span>
+                    <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
                     </button>
 
                     <!-- Dropdown -->
@@ -289,21 +289,21 @@
                         @csrf
                         <!-- Global Error Alert -->
                         @if ($errors->any())
-                            <div class="bg-red-50 border-l-4 border-red-500 p-3 mb-4 rounded text-sm">
-                                <div class="flex items-start">
-                                    <svg class="w-5 h-5 text-red-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
-                                    </svg>
-                                    <div class="flex-1">
-                                        <p class="text-xs font-medium text-red-800 mb-1">Perbaiki error berikut:</p>
-                                        <ul class="text-xs text-red-700 space-y-0.5">
-                                            @foreach ($errors->all() as $error)
-                                                <li>• {{ $error }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
+                        <div class="bg-red-50 border-l-4 border-red-500 p-3 mb-4 rounded text-sm">
+                            <div class="flex items-start">
+                                <svg class="w-5 h-5 text-red-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                                </svg>
+                                <div class="flex-1">
+                                    <p class="text-xs font-medium text-red-800 mb-1">Perbaiki error berikut:</p>
+                                    <ul class="text-xs text-red-700 space-y-0.5">
+                                        @foreach ($errors->all() as $error)
+                                        <li>• {{ $error }}</li>
+                                        @endforeach
+                                    </ul>
                                 </div>
                             </div>
+                        </div>
                         @endif
 
                         <!-- Role Selection - Compact -->
@@ -315,7 +315,7 @@
                                     <input type="radio" name="role" id="roleUser" value="user" {{ old('role', 'user') == 'user' ? 'checked' : '' }} class="peer hidden" required x-model="selectedRole">
                                     <label for="roleUser" class="flex flex-col items-center justify-center p-3 bg-white border-2 border-gray-200 rounded-lg cursor-pointer transition-all hover:border-blue-400 peer-checked:border-blue-600 peer-checked:bg-blue-50">
                                         <svg class="w-6 h-6 text-gray-600 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                                         </svg>
                                         <span class="text-sm font-semibold text-gray-800">Users</span>
                                         <small class="text-xs text-gray-500 text-center mt-0.5">Cari lowongan</small>
@@ -327,7 +327,7 @@
                                     <input type="radio" name="role" id="rolePerusahaan" value="perusahaan" {{ old('role') == 'perusahaan' ? 'checked' : '' }} class="peer hidden" x-model="selectedRole">
                                     <label for="rolePerusahaan" class="flex flex-col items-center justify-center p-3 bg-white border-2 border-gray-200 rounded-lg cursor-pointer transition-all hover:border-blue-400 peer-checked:border-blue-600 peer-checked:bg-blue-50">
                                         <svg class="w-6 h-6 text-gray-600 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                                         </svg>
                                         <span class="text-sm font-semibold text-gray-800">Perusahaan</span>
                                         <small class="text-xs text-gray-500 text-center mt-0.5">Pasang lowongan</small>
@@ -335,7 +335,7 @@
                                 </div>
                             </div>
                             @error('role')
-                                <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                            <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
 
@@ -348,7 +348,7 @@
                                 </label>
                                 <input type="text" name="name" id="name" value="{{ old('name') }}" class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('name') border-red-500 @enderror" placeholder="Nama lengkap Anda" required>
                                 @error('name')
-                                    <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                                <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
                                 @enderror
                             </div>
 
@@ -361,7 +361,7 @@
                                     class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('email') border-red-500 @enderror"
                                     placeholder="email@example.com" required>
                                 @error('email')
-                                    <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                                <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
                                 @enderror
                             </div>
                         </div>
@@ -377,7 +377,7 @@
                                     </label>
                                     <input type="text" name="company_name" id="company_name" value="{{ old('company_name') }}" class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('company_name') border-red-500 @enderror" placeholder="PT. Nama Perusahaan" x-bind:required="selectedRole === 'perusahaan'">
                                     @error('company_name')
-                                        <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                                    <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
                                     @enderror
                                 </div>
                             </div>
@@ -387,15 +387,15 @@
                                 <button type="button" @click="showCompanyDetails = !showCompanyDetails" class="w-full px-3 py-2 flex items-center justify-between text-xs font-medium text-gray-700 hover:bg-gray-50 rounded-lg transition">
                                     <span class="flex items-center">
                                         <svg class="w-4 h-4 mr-2 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                         </svg>
                                         Detail Perusahaan
                                     </span>
                                     <svg x-show="!showCompanyDetails" class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                                     </svg>
                                     <svg x-show="showCompanyDetails" class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
                                     </svg>
                                 </button>
 
@@ -406,7 +406,7 @@
                                             <label for="company_email" class="block text-xs font-medium text-gray-700 mb-1">Email Perusahaan</label>
                                             <input type="email" name="company_email" id="company_email" value="{{ old('company_email') }}" class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 @error('company_email') border-red-500 @enderror" placeholder="contact@company.com">
                                             @error('company_email')
-                                                <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                                            <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
                                             @enderror
                                         </div>
 
@@ -414,7 +414,7 @@
                                             <label for="company_phone" class="block text-xs font-medium text-gray-700 mb-1">No. Telepon</label>
                                             <input type="text" name="company_phone" id="company_phone" value="{{ old('company_phone') }}" class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 @error('company_phone') border-red-500 @enderror" placeholder="+62 xxx">
                                             @error('company_phone')
-                                                <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                                            <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
                                             @enderror
                                         </div>
                                     </div>
@@ -424,7 +424,7 @@
                                         <label for="company_website" class="block text-xs font-medium text-gray-700 mb-1">Website</label>
                                         <input type="url" name="company_website" id="company_website" value="{{ old('company_website') }}" class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 @error('company_website') border-red-500 @enderror" placeholder="https://company.com">
                                         @error('company_website')
-                                            <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                                        <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
                                         @enderror
                                     </div>
 
@@ -434,7 +434,7 @@
                                             <label for="industry" class="block text-xs font-medium text-gray-700 mb-1">Bidang Usaha</label>
                                             <input type="text" name="industry" id="industry" value="{{ old('industry') }}" class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 @error('industry') border-red-500 @enderror" placeholder="Teknologi">
                                             @error('industry')
-                                                <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                                            <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
                                             @enderror
                                         </div>
 
@@ -442,7 +442,7 @@
                                             <label for="employees_count" class="block text-xs font-medium text-gray-700 mb-1">Jumlah Karyawan</label>
                                             <input type="number" name="employees_count" id="employees_count" value="{{ old('employees_count') }}" min="1" class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 @error('employees_count') border-red-500 @enderror" placeholder="50">
                                             @error('employees_count')
-                                                <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                                            <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
                                             @enderror
                                         </div>
                                     </div>
@@ -452,7 +452,7 @@
                                         <label for="address" class="block text-xs font-medium text-gray-700 mb-1">Alamat</label>
                                         <textarea name="address" id="address" rows="2" class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 @error('address') border-red-500 @enderror" placeholder="Alamat lengkap">{{ old('address') }}</textarea>
                                         @error('address')
-                                            <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                                        <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
                                         @enderror
                                     </div>
 
@@ -462,7 +462,7 @@
                                             <label for="city" class="block text-xs font-medium text-gray-700 mb-1">Kota</label>
                                             <input type="text" name="city" id="city" value="{{ old('city') }}" class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 @error('city') border-red-500 @enderror" placeholder="Jakarta">
                                             @error('city')
-                                                <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                                            <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
                                             @enderror
                                         </div>
 
@@ -470,7 +470,7 @@
                                             <label for="province" class="block text-xs font-medium text-gray-700 mb-1">Provinsi</label>
                                             <input type="text" name="province" id="province" value="{{ old('province') }}" class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 @error('province') border-red-500 @enderror" placeholder="DKI Jakarta">
                                             @error('province')
-                                                <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                                            <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
                                             @enderror
                                         </div>
                                     </div>
@@ -480,7 +480,7 @@
                                         <label for="about" class="block text-xs font-medium text-gray-700 mb-1">Tentang Perusahaan</label>
                                         <textarea name="about" id="about" rows="2" class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 @error('about') border-red-500 @enderror" placeholder="Deskripsi singkat perusahaan...">{{ old('about') }}</textarea>
                                         @error('about')
-                                            <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                                        <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
                                         @enderror
                                     </div>
                                 </div>
@@ -498,13 +498,13 @@
                                     <input type="password" name="password" id="password" class="w-full px-3 py-2 pr-10 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 @error('password') border-red-500 @enderror" placeholder="Min. 8 karakter" required>
                                     <button type="button" @click="togglePassword('password')" class="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                                         </svg>
                                     </button>
                                 </div>
                                 @error('password')
-                                    <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                                <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
                                 @enderror
                             </div>
 
@@ -517,8 +517,8 @@
                                     <input type="password" name="password_confirmation" id="password_confirmation" class="w-full px-3 py-2 pr-10 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="Ulangi password" required>
                                     <button type="button" @click="togglePassword('password_confirmation')" class="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                                         </svg>
                                     </button>
                                 </div>
@@ -631,276 +631,73 @@
 
             <!-- Job Cards -->
             <div id="jobCards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-                <!-- Card 1 -->
-                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between"
-                    data-category="frontend" data-title="Frontend Developer" data-company="Tech Corp">
-                    <div>
-                        <!-- Company -->
-                        <div class="flex items-center gap-3 mb-4">
-                            <img src="https://ui-avatars.com/api/?name=Tech+Corp&background=ef4444&color=fff"
-                                class="w-10 h-10 rounded-full" alt="" />
-                            <div>
-                                <h4 class="font-semibold text-gray-800">Tech Corp</h4>
-                                <p class="text-xs text-gray-500">Jakarta, Indonesia</p>
-                            </div>
-                        </div>
 
-                        <!-- Job Title -->
-                        <h3 class="text-lg font-semibold text-gray-900 mb-3">
-                            Frontend Developer
-                        </h3>
-
-                        <!-- Description -->
-                        <p class="text-sm text-gray-600 line-clamp-3 mb-4">
-                            We are looking for a Frontend Developer experienced in
-                            HTML, CSS, JavaScript, and modern frameworks.
-                        </p>
-
-                        <!-- Tags -->
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 text-xs rounded-full bg-red-100 text-red-600">
-                                Frontend
-                            </span>
-                            <span class="px-3 py-1 text-xs rounded-full bg-blue-100 text-blue-600">
-                                Full Time
-                            </span>
-                            <span class="px-3 py-1 text-xs rounded-full bg-green-100 text-green-600">
-                                Remote
-                            </span>
-                        </div>
-                    </div>
-
-                    <!-- Footer -->
-                    <div class="mt-6 flex items-center justify-between">
-                        <span class="text-sm font-medium text-gray-700">
-                            Rp 6 – 10 Juta
-                        </span>
-                        <a href="{{ route('job.detail', 1) }}"
-                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition">
-                            View Detail
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between"
-                    data-category="ui-ux" data-title="UI/UX Designer" data-company="Digital Agency">
-                    <div>
-                        <div class="flex items-center gap-3 mb-4">
-                            <img src="https://ui-avatars.com/api/?name=Digital+Agency&background=3b82f6&color=fff"
-                                class="w-10 h-10 rounded-full" alt="">
-                            <div>
-                                <h4 class="font-semibold text-gray-800">Digital Agency</h4>
-                                <p class="text-xs text-gray-500">Bandung, Indonesia</p>
-                            </div>
-                        </div>
-
-                        <h3 class="text-lg font-semibold text-gray-900 mb-3">
-                            UI/UX Designer
-                        </h3>
-
-                        <p class="text-sm text-gray-600 line-clamp-3 mb-4">
-                            Looking for creative UI/UX Designer to join our team and create amazing user experiences.
-                        </p>
-
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 text-xs rounded-full bg-purple-100 text-purple-600">
-                                UI/UX
-                            </span>
-                            <span class="px-3 py-1 text-xs rounded-full bg-blue-100 text-blue-600">
-                                Full Time
-                            </span>
-                            <span class="px-3 py-1 text-xs rounded-full bg-yellow-100 text-yellow-600">
-                                On-site
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="mt-6 flex items-center justify-between">
-                        <span class="text-sm font-medium text-gray-700">
-                            Rp 5 – 8 Juta
-                        </span>
-                        <a href="{{ route('job.detail', 2) }}"
-                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition">
-                            View Detail
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between"
-                    data-category="backend" data-title="Backend Developer" data-company="StartupXYZ">
-                    <div>
-                        <div class="flex items-center gap-3 mb-4">
-                            <img src="https://ui-avatars.com/api/?name=StartupXYZ&background=10b981&color=fff"
-                                class="w-10 h-10 rounded-full" alt="" />
-                            <div>
-                                <h4 class="font-semibold text-gray-800">StartupXYZ</h4>
-                                <p class="text-xs text-gray-500">Surabaya, Indonesia</p>
-                            </div>
-                        </div>
-
-                        <h3 class="text-lg font-semibold text-gray-900 mb-3">
-                            Backend Developer
-                        </h3>
-
-                        <p class="text-sm text-gray-600 line-clamp-3 mb-4">
-                            Join our backend team to build scalable applications using modern technologies.
-                        </p>
-
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 text-xs rounded-full bg-green-100 text-green-600">
-                                Backend
-                            </span>
-                            <span class="px-3 py-1 text-xs rounded-full bg-blue-100 text-blue-600">
-                                Full Time
-                            </span>
-                            <span class="px-3 py-1 text-xs rounded-full bg-green-100 text-green-600">
-                                Remote
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="mt-6 flex items-center justify-between">
-                        <span class="text-sm font-medium text-gray-700">
-                            Rp 8 – 12 Juta
-                        </span>
-                        <a href="{{ route('job.detail', 3) }}"
-                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition">
-                            View Detail
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between"
-                    data-category="mobile" data-title="Mobile Developer" data-company="App Studio">
-                    <div>
-                        <div class="flex items-center gap-3 mb-4">
-                            <img src="https://ui-avatars.com/api/?name=App+Studio&background=6366f1&color=fff"
-                                class="w-10 h-10 rounded-full" />
-                            <div>
-                                <h4 class="font-semibold text-gray-800">App Studio</h4>
-                                <p class="text-xs text-gray-500">Yogyakarta, Indonesia</p>
-                            </div>
-                        </div>
-
-                        <h3 class="text-lg font-semibold text-gray-900 mb-3">
-                            Mobile Developer
-                        </h3>
-
-                        <p class="text-sm text-gray-600 line-clamp-3 mb-4">
-                            Develop modern mobile applications using Flutter or React Native.
-                        </p>
-
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 text-xs rounded-full bg-indigo-100 text-indigo-600">
-                                Mobile
-                            </span>
-                            <span class="px-3 py-1 text-xs rounded-full bg-blue-100 text-blue-600">
-                                Full Time
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="mt-6 flex items-center justify-between">
-                        <span class="text-sm font-medium text-gray-700">
-                            Rp 7 – 11 Juta
-                        </span>
-                        <a href="{{ route('job.detail', 4) }}"
-                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600">
-                            View Detail
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Card 5 -->
-                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between"
-                    data-category="data" data-title="Data Analyst" data-company="Insight Labs">
-                    <div>
-                        <div class="flex items-center gap-3 mb-4">
-                            <img src="https://ui-avatars.com/api/?name=Insight+Labs&background=0ea5e9&color=fff"
-                                class="w-10 h-10 rounded-full" />
-                            <div>
-                                <h4 class="font-semibold text-gray-800">Insight Labs</h4>
-                                <p class="text-xs text-gray-500">Remote</p>
-                            </div>
-                        </div>
-
-                        <h3 class="text-lg font-semibold text-gray-900 mb-3">
-                            Data Analyst
-                        </h3>
-
-                        <p class="text-sm text-gray-600 line-clamp-3 mb-4">
-                            Analyze data, create reports, and provide insights for business decisions.
-                        </p>
-
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 text-xs rounded-full bg-cyan-100 text-cyan-600">
-                                Data
-                            </span>
-                            <span class="px-3 py-1 text-xs rounded-full bg-green-100 text-green-600">
-                                Remote
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="mt-6 flex items-center justify-between">
-                        <span class="text-sm font-medium text-gray-700">
-                            Rp 6 – 9 Juta
-                        </span>
-                        <a href="{{ route('job.detail', 5) }}"
-                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600">
-                            View Detail
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Card 6 -->
-                <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between"
-                    data-category="devops" data-title="DevOps Engineer" data-company="CloudHub">
-                    <div>
-                        <div class="flex items-center gap-3 mb-4">
-                            <img src="https://ui-avatars.com/api/?name=CloudHub&background=22c55e&color=fff"
-                                class="w-10 h-10 rounded-full" />
-                            <div>
-                                <h4 class="font-semibold text-gray-800">CloudHub</h4>
-                                <p class="text-xs text-gray-500">Jakarta, Indonesia</p>
-                            </div>
-                        </div>
-
-                        <h3 class="text-lg font-semibold text-gray-900 mb-3">
-                            DevOps Engineer
-                        </h3>
-
-                        <p class="text-sm text-gray-600 line-clamp-3 mb-4">
-                            Manage CI/CD pipelines, cloud infrastructure, and system reliability.
-                        </p>
-
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 text-xs rounded-full bg-emerald-100 text-emerald-600">
-                                DevOps
-                            </span>
-                            <span class="px-3 py-1 text-xs rounded-full bg-blue-100 text-blue-600">
-                                Full Time
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="mt-6 flex items-center justify-between">
-                        <span class="text-sm font-medium text-gray-700">
-                            Rp 9 – 14 Juta
-                        </span>
-                        <a href="{{ route('job.detail', 6) }}"
-                            class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600">
-                            View Detail
-                        </a>
-                    </div>
+    <!-- Card 1 -->
+    <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between">
+        <div>
+            <div class="flex items-center gap-3 mb-4">
+                <img src="https://ui-avatars.com/api/?name=Tech+Corp&background=ef4444&color=fff" class="w-10 h-10 rounded-full" alt="">
+                <div>
+                    <h4 class="font-semibold text-gray-800">Tech Corp</h4>
+                    <p class="text-xs text-gray-500">Jakarta, Indonesia</p>
                 </div>
             </div>
+
+            <h3 class="text-lg font-semibold text-gray-900 mb-3">Frontend Developer</h3>
+            <p class="text-sm text-gray-600 line-clamp-3 mb-4">
+                We are looking for a Frontend Developer experienced in HTML, CSS, JavaScript, and modern frameworks.
+            </p>
+
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 text-xs rounded-full bg-red-100 text-red-600">Frontend</span>
+                <span class="px-3 py-1 text-xs rounded-full bg-blue-100 text-blue-600">Full Time</span>
+                <span class="px-3 py-1 text-xs rounded-full bg-green-100 text-green-600">Remote</span>
+            </div>
+        </div>
+
+        <div class="mt-6 flex items-center justify-between">
+            <span class="text-sm font-medium text-gray-700">Rp 6 – 10 Juta</span>
+            <a href="#" class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition">
+                View Detail
+            </a>
+        </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="job-card bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col justify-between">
+        <div>
+            <div class="flex items-center gap-3 mb-4">
+                <img src="https://ui-avatars.com/api/?name=Digital+Agency&background=3b82f6&color=fff" class="w-10 h-10 rounded-full" alt="">
+                <div>
+                    <h4 class="font-semibold text-gray-800">Digital Agency</h4>
+                    <p class="text-xs text-gray-500">Bandung, Indonesia</p>
+                </div>
+            </div>
+
+            <h3 class="text-lg font-semibold text-gray-900 mb-3">UI/UX Designer</h3>
+            <p class="text-sm text-gray-600 line-clamp-3 mb-4">
+                Looking for creative UI/UX Designer to join our team and create amazing user experiences.
+            </p>
+
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 text-xs rounded-full bg-purple-100 text-purple-600">UI/UX</span>
+                <span class="px-3 py-1 text-xs rounded-full bg-blue-100 text-blue-600">Full Time</span>
+                <span class="px-3 py-1 text-xs rounded-full bg-yellow-100 text-yellow-600">On-site</span>
+            </div>
+        </div>
+
+        <div class="mt-6 flex items-center justify-between">
+            <span class="text-sm font-medium text-gray-700">Rp 5 – 8 Juta</span>
+            <a href="#" class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition">
+                View Detail
+            </a>
+        </div>
+    </div>
+
+</div>
         </div>
     </section>
-    
+
 
     <!-- CTA SECTION -->
     <section class="relative overflow-hidden">
@@ -1026,7 +823,7 @@
         });
 
         // Auto open login modal if redirected from auth middleware
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             if (window.location.hash === '#login') {
                 window.dispatchEvent(new CustomEvent('open-login-modal'));
             }

@@ -13,14 +13,13 @@ class User extends Authenticatable
     /**
      * Kolom yang boleh diisi mass assignment
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'role',
-        'email_verified_at',
-        'role',
-    ];
+   protected $fillable = [
+    'name',
+    'email',
+    'password',
+    'role',
+    'email_verified_at',
+];
 
     /**
      * Kolom yang disembunyikan

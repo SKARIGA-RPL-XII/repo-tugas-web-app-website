@@ -1,87 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile User - KerjoSam</title>
+    <title>Admin - Show More User</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-
-        .bg-batik {
-            /* Mengacu pada file LogoB.png di folder images sesuai screenshot VS Code */
-            background-image: url("{{ asset('images/LogoB.png') }}");
-            background-size: 300px;
-            background-repeat: repeat;
-            background-color: #fffafa; 
-        }
-        .card-shadow {
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        }
-         .banner-jawa-overlay {
-            background-image: url("{{ asset('images/Jawa.png') }}");
-            background-color: #D97C7C; 
-            background-blend-mode: multiply; 
-            background-size: cover;
-            background-position: center 15%; 
-            position: relative;
-        }
-    </style>
 </head>
-<body class="bg-white">
 
-        @include('partials.navbar')
+<body class="min-h-screen bg-white relative overflow-x-hidden">
 
+    <!-- BACKGROUND -->
+    <div class="absolute inset-0 -z-10 bg-no-repeat bg-cover bg-center"
+        style="background-image: url('{{ asset('images/Group 36.png') }}');">
+    </div>
 
-    <main class="bg-batik min-h-screen py-12 px-4 sm:px-6">
-        <div class="max-w-5xl mx-auto space-y-8">
-            
-            <div class="bg-white rounded-[2rem] p-8 card-shadow border border-gray-50 flex flex-col md:flex-row items-center gap-8">
-                <div class="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-gray-100">
-                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=200" alt="Profile" class="w-full h-full object-cover">
-                </div>
-                <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight text-center md:text-left">AHMAD SURADI</h1>
-            </div>
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 left-0 w-full bg-white shadow px-12 py-4 flex items-center z-50">
+        <img src="/images/LogoWeb.png" alt="" class="w-12 h-12 md:w-32 md:h-10 rounded-full object-cover">
 
-            <div class="bg-white rounded-[2rem] p-8 md:p-12 card-shadow border border-gray-50 text-center">
-                <h2 class="text-2xl font-bold text-gray-900 mb-4 uppercase tracking-widest">Deskripsi</h2>
-                <div class="w-32 h-1 bg-gray-800 mx-auto mb-8"></div>
-                <p class="text-gray-600 text-lg leading-relaxed max-w-2xl mx-auto">
-                    Saya adalah seorang web developer dan seorang copy writer yang berdedikasi tinggi dalam menciptakan solusi digital yang kreatif dan fungsional.
-                </p>
-            </div>
+        <ul class="flex gap-8 text-sm font-medium ml-auto">
+            <li><a href="/admin/tools/" class="hover:text-red-600 cursor-pointer">Home</a></li>
+            <li class="text-red-600">Admin Tools</li>
+        </ul>
+    </nav>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white rounded-[2.5rem] p-10 card-shadow border border-gray-50">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-8 uppercase text-center">Hubungi :</h2>
-                    <div class="space-y-6">
-                        <div class="flex items-center gap-4 text-gray-700">
-                            <span class="text-xl">✉️</span>
-                            <span class="font-medium">SumardiGmailcom</span>
-                        </div>
-                        <div class="flex items-center gap-4 text-gray-700">
-                            <span class="text-xl">📞</span>
-                            <span class="font-medium">0812457386234</span>
-                        </div>
-                    </div>
-                </div>
+    <!-- CONTENT -->
+    <div class="max-w-7xl mx-auto px-6 pt-32 pb-24">
 
-                <div class="bg-white rounded-[2.5rem] p-10 card-shadow border border-gray-50 text-center flex flex-col justify-center items-center">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4 uppercase">Ayo Sukses!</h2>
-                    <p class="text-gray-500 text-sm mb-8 leading-relaxed px-4">
-                        Bagikan Pekerjaan Ini Dengan Orang Lain, Ayo Sukses Bareng!
-                    </p>
-                    <button class="bg-[#E14F4F] text-white px-8 py-3 rounded-xl font-bold shadow-lg hover:bg-red-700 transition-all active:scale-95">
-                        SALIN TAUTAN
+        <h1 class="text-3xl font-bold text-center mb-16 underline">
+            USER
+        </h1>
+
+        <!-- GRID USER -->
+        <div class="grid grid-cols-2 gap-8">
+            @forelse($users as $user)
+            <div class="bg-white px-8 py-6 rounded-xl shadow">
+                <p class="font-medium">{{ $user->name }}</p>
+                <p class="text-sm text-gray-500 mt-1">{{ $user->email }}</p>
+                <form action="{{ route('admin.users.destroy', $user->id) }}"
+                    method="POST"
+                    class="inline"
+                    onsubmit="return confirm('Yakin ingin menghapus user ini?')">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="mt-3 bg-red-500 text-white text-xs px-5 py-1.5 rounded-full hover:bg-red-600">
+                        HAPUS
                     </button>
-                </div>
+                </form>
             </div>
+            @empty
+            <div class="col-span-2 text-center text-gray-500 py-8">
+                Belum ada user
+            </div>
+            @endforelse
+        </div>
 
+        <!-- KEMBALI -->
+        <div class="text-center mt-14">
+            <a href="{{ route('admin.tools') }}"
+                class="text-xs underline cursor-pointer text-gray-700">
+                ← Kembali ke Admin Tools
+            </a>
+        </div>
 
-    </main>
+    </div>
+
+    <!-- SUCCESS POPUP -->
+    <div id="successPopup" class="fixed inset-0 bg-black/50 flex items-center justify-center hidden z-50">
+        <div class="bg-white w-[400px] rounded-2xl p-6 shadow-xl text-center">
+            <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Berhasil!</h3>
+            <p id="successMessage" class="text-gray-600 mb-6"></p>
+            <button onclick="closeSuccessPopup()" class="px-6 py-2 bg-green-500 text-white rounded-full hover:bg-green-600">
+                OK
+            </button>
+        </div>
+    </div>
 
     <!-- CTA SECTION -->
     <section class="relative overflow-hidden">
@@ -124,9 +122,8 @@
                 <div>
                     <h3 class="font-semibold mb-4 text-gray-800">Navigasi</h3>
                     <ul class="space-y-2 text-sm text-gray-600">
-                        <li><a href="/dashboard" class="hover:text-red-500 transition">Home</a></li>
-                        <li><a href="{{ route('about') }}" class="hover:text-red-500 transition">About Us</a></li>
-                        <li><a href="{{ route('history') }}" class="hover:text-red-500 transition">History</a></li>
+                        <li><a href="/admin/tools/" class="hover:text-red-500 transition">Home</a></li>
+
                     </ul>
                 </div>
                 <!-- Other -->
@@ -174,27 +171,23 @@
         </div>
     </footer>
 
-
     <script>
-        function toggleDropdown() {
-            document.getElementById('userDropdown').classList.toggle('hidden');
+        function showSuccessPopup(message) {
+            document.getElementById('successMessage').textContent = message;
+            document.getElementById('successPopup').classList.remove('hidden');
         }
 
-        function toggleMobileMenu() {
-            document.getElementById('mobileMenu').classList.toggle('hidden');
+        function closeSuccessPopup() {
+            document.getElementById('successPopup').classList.add('hidden');
         }
 
-        document.addEventListener('click', function(e) {
-            const dropdown = document.getElementById('userDropdown');
-            const mobileMenu = document.getElementById('mobileMenu');
-            if (!e.target.closest('.relative')) {
-                dropdown.classList.add('hidden');
-            }
-            if (!e.target.closest('button[onclick="toggleMobileMenu()"]') && !e.target.closest('#mobileMenu')) {
-                mobileMenu.classList.add('hidden');
-            }
+        @if(session('success'))
+        document.addEventListener('DOMContentLoaded', function() {
+            showSuccessPopup('{{ session("success") }}');
         });
+        @endif
     </script>
+
 </body>
 
 </html>

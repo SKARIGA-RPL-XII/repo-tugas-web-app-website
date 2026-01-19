@@ -43,54 +43,54 @@
 
     <!-- ================= NAVBAR ================= -->
     <nav class="w-full bg-white border-b shadow-sm relative z-20">
-    <div class="w-full max-w-7xl mx-auto px-8 py-4 flex items-center justify-between">
+        <div class="w-full max-w-7xl mx-auto px-8 py-4 flex items-center justify-between">
 
-        <!-- LOGO -->
-        <div class="flex items-center">
-            <img src="/images/LogoWeb.png" alt="KerjoSam Logo"
-                class="h-12 w-auto object-contain" />
-        </div>
-
-        <!-- MENU & USER ADMIN -->
-        <div class="flex items-center gap-10">
-            <!-- MENU -->
-            <ul class="hidden md:flex items-center gap-10 text-sm font-medium text-gray-800">
-                <li>
-                    <a href="/dashboard" class="hover:text-red-500 transition">
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('about') }}" class="hover:text-red-500 transition">
-                        About us
-                    </a>
-                </li>
-                <li>
-                    <a href="/admin-tools" class="hover:text-red-500 transition">
-                        Admin Tools
-                    </a>
-                </li>
-            </ul>
-
-            <!-- USER ADMIN -->
-            <div class="relative flex items-center gap-3 cursor-pointer">
-                <!-- Avatar -->
-                <div class="w-9 h-9 rounded-full bg-gray-300 flex items-center justify-center">
-                    <span class="text-sm font-semibold text-gray-700">A</span>
-                </div>
-
-                <!-- Select + Icon -->
-                <span class="text-sm text-gray-800">Admin</span>
-                <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M19 9l-7 7-7-7" />
-                </svg>
+            <!-- LOGO -->
+            <div class="flex items-center">
+                <img src="/images/LogoWeb.png" alt="KerjoSam Logo"
+                    class="h-12 w-auto object-contain" />
             </div>
-        </div>
 
-    </div>
-</nav>
+            <!-- MENU & USER ADMIN -->
+            <div class="flex items-center gap-10">
+                <!-- MENU -->
+                <ul class="hidden md:flex items-center gap-10 text-sm font-medium text-gray-800">
+                    <li>
+                        <a href="/dashboard" class="hover:text-red-500 transition">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('about') }}" class="hover:text-red-500 transition">
+                            About us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/admin-tools" class="hover:text-red-500 transition">
+                            Admin Tools
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- USER ADMIN -->
+                <div class="relative flex items-center gap-3 cursor-pointer">
+                    <!-- Avatar -->
+                    <div class="w-9 h-9 rounded-full bg-gray-300 flex items-center justify-center">
+                        <span class="text-sm font-semibold text-gray-700">A</span>
+                    </div>
+
+                    <!-- Select + Icon -->
+                    <span class="text-sm text-gray-800">Admin</span>
+                    <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 9l-7 7-7-7" />
+                    </svg>
+                </div>
+            </div>
+
+        </div>
+    </nav>
 
 
     <!-- ================= HERO / BACKGROUND ================= -->
@@ -195,7 +195,7 @@
         </div>
     </section>
 
-      <!-- CTA SECTION -->
+    <!-- CTA SECTION -->
     <section class="relative overflow-hidden">
         <img src="/images/about/Overlay6.png" alt="" class="absolute inset-0 w-full h-full object-cover object-[50%_15%]" />
         <!-- Overlay merah biar teks kebaca -->
@@ -236,9 +236,8 @@
                 <div>
                     <h3 class="font-semibold mb-4 text-gray-800">Navigasi</h3>
                     <ul class="space-y-2 text-sm text-gray-600">
-                        <li><a href="/dashboard" class="hover:text-red-500 transition">Home</a></li>
-                        <li><a href="{{ route('about') }}" class="hover:text-red-500 transition">About Us</a></li>
-                        <li><a href="{{ route('history') }}" class="hover:text-red-500 transition">History</a></li>
+                        <li><a href="/admin/tools/" class="hover:text-red-500 transition">Home</a></li>
+
                     </ul>
                 </div>
                 <!-- Other -->
@@ -285,7 +284,6 @@
             </div>
         </div>
     </footer>
-
 
 
     <!-- ================= SCRIPT SHOW MORE ================= -->

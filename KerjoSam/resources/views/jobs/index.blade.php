@@ -8,17 +8,7 @@
 </head>
 <body class="bg-gray-50">
 
-    <!-- NAVBAR -->
-    <nav class="w-full bg-white shadow-sm">
-        <div class="w-full px-8 md:px-16 py-4 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <img src="/images/LogoWeb.png" alt="Logo" class="w-12 h-12 md:w-32 md:h-10 rounded-full object-cover"/>
-            </div>
-            <a href="{{ route('dashboard') }}" class="text-sm text-gray-600 hover:text-red-500">
-                Kembali ke Dashboard
-            </a>
-        </div>
-    </nav>
+    @include('partials.navbar')
 
     <!-- SUCCESS ALERT -->
     @if(session('success'))

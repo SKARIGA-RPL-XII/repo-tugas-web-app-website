@@ -54,7 +54,7 @@
             </button>
         </div>
     </div>
-    
+
     <!-- NAVBAR -->
     <nav class="w-full bg-white shadow-lg relative z-10">
         <div class="w-full px-8 md:px-16 py-4 flex items-center justify-between">
@@ -68,15 +68,17 @@
                     <li class="hover:text-red-500 cursor-pointer">
                         <a href="/dashboard">Home</a>
                     </li>
+                    @if(!auth()->user()->isPerusahaan())
                     <li class="hover:text-red-500 cursor-pointer">
                         <a href="{{ route('history') }}">History</a>
                     </li>
+                    @endif
                     <li class="hover:text-red-500 cursor-pointer">
                         <a href="{{ route('about') }}">About</a>
                     </li>
                     @if(auth()->user()->isPerusahaan() || auth()->user()->isAdmin())
                     <li class="hover:text-red-500 cursor-pointer">
-                        <a href="{{ route('job.index') }}">Tambah Lowongan</a>
+                        <a href="{{ route('jobs.create') }}">Tambah Lowongan</a>
                     </li>
                     @endif
                 </ul>
@@ -105,9 +107,15 @@
 
                     <!-- Dropdown -->
                     <div id="userDropdown" class="absolute right-0 mt-3 w-40 bg-white rounded-xl shadow-lg border border-gray-100 hidden">
+                        @if(auth()->user()->isPerusahaan())
+                        <a href="/profile/perusahaan" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50">
+                            Profile
+                        </a>
+                        @else
                         <a href="/profile" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50">
                             Profile
                         </a>
+                        @endif
                         <form method="POST" action="/logout">
                             @csrf
                             <button type="submit" class="w-full text-left px-4 py-2 text-sm text-red-500 hover:bg-red-50">
@@ -136,12 +144,25 @@
                 <!-- Navigation Links -->
                 <div class="py-4 space-y-1">
                     <a href="/dashboard" class="block px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-50 hover:text-red-500">Home</a>
-                    <a href="{{ route('history') }}" class="block px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-50 hover:text-red-500">History</a>
+                    @if(!auth()->user()->isPerusahaan())
+                    <a href="{{ route('history') }}"
+                        class="block px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-50 hover:text-red-500">
+                        History
+                    </a>
+                    @endif
                     <a href="{{ route('about') }}" class="block px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-50 hover:text-red-500">About</a>
                     @if(auth()->user()->isPerusahaan() || auth()->user()->isAdmin())
-                    <a href="{{ route('job.index') }}" class="block px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-50 hover:text-red-500">Tambah Lowongan</a>
+                    <a href="{{ route('jobs.create') }}" class="block px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-50 hover:text-red-500">Tambah Lowongan</a>
                     @endif
-                    <a href="/profile" class="block px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-50 hover:text-red-500">Profile</a>
+                    @if(auth()->user()->isPerusahaan())
+                    <a href="/profile/perusahaan" class="block px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-50 hover:text-red-500">
+                        Profile
+                    </a>
+                    @else
+                    <a href="/profile" class="block px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-50 hover:text-red-500">
+                        Profile
+                    </a>
+                    @endif
                 </div>
 
                 <!-- Logout -->
@@ -173,27 +194,27 @@
                 Welcome back, {{ auth()->user()->name }}! <br /> Find Your Dream Job
             </h1>
 
-        <!-- Search + Categories -->
-        <div class="absolute left-1/2 -bottom-32 md:-bottom-20 transform -translate-x-1/2 w-full px-8 md:px-16 flex flex-col items-center gap-4 z-40">
-            <!-- Search Bar -->
-            <div class="bg-white rounded-full flex items-center px-3 py-2 md:px-4 shadow-lg w-full max-w-7xl">
-                <input type="text" id="searchInput" placeholder="Search jobs..." class="flex-1 outline-none text-base text-gray-700" onkeyup="searchJobs()" />
-                <button onclick="searchJobs()" class="bg-red-500 text-white w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center" aria-label="Search">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14z" />
-                    </svg>
-                </button>
-            </div>
+            <!-- Search + Categories -->
+            <div class="absolute left-1/2 -bottom-32 md:-bottom-20 transform -translate-x-1/2 w-full px-8 md:px-16 flex flex-col items-center gap-4 z-40">
+                <!-- Search Bar -->
+                <div class="bg-white rounded-full flex items-center px-3 py-2 md:px-4 shadow-lg w-full max-w-7xl">
+                    <input type="text" id="searchInput" placeholder="Search jobs..." class="flex-1 outline-none text-base text-gray-700" onkeyup="searchJobs()" />
+                    <button onclick="searchJobs()" class="bg-red-500 text-white w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center" aria-label="Search">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14z" />
+                        </svg>
+                    </button>
+                </div>
 
-            <!-- Category Buttons -->
-            <div class="flex flex-wrap justify-center gap-2 md:gap-4">
-                <button onclick="filterByCategory('all')" class="category-btn active px-4 py-2 bg-white backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">All</button>
-                <button onclick="filterByCategory('ui-ux')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">UI/UX</button>
-                <button onclick="filterByCategory('frontend')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">Frontend</button>
-                <button onclick="filterByCategory('backend')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">Backend</button>
-                <button onclick="filterByCategory('finance')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">Finance</button>
+                <!-- Category Buttons -->
+                <div class="flex flex-wrap justify-center gap-2 md:gap-4">
+                    <button onclick="filterByCategory('all')" class="category-btn active px-4 py-2 bg-white backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">All</button>
+                    <button onclick="filterByCategory('ui-ux')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">UI/UX</button>
+                    <button onclick="filterByCategory('frontend')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">Frontend</button>
+                    <button onclick="filterByCategory('backend')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">Backend</button>
+                    <button onclick="filterByCategory('finance')" class="category-btn px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">Finance</button>
+                </div>
             </div>
-        </div>
     </section>
 
     <!-- JOB LIST SECTION -->
@@ -262,12 +283,12 @@
                             Rp 6 – 10 Juta
                         </span>
                         <a
-                            href="{{ route('job.detail', 1) }}"
+                            href="{{route('jobs.show', 1) }}"
                             class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition">
                             View Detail
                         </a>
                     </div>
-                  
+
                 </div>
 
                 <!-- Card 2 -->
@@ -310,12 +331,12 @@
                             Rp 5 – 8 Juta
                         </span>
                         <a
-                            href="{{ route('job.detail', 2) }}"
+                            href="{{route('jobs.show', 2) }}"
                             class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition">
                             View Detail
                         </a>
                     </div>
-                  
+
                 </div>
 
                 <!-- Card 3 -->
@@ -358,7 +379,7 @@
                             Rp 8 – 12 Juta
                         </span>
                         <a
-                            href="{{ route('job.detail', 3) }}"
+                            href="{{route('jobs.show', 3) }}"
                             class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600 transition">
                             View Detail
                         </a>
@@ -398,7 +419,7 @@
                         <span class="text-sm font-medium text-gray-700">
                             Rp 7 – 11 Juta
                         </span>
-                        <a href="{{ route('job.detail', 4) }}" class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600">
+                        <a href="{{route('jobs.show', 4) }}" class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600">
                             View Detail
                         </a>
                     </div>
@@ -438,7 +459,7 @@
                         <span class="text-sm font-medium text-gray-700">
                             Rp 6 – 9 Juta
                         </span>
-                        <a href="{{ route('job.detail', 5) }}"
+                        <a href="{{route('jobs.show', 5) }}"
                             class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600">
                             View Detail
                         </a>
@@ -479,12 +500,12 @@
                         <span class="text-sm font-medium text-gray-700">
                             Rp 9 – 14 Juta
                         </span>
-                        <a href="{{ route('job.detail', 6) }}"
+                        <a href="{{route('jobs.show', 6) }}"
                             class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-full hover:bg-red-600">
                             View Detail
                         </a>
                     </div>
-                  
+
                 </div>
             </div>
         </div>
@@ -668,4 +689,5 @@
         }
     </script>
 </body>
+
 </html>
