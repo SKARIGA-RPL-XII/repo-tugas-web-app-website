@@ -61,12 +61,6 @@
                     <input type="text" name="company" class="w-full bg-gray-200 border border-gray-300 rounded-2xl px-5 py-3 outline-none focus:ring-2 focus:ring-red-400" required>
                 </div>
 
-                
-
-               
-              
-
-                
 
                 <div>
                     <label class="block text-sm mb-1">Deskripsi</label>
