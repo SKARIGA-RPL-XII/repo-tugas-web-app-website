@@ -20,7 +20,7 @@ return new class extends Migration
             // Profil perusahaan
             $table->text('about')->nullable(); // Tentang perusahaan
             $table->string('industry')->nullable(); // Bidang usaha
-            $table->unsignedInteger('employees_count')->nullable();
+            $table->integer('employees_count')->nullable(); // Jumlah karyawan
 
             // Lokasi
             $table->string('address')->nullable();
@@ -37,8 +37,8 @@ return new class extends Migration
 
             // Relasi ke user/admin (pemilik perusahaan)
             $table->foreignId('user_id')->nullable()
-                ->constrained()
-                ->nullOnDelete();
+                  ->constrained()
+                  ->nullOnDelete();
 
             $table->timestamps();
         });

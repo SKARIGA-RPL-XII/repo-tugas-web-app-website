@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $job['title'] }} - {{ $job['company'] }}</title>
+    <title>Web Developer - PT Abang Xpress</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         * {
@@ -21,9 +21,11 @@
         }
     </style>
 </head>
+
 <body class="bg-gray-50 text-gray-800 antialiased">
-    <!-- NAVBAR -->
-    <nav class="w-full bg-white shadow-sm relative z-50">
+
+<!-- NAVBAR (TETAP) -->
+<nav class="w-full bg-white shadow-sm relative z-10">
         <div class="w-full px-8 md:px-16 py-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
                 <img src="/images/LogoWeb.png" alt="Logo" class="w-12 h-12 md:w-32 md:h-10 rounded-full object-cover"/>
@@ -41,6 +43,7 @@
                     <li class="hover:text-red-500 cursor-pointer">
                         <a href="{{ route('about') }}">About</a>
                     </li>
+
                 </ul>
 
                 <!-- MOBILE MENU BUTTON -->
@@ -119,136 +122,89 @@
         </div>
     </nav>
 
-    <!-- JOB DETAIL SECTION -->
-    <section class="relative bg-about min-h-screen overflow-hidden">
-        <!-- FADE BOTTOM -->
-        <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-white pointer-events-none"></div>
-        <!-- SMOOTH FADE BOTTOM -->
-        <div class="absolute top-[55vh] left-0 w-full h-32 bg-gradient-to-b from-transparent to-white pointer-events-none"></div>
-        <div class="relative z-10 w-full mt-12 px-8 md:px-16">
-            <!-- HEADER CARD -->
-            <div class="bg-white rounded-2xl shadow-md p-6 mb-10">
-                <!-- BACK BUTTON -->
-                <a href="{{ url()->previous() }}" class="inline-flex items-center gap-2 text-sm text-red-500 mb-4"> ← Kembali</a>
-                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-                    <!-- LEFT -->
-                    <div class="flex items-center gap-4">
-                        <div class="w-14 h-14 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">
-                            AX
-                        </div>
-                        <div>
-                            <h1 class="text-xl md:text-2xl font-bold text-gray-900">
-                                {{ $job['title'] }}
-                            </h1>
-                            <p class="text-sm text-gray-500">
-                                {{ $job['company'] }}
-                            </p>
-                        </div>
-                    </div>
+<!-- MAIN -->
+<section class="relative bg-about min-h-screen overflow-hidden">
+    <div class="relative z-10 max-w-6xl mx-auto px-6 py-12 space-y-12">
 
-                    <!-- RIGHT -->
-                    <div class="flex flex-col items-end w-fit ml-auto gap-3">
-                        <p class="text-lg font-bold text-gray-900">
-                            6 – 7JT / BULAN
-                        </p>
-                        <span class="h-0.5 w-full bg-gray-900"></span>
-                        <span class="px-3 py-0.5 text-xs rounded-full bg-red-100 text-red-500">
-                            Part Time
-                        </span>
-                    </div>
-                </div>
+        <!-- HEADER CARD -->
+        <div class="bg-white border-4 border-white rounded-3xl p-8 flex items-center gap-6 shadow-lg">
+            <div class="w-20 h-20 rounded-full bg-blue-600 text-white flex items-center justify-center text-2xl font-bold">
+                AX
             </div>
-
-            <!-- CONTENT GRID -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- DESKRIPSI -->
-                <div class="bg-white rounded-2xl shadow-sm p-6">
-                    <h2 class="font-bold text-gray-900 mb-3">Deskripsi</h2>
-                    <p class="text-sm text-gray-600 leading-relaxed">
-                        {{ $job['description'] }}
-                    </p>
-                </div>
-
-                <!-- ABOUT -->
-                <div class="bg-white rounded-2xl shadow-sm p-6 text-center">
-                    <!-- Title -->
-                    <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">
-                        About Company
-                    </h3>
-                    <!-- Logo / Initial -->
-                    <div class="w-16 h-16 mx-auto rounded-full bg-blue-600 text-white flex items-center justify-center font-bold mb-3">
-                        AX
-                    </div>
-                    <!-- Company Name -->
-                    <h4 class="font-semibold text-gray-800">
-                        {{ $job['company'] }}
-                    </h4>
-                    <!-- Divider -->
-                    <span class="block w-10 h-0.5 bg-gray-300 mx-auto my-3"></span>
-                    <!-- Short Description -->
-                    <p class="text-sm text-gray-500 leading-relaxed">
-                        Perusahaan yang bergerak di bidang teknologi dan pengembangan produk digital.
-                    </p>
-                    <!-- Action -->
-                    <button class="mt-5 px-5 py-2 bg-red-500 text-white text-sm rounded-full hover:bg-red-600 transition">
-                        Kunjungi Profil
-                    </button>
-                </div>
-
-                <!-- SHARE -->
-                <div class="bg-white rounded-2xl shadow-sm p-6 text-center">
-                    <h3 class="font-bold mb-3">Share Job</h3>
-                    <p class="text-sm text-gray-500 mb-4">
-                        Klik tombol dibawah ini untuk copy link
-                    </p>
-                    <button class="px-6 py-2 bg-red-500 text-white rounded-full text-sm">
-                        COPY LINK
-                    </button>
-                </div>
-
-                <!-- KETENTUAN -->
-                <div class="bg-white rounded-2xl shadow-sm p-6">
-                    <h3 class="font-bold mb-3">Ketentuan</h3>
-                    <ul class="text-sm text-gray-600 space-y-2 list-disc list-inside">
-                        @foreach($job['requirements'] as $req)
-                            <li>{{ $req }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
-
-            <!-- SEND CV -->
-            <div class="mt-10 bg-white rounded-2xl shadow-md p-6 md:p-8">
-                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-                    <!-- LEFT -->
-                    <div>
-                        <h2 class="text-xl font-bold text-gray-900 mb-2">
-                            Kirim CV Kamu
-                        </h2>
-                        <p class="text-sm text-gray-600 max-w-md">
-                            Tertarik dengan posisi ini? Kirim CV dan portofolio terbaikmu sekarang.
-                        </p>
-                    </div>
-
-                    <!-- RIGHT -->
-                    <div class="flex items-center gap-3">
-                        <button class="px-6 py-3 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-100 transition">
-                            Upload CV
-                        </button>
-                        <button class="px-7 py-3 text-sm rounded-full bg-red-500 text-white hover:bg-red-600 transition">
-                            Send CV
-                        </button>
-                    </div>
-                </div>
+            <div>
+                <h1 class="text-3xl font-extrabold">WEB DEVELOPER</h1>
+                <p class="text-gray-500 mt-1">PT ABANG XPRESS</p>
             </div>
         </div>
-    </section>
 
-    <!-- CTA SECTION -->
-    <section class="relative overflow-hidden mt-16 md:mt-20">
-        <img src="/images/about/Overlay6.png" alt="" class="absolute inset-0 w-full h-full object-cover"/>
+        <!-- DESKRIPSI -->
+        <div class="bg-white border-4 border-white rounded-3xl p-10 text-center shadow-lg">
+            <h2 class="text-xl font-bold mb-4 border-b-2 border-white inline-block px-6 pb-1">
+                DESKRIPSI
+            </h2>
+            <p class="text-gray-700 leading-relaxed max-w-3xl mx-auto mt-4">
+                Kami mencari Web Developer yang kreatif dan teknis untuk membangun serta
+                memelihara situs web yang responsif, efisien, dan memiliki performa tinggi.
+            </p>
+        </div>
+
+        <!-- KETENTUAN -->
+        <div class="bg-white border-4 border-white rounded-3xl p-10 shadow-lg">
+            <h2 class="text-xl font-bold mb-6 text-center">KETENTUAN</h2>
+            <ul class="list-disc list-inside text-gray-700 space-y-3 max-w-xl">
+                <li>Dapat bekerja dalam tim</li>
+                <li>Memiliki Keahlian di bidang Web Developer</li>
+                <li>Memiliki Pengalaman</li>
+            </ul>
+        </div>
+
+        <!-- ACTION -->
+        <div class="grid md:grid-cols-2 gap-10">
+
+            <!-- AJUKAN CV -->
+            <div class="bg-white border-4 border-white rounded-3xl p-8 flex flex-col items-center gap-6 shadow-lg">
+                <div id="uploadArea" class="w-full h-40 border-2 border-dashed border-gray-300 rounded-xl flex flex-col items-center justify-center text-gray-400 cursor-pointer hover:border-gray-400 transition" onclick="document.getElementById('fileInput').click()">
+                    <svg class="w-8 h-8 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                    </svg>
+                    <span id="uploadText">Upload File CV (PDF, DOC, DOCX)</span>
+                </div>
+                <input type="file" id="fileInput" accept=".pdf,.doc,.docx" class="hidden" onchange="handleFileSelect(event)">
+                <button class="w-full py-3 rounded-full bg-yellow-400 font-bold text-lg hover:bg-yellow-500 transition" onclick="submitCV()">
+                    AJUKAN CV
+                </button>
+            </div>
+
+            <!-- SHARE -->
+            <div class="bg-white border-4 border-white rounded-3xl p-8 text-center flex flex-col justify-center shadow-lg">
+                <h3 class="text-xl font-extrabold mb-3">AYO SUKSES!</h3>
+                <p class="text-gray-600 mb-6">
+                    Bagikan Pekerjaan Ini<br>
+                    Dengan Orang Lain, Ayo<br>
+                    Sukses Bareng!
+                </p>
+                <button class="mx-auto px-8 py-3 bg-red-500 text-white rounded-full hover:bg-red-600">
+                    SALIN TAUTAN
+                </button>
+            </div>
+
+        </div>
+
+        <!-- BACK -->
+        <a href="{{ url()->previous() }}"
+           class="inline-flex items-center gap-2 px-6 py-3 bg-red-500 text-white rounded-xl hover:bg-red-600">
+            ← KEMBALI
+        </a>
+
+    </div>
+</section>
+
+  <!-- CTA SECTION -->
+    <section class="relative overflow-hidden">
+        <img src="/images/about/Overlay6.png" alt="" class="absolute inset-0 w-full h-full object-cover object-[50%_15%]" />
         <!-- Overlay merah biar teks kebaca -->
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-red-600/40 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-r  from-red-600/50  via-red-600/30  to-white">
+        </div>
         <div class="relative z-10 w-full px-6 md:px-12 py-8 md:py-10 flex flex-col md:flex-row items-center justify-between gap-6">
             <div class="text-white text-center md:text-left">
                 <h2 class="text-2xl md:text-3xl font-bold mb-2">
@@ -259,7 +215,7 @@
                 </p>
             </div>
 
-            <a href="/dashboard" class="bg-white text-red-600 font-semibold px-8 py-4 rounded-2xl hover:bg-red-50 transition">
+            <a href="/dashboard" class="bg-[#CC1E1E] text-white font-semibold px-8 py-4 rounded-2xl border-2 border-transparent hover:bg-white hover:border-[#CC1E1E] hover:text-[#CC1E1E] transition-all duration-300">
                 Cari Kerja !
             </a>
         </div>
@@ -269,8 +225,16 @@
         <div class="w-full px-4 md:px-8 lg:px-16 py-12">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <!-- Logo -->
-                <div class="md:col-span-1">
-                    <img src="/images/about/Overlay3.png" alt="KerjoSam Logo" class="h-20 w-auto mb-4">
+                <div class="md:col-span-1 flex flex-col items-start">
+                    <img
+                        src="/images/WhatsApp-Image-2026-01-06-at-22.57.16-7.png"
+                        alt="KerjoSam Logo"
+                        class="w-full max-w-[240px] h-auto object-contain mb-3" />
+
+                    <p class="text-base md:text-lg font-semibold">
+                        <span class="text-[#FD721D]">Kerjo Bareng,</span>
+                        <span class="text-[#CC0000]"> Sukses Bareng</span>
+                    </p>
                 </div>
                 <!-- Link -->
                 <div>
@@ -326,25 +290,61 @@
         </div>
     </footer>
 
-    <script>
-        function toggleDropdown() {
-            document.getElementById('userDropdown').classList.toggle('hidden');
-        }
 
-        function toggleMobileMenu() {
-            document.getElementById('mobileMenu').classList.toggle('hidden');
-        }
-
-        document.addEventListener('click', function (e) {
-            const dropdown = document.getElementById('userDropdown');
-            const mobileMenu = document.getElementById('mobileMenu');
-            if (!e.target.closest('.relative')) {
-                dropdown.classList.add('hidden');
-            }
-            if (!e.target.closest('button[onclick="toggleMobileMenu()"]') && !e.target.closest('#mobileMenu')) {
-                mobileMenu.classList.add('hidden');
-            }
-        });
-    </script>
 </body>
+
+<script>
+    let selectedFile = null;
+
+    function handleFileSelect(event) {
+        const file = event.target.files[0];
+        if (file) {
+            selectedFile = file;
+            const uploadText = document.getElementById('uploadText');
+            const uploadArea = document.getElementById('uploadArea');
+            
+            uploadText.textContent = `File terpilih: ${file.name}`;
+            uploadArea.classList.remove('border-gray-300');
+            uploadArea.classList.add('border-green-400', 'bg-green-50');
+        }
+    }
+
+    function submitCV() {
+        if (!selectedFile) {
+            alert('Silakan pilih file CV terlebih dahulu!');
+            return;
+        }
+        
+        // Simulasi upload - bisa diganti dengan AJAX request ke server
+        alert(`CV ${selectedFile.name} berhasil diajukan!`);
+        
+        // Reset form
+        selectedFile = null;
+        document.getElementById('fileInput').value = '';
+        document.getElementById('uploadText').textContent = 'Upload File CV (PDF, DOC, DOCX)';
+        const uploadArea = document.getElementById('uploadArea');
+        uploadArea.classList.remove('border-green-400', 'bg-green-50');
+        uploadArea.classList.add('border-gray-300');
+    }
+
+    function toggleDropdown() {
+        document.getElementById('userDropdown').classList.toggle('hidden');
+    }
+
+    function toggleMobileMenu() {
+        document.getElementById('mobileMenu').classList.toggle('hidden');
+    }
+
+    document.addEventListener('click', function(e) {
+        const dropdown = document.getElementById('userDropdown');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (!e.target.closest('.relative')) {
+            dropdown.classList.add('hidden');
+        }
+        if (!e.target.closest('button[onclick="toggleMobileMenu()"]') && !e.target.closest('#mobileMenu')) {
+            mobileMenu.classList.add('hidden');
+        }
+    });
+</script>
+
 </html>

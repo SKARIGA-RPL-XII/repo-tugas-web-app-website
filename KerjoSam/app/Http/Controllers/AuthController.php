@@ -20,19 +20,22 @@ class AuthController extends Controller
             'password' => 'required',
         ]);
 
-        // Attempt login
-        if (Auth::attempt($credentials, $request->boolean('remember'))) {
+        if (Auth::attempt($credentials, $request->filled('remember'))) {
             $request->session()->regenerate();
 
-            return redirect()->intended('/dashboard')
-                ->with('success', 'Login berhasil! Selamat datang kembali.');
+            // Cek role user
+            if (Auth::user()->isAdmin()) {
+                return redirect()->route('admin.tools')->with('success', 'Login berhasil! Selamat datang Admin.');
+            }
+
+            return redirect()->intended('/dashboard')->with('success', 'Login berhasil! Selamat datang kembali.');
         }
 
-        // Jika gagal, kembalikan error
         return back()->withErrors([
             'email' => 'Email atau password salah.',
         ])->withInput($request->only('email'));
     }
+
 
     public function register(Request $request)
     {
