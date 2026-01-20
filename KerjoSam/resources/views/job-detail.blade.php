@@ -10,9 +10,11 @@
             scrollbar-width: none;
             -ms-overflow-style: none;
         }
+
         *::-webkit-scrollbar {
             display: none;
         }
+
         .bg-about {
             background-image: url('/images/about/Overlay1.png');
             background-size: cover;
@@ -28,7 +30,7 @@
 <nav class="w-full bg-white shadow-sm relative z-10">
         <div class="w-full px-8 md:px-16 py-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <img src="/images/LogoWeb.png" alt="Logo" class="w-12 h-12 md:w-32 md:h-10 rounded-full object-cover"/>
+                <img src="/images/LogoWeb.png" alt="Logo" class="w-12 h-12 md:w-32 md:h-10 rounded-full object-cover" />
             </div>
 
             <div class="flex items-center gap-6">
